@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Quản lý tài khoản | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">HỆ THỐNG QUẢN LÝ</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+        <a class="side-link" href="tong-quan.html">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Tổng quan</span>
+        </a>
+
+        <div class="menu-label">QUẢN LÝ HỆ THỐNG</div>
+        <a class="side-link" href="bac-si.html">
+            <i class="bi bi-person-badge"></i>
+            <span>Quản lý bác sĩ</span>
+        </a>
+        <a class="side-link" href="benh-nhan.html">
+            <i class="bi bi-people"></i>
+            <span>Quản lý bệnh nhân</span>
+        </a>
+        <a class="side-link" href="chuyen-khoa.html">
+            <i class="bi bi-hospital"></i>
+            <span>Chuyên khoa</span>
+        </a>
+        <a class="side-link" href="phong-kham.html">
+            <i class="bi bi-building"></i>
+            <span>Phòng khám</span>
+        </a>
+
+        <div class="menu-label">LỊCH KHÁM & DỊCH VỤ</div>
+        <a class="side-link" href="lich-hen.html">
+            <i class="bi bi-calendar-check"></i>
+            <span>Lịch hẹn</span>
+        </a>
+        <a class="side-link" href="lich-lam-viec.html">
+            <i class="bi bi-calendar-week"></i>
+            <span>Lịch làm việc</span>
+        </a>
+        <a class="side-link" href="phieu-kham.html">
+            <i class="bi bi-clipboard2-pulse"></i>
+            <span>Phiếu khám</span>
+        </a>
+        <a class="side-link" href="dich-vu.html">
+            <i class="bi bi-heart"></i>
+            <span>Dịch vụ</span>
+        </a>
+        <a class="side-link" href="hoa-don.html">
+            <i class="bi bi-receipt"></i>
+            <span>Hóa đơn</span>
+        </a>
+
+        <div class="menu-label">HỆ THỐNG</div>
+        <a class="side-link active" href="tai-khoan.html">
+            <i class="bi bi-person-gear"></i>
+            <span>Tài khoản</span>
+        </a>
+        <a class="side-link" href="kenh-dang-ky.html"><i class="bi bi-diagram-3"></i><span>Kênh đăng ký</span></a>
+        <a class="side-link" href="bao-cao.html">
+            <i class="bi bi-bar-chart-line"></i>
+            <span>Báo cáo thống kê</span>
+        </a>
+        <a class="side-link website-link" href="../index.html">
+            <i class="bi bi-box-arrow-up-right"></i>
+            <span>Về website</span>
+        </a>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-area">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div>
+                <h1 class="topbar-title">Quản lý tài khoản</h1>
+                <p class="topbar-subtitle">Quản lý tài khoản và quyền truy cập hệ thống</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-name">Quản trị viên</div>
+                    <div class="profile-role">Quản trị hệ thống</div>
+                </div>
+                <a href="../login.html" class="logout-link" title="Đến trang đăng nhập">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <!-- PAGE HEADING -->
+            <section class="page-heading">
+                <div>
+                    <h2>Danh sách tài khoản</h2>
+                    <p>Theo dõi thông tin đăng nhập, vai trò và trạng thái hoạt động của tài khoản.</p>
+                </div>
+
+                <button type="button" class="btn-primary-custom" id="addAccountBtn">
+                    <i class="bi bi-plus-lg"></i>
+                    Thêm tài khoản
+                </button>
+            </section>
+
+            <!-- STATISTICS -->
+            <section class="row g-3 mb-4">
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card account-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng tài khoản</span>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-people"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="accountTotalCount">0</div>
+                        <div class="stat-note">Tổng số tài khoản trong hệ thống</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card account-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Đang hoạt động</span>
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-person-check"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="accountActiveCount">0</div>
+                        <div class="stat-note">Tài khoản có thể truy cập hệ thống</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card account-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Đã khóa</span>
+                            <div class="stat-icon icon-purple">
+                                <i class="bi bi-person-lock"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="accountLockedCount">0</div>
+                        <div class="stat-note">Tài khoản không được phép đăng nhập</div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ACCOUNT TABLE -->
+            <section class="panel account-management">
+
+                <div class="panel-header account-panel-heading">
+                    <div>
+                        <h3 class="panel-title">Danh sách tài khoản</h3>
+                        <p class="panel-subtitle">Tra cứu và quản lý thông tin tài khoản người dùng.</p>
+                    </div>
+
+                    <button type="button" class="btn-outline-custom export-btn" id="exportAccountsBtn">
+                        <i class="bi bi-download"></i>
+                        Xuất danh sách
+                    </button>
+                </div>
+
+                <!-- FILTERS -->
+                <div class="account-filters">
+                    <div class="account-search">
+                        <i class="bi bi-search"></i>
+                        <input
+                            type="search"
+                            id="accountSearch"
+                            placeholder="Tìm tên đăng nhập hoặc họ tên..."
+                            aria-label="Tìm tài khoản">
+                    </div>
+
+                    <select id="accountRoleFilter" class="account-select" aria-label="Lọc theo vai trò">
+                        <option value="">Tất cả vai trò</option>
+                        <option value="admin">Quản trị viên</option>
+                        <option value="doctor">Bác sĩ</option>
+                        <option value="staff">Nhân viên</option>
+                    </select>
+
+                    <select id="accountStatusFilter" class="account-select" aria-label="Lọc theo trạng thái">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="active">Đang hoạt động</option>
+                        <option value="locked">Đã khóa</option>
+                    </select>
+                </div>
+
+                <!-- TABLE -->
+                <div class="table-responsive">
+                    <table class="table account-table">
+                        <thead>
+                            <tr>
+                                <th>TÀI KHOẢN</th>
+                                <th>HỌ VÀ TÊN</th>
+                                <th>VAI TRÒ</th>
+                                <th>NGÀY TẠO</th>
+                                <th>TRẠNG THÁI</th>
+                                <th>THAO TÁC</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="accountTableBody">
+                            <tr>
+                                <td colspan="6" class="text-center py-5">
+                                    Đang tải danh sách tài khoản...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- TABLE FOOTER -->
+                <div class="account-table-footer">
+                    <span id="accountResultCount">Hiển thị 0 tài khoản</span>
+                    <div class="account-pagination" id="accountPagination"></div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<!-- MODAL ADD / EDIT ACCOUNT -->
+<div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="accountModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content account-modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title fs-5" id="accountModalTitle">Thêm tài khoản</h2>
+                    <p class="modal-description">Nhập thông tin tài khoản và phân quyền truy cập.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <form id="accountForm">
+                <div class="modal-body">
+
+                    <input type="hidden" id="accountId">
+
+                    <div class="mb-3">
+                        <label for="accountUsername" class="form-label">
+                            Tên đăng nhập <span class="text-danger">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="accountUsername"
+                            maxlength="50"
+                            required
+                            autocomplete="off"
+                            placeholder="Nhập tên đăng nhập">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="accountFullName" class="form-label">
+                            Họ và tên <span class="text-danger">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="accountFullName"
+                            maxlength="100"
+                            required
+                            placeholder="Nhập họ và tên">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="accountPassword" class="form-label">
+                            Mật khẩu
+                            <span class="text-danger" id="accountPasswordRequired">*</span>
+                        </label>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="accountPassword"
+                            minlength="6"
+                            autocomplete="new-password"
+                            placeholder="Nhập mật khẩu">
+                        <small class="text-muted" id="accountPasswordHint">
+                            Mật khẩu cần có ít nhất 6 ký tự.
+                        </small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="accountRole" class="form-label">
+                            Vai trò <span class="text-danger">*</span>
+                        </label>
+                        <select class="form-select" id="accountRole" required>
+                            <option value="staff">Nhân viên</option>
+                            <option value="doctor">Bác sĩ</option>
+                            <option value="admin">Quản trị viên</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="accountStatus" class="form-label">
+                            Trạng thái <span class="text-danger">*</span>
+                        </label>
+                        <select class="form-select" id="accountStatus" required>
+                            <option value="active">Đang hoạt động</option>
+                            <option value="locked">Đã khóa</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                        Hủy
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="saveAccountBtn">
+                        <i class="bi bi-check-lg"></i>
+                        Lưu thông tin
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL ACCOUNT DETAILS -->
+<div class="modal fade" id="accountDetailModal" tabindex="-1" aria-labelledby="accountDetailTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content account-modal">
+
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="accountDetailTitle">Thông tin tài khoản</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <div class="modal-body" id="accountDetailContent"></div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                    Đóng
+                </button>
+                <button type="button" class="btn btn-primary" id="editAccountFromDetail">
+                    <i class="bi bi-pencil-square"></i>
+                    Chỉnh sửa
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/admin.js"></script>
+
+</body>
+</html>

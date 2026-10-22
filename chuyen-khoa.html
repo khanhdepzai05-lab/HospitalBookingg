@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyên khoa | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="index.html">
+            <i class="bi bi-heart-pulse-fill text-primary"></i>
+            <span class="text-primary">Med</span><span class="text-dark">Care</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link active" href="chuyen-khoa.html">Chuyên khoa</a></li>
+                <li class="nav-item"><a class="nav-link" href="bac-si.html">Bác sĩ</a></li>
+                <li class="nav-item"><a class="nav-link" href="dich-vu.html">Dịch vụ</a></li>
+                <li class="nav-item"><a class="nav-link" href="tra-cuu-lich-hen.html">Tra cứu lịch hẹn</a></li>
+                <li class="nav-item"><a class="nav-link" href="lien-he.html">Liên hệ</a></li>
+            </ul>
+
+            <div class="d-flex gap-2">
+                <a href="login.html" class="btn btn-outline-primary rounded-pill px-3">Đăng nhập</a>
+                <a href="dat-lich.html" class="btn btn-primary rounded-pill px-3">Đặt lịch khám</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<header class="specialty-hero py-5">
+    <div class="container py-lg-4">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+                <span class="badge rounded-pill text-bg-light text-primary px-3 py-2 mb-3">
+                    CHĂM SÓC SỨC KHỎE TOÀN DIỆN
+                </span>
+                <h1 class="display-5 fw-bold mb-3">Tìm chuyên khoa phù hợp với bạn</h1>
+                <p class="lead mb-4">
+                    Khám phá các chuyên khoa, tìm hiểu dịch vụ và lựa chọn lịch khám phù hợp
+                    với nhu cầu chăm sóc sức khỏe của bạn.
+                </p>
+                <a href="#danhSachChuyenKhoa" class="btn btn-light btn-lg rounded-pill px-4">
+                    Khám phá chuyên khoa <i class="bi bi-arrow-down ms-2"></i>
+                </a>
+            </div>
+            <div class="col-lg-5 text-center">
+                <img
+                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85"
+                    alt="Chăm sóc sức khỏe"
+                    class="img-fluid rounded-4 specialty-hero-image">
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-4">
+            <span class="text-primary fw-semibold">DANH MỤC CHUYÊN KHOA</span>
+            <h2 class="fw-bold mt-2">Chăm sóc đúng nhu cầu</h2>
+            <p class="text-secondary">Tìm nhanh chuyên khoa bạn đang quan tâm.</p>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-lg-8">
+                <div class="input-group input-group-lg specialty-search">
+                    <span class="input-group-text bg-white border-end-0">
+                        <i class="bi bi-search text-primary"></i>
+                    </span>
+                    <input type="search" id="specialtySearch" class="form-control border-start-0"
+                           placeholder="Nhập tên chuyên khoa..." aria-label="Tìm chuyên khoa">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <select id="specialtyFilter" class="form-select form-select-lg" aria-label="Lọc chuyên khoa">
+                    <option value="all">Tất cả chuyên khoa</option>
+                    <option value="noi">Nội khoa</option>
+                    <option value="ngoai">Ngoại khoa</option>
+                    <option value="chuyen">Chuyên khoa khác</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row g-4" id="danhSachChuyenKhoa">
+            <div class="col-md-6 col-lg-4 specialty-item" data-category="noi" data-name="tim mạch">
+                <article class="card specialty-card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80"
+                         class="card-img-top" alt="Chuyên khoa Tim mạch">
+                    <div class="card-body p-4">
+                        <div class="specialty-icon"><i class="bi bi-heart-pulse"></i></div>
+                        <h3 class="h5 fw-bold mt-3">Tim mạch</h3>
+                        <p class="text-secondary">Tư vấn, thăm khám và theo dõi sức khỏe tim mạch.</p>
+                        <a href="chi-tiet-chuyen-khoa.html?chuyen-khoa=tim-mach"
+                           class="btn btn-outline-primary rounded-pill px-4">Xem chi tiết
+                            <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 specialty-item" data-category="noi" data-name="nhi khoa">
+                <article class="card specialty-card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80"
+                         class="card-img-top" alt="Chuyên khoa Nhi khoa">
+                    <div class="card-body p-4">
+                        <div class="specialty-icon"><i class="bi bi-balloon-heart"></i></div>
+                        <h3 class="h5 fw-bold mt-3">Nhi khoa</h3>
+                        <p class="text-secondary">Chăm sóc sức khỏe và theo dõi sự phát triển của trẻ.</p>
+                        <a href="chi-tiet-chuyen-khoa.html?chuyen-khoa=nhi-khoa"
+                           class="btn btn-outline-primary rounded-pill px-4">Xem chi tiết
+                            <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 specialty-item" data-category="noi" data-name="da lieu">
+                <article class="card specialty-card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80"
+                         class="card-img-top" alt="Chuyên khoa Da liễu">
+                    <div class="card-body p-4">
+                        <div class="specialty-icon"><i class="bi bi-person"></i></div>
+                        <h3 class="h5 fw-bold mt-3">Da liễu</h3>
+                        <p class="text-secondary">Khám và tư vấn các vấn đề về da, tóc và móng.</p>
+                        <a href="chi-tiet-chuyen-khoa.html?chuyen-khoa=da-lieu"
+                           class="btn btn-outline-primary rounded-pill px-4">Xem chi tiết
+                            <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 specialty-item" data-category="ngoai" data-name="co xuong khop">
+                <article class="card specialty-card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80"
+                         class="card-img-top" alt="Chuyên khoa Cơ xương khớp">
+                    <div class="card-body p-4">
+                        <div class="specialty-icon"><i class="bi bi-universal-access"></i></div>
+                        <h3 class="h5 fw-bold mt-3">Cơ xương khớp</h3>
+                        <p class="text-secondary">Đánh giá và tư vấn các vấn đề về xương, khớp và vận động.</p>
+                        <a href="chi-tiet-chuyen-khoa.html?chuyen-khoa=co-xuong-khop"
+                           class="btn btn-outline-primary rounded-pill px-4">Xem chi tiết
+                            <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 specialty-item" data-category="chuyen" data-name="tai mui hong">
+                <article class="card specialty-card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=800&q=80"
+                         class="card-img-top" alt="Chuyên khoa Tai Mũi Họng">
+                    <div class="card-body p-4">
+                        <div class="specialty-icon"><i class="bi bi-ear"></i></div>
+                        <h3 class="h5 fw-bold mt-3">Tai Mũi Họng</h3>
+                        <p class="text-secondary">Thăm khám các vấn đề liên quan đến tai, mũi và họng.</p>
+                        <a href="chi-tiet-chuyen-khoa.html?chuyen-khoa=tai-mui-hong"
+                           class="btn btn-outline-primary rounded-pill px-4">Xem chi tiết
+                            <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 specialty-item" data-category="noi" data-name="tieu hoa">
+                <article class="card specialty-card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=80"
+                         class="card-img-top" alt="Chuyên khoa Tiêu hóa">
+                    <div class="card-body p-4">
+                        <div class="specialty-icon"><i class="bi bi-activity"></i></div>
+                        <h3 class="h5 fw-bold mt-3">Tiêu hóa</h3>
+                        <p class="text-secondary">Tư vấn và thăm khám sức khỏe hệ tiêu hóa.</p>
+                        <a href="chi-tiet-chuyen-khoa.html?chuyen-khoa=tieu-hoa"
+                           class="btn btn-outline-primary rounded-pill px-4">Xem chi tiết
+                            <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 specialty-item" data-category="chuyen" data-name="mat">
+                <article class="card specialty-card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
+                         class="card-img-top" alt="Chuyên khoa Mắt">
+                    <div class="card-body p-4">
+                        <div class="specialty-icon"><i class="bi bi-eye"></i></div>
+                        <h3 class="h5 fw-bold mt-3">Mắt</h3>
+                        <p class="text-secondary">Kiểm tra thị lực và tư vấn chăm sóc sức khỏe mắt.</p>
+                        <a href="chi-tiet-chuyen-khoa.html?chuyen-khoa=mat"
+                           class="btn btn-outline-primary rounded-pill px-4">Xem chi tiết
+                            <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 specialty-item" data-category="ngoai" data-name="rang ham mat">
+                <article class="card specialty-card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=800&q=80"
+                         class="card-img-top" alt="Chuyên khoa Răng Hàm Mặt">
+                    <div class="card-body p-4">
+                        <div class="specialty-icon"><i class="bi bi-emoji-smile"></i></div>
+                        <h3 class="h5 fw-bold mt-3">Răng Hàm Mặt</h3>
+                        <p class="text-secondary">Tư vấn và chăm sóc sức khỏe răng miệng.</p>
+                        <a href="chi-tiet-chuyen-khoa.html?chuyen-khoa=rang-ham-mat"
+                           class="btn btn-outline-primary rounded-pill px-4">Xem chi tiết
+                            <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-12 text-center d-none" id="noSpecialtyResult">
+                <div class="py-5">
+                    <i class="bi bi-search fs-1 text-secondary"></i>
+                    <h3 class="h5 mt-3">Không tìm thấy chuyên khoa phù hợp</h3>
+                    <p class="text-secondary">Thử thay đổi từ khóa hoặc bộ lọc của bạn.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-3">Bạn cần hỗ trợ lựa chọn chuyên khoa?</h2>
+        <p class="text-secondary mb-4">Liên hệ với chúng tôi để được hướng dẫn đặt lịch khám.</p>
+        <a href="lien-he.html" class="btn btn-primary btn-lg rounded-pill px-4">
+            <i class="bi bi-chat-dots me-2"></i>Liên hệ tư vấn
+        </a>
+    </div>
+</section>
+
+<footer class="py-4 bg-dark text-white">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <a href="index.html" class="text-white text-decoration-none fw-bold fs-4">
+            <i class="bi bi-heart-pulse-fill me-1"></i>MedCare
+        </a>
+        <p class="mb-0 text-white-50">© <span id="currentYear"></span> MedCare. Bảo lưu mọi quyền.</p>
+        <a href="lien-he.html" class="text-white text-decoration-none">Liên hệ</a>
+    </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" type="button" aria-label="Lên đầu trang">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/public.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("specialtySearch");
+    const filterSelect = document.getElementById("specialtyFilter");
+    const items = document.querySelectorAll(".specialty-item");
+    const noResult = document.getElementById("noSpecialtyResult");
+
+    function normalizeText(text) {
+        return text.normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/đ/g, "d")
+            .replace(/Đ/g, "D")
+            .toLowerCase()
+            .trim();
+    }
+
+    function filterSpecialties() {
+        const keyword = normalizeText(searchInput.value);
+        const category = filterSelect.value;
+        let visibleCount = 0;
+
+        items.forEach(function (item) {
+            const name = normalizeText(item.dataset.name || "");
+            const content = normalizeText(item.innerText);
+            const matchesKeyword = name.includes(keyword) || content.includes(keyword);
+            const matchesCategory = category === "all" || item.dataset.category === category;
+            const visible = matchesKeyword && matchesCategory;
+
+            item.classList.toggle("d-none", !visible);
+            if (visible) visibleCount++;
+        });
+
+        noResult.classList.toggle("d-none", visibleCount !== 0);
+    }
+
+    searchInput.addEventListener("input", filterSpecialties);
+    filterSelect.addEventListener("change", filterSpecialties);
+
+    const year = document.getElementById("currentYear");
+    if (year) year.textContent = new Date().getFullYear();
+});
+</script>
+</body>
+</html>

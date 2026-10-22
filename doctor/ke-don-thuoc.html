@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Kê đơn thuốc | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/doctor.css">
+</head>
+
+<body>
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+       <a href="tong-quan.html" class="brand">
+            <div class="brand-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">CỔNG BÁC SĨ</div>
+            </div>
+        </a>
+
+        <nav class="sidebar-nav">
+            <div class="menu-label">TỔNG QUAN</div>
+
+            <a href="tong-quan.html" class="side-link">
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Tổng quan</span>
+            </a>
+
+            <a href="lich-hen.html" class="side-link">
+                <i class="bi bi-calendar-check"></i>
+                <span>Lịch hẹn của tôi</span>
+            </a>
+
+            <a href="hang-doi.html" class="side-link">
+                <i class="bi bi-people"></i>
+                <span>Hàng đợi khám</span>
+            </a>
+
+            <a href="danh-sach-benh-nhan.html" class="side-link">
+                <i class="bi bi-person-lines-fill"></i>
+                <span>Danh sách bệnh nhân</span>
+            </a>
+
+            <a href="ho-so-benh-nhan.html" class="side-link">
+                <i class="bi bi-person-vcard"></i>
+                <span>Hồ sơ bệnh nhân</span>
+            </a>
+
+            <div class="menu-label">CHUYÊN MÔN</div>
+
+            <a href="phieu-kham.html" class="side-link">
+                <i class="bi bi-clipboard2-pulse"></i>
+                <span>Phiếu khám</span>
+            </a>
+
+            <a href="ke-don-thuoc.html" class="side-link active">
+                <i class="bi bi-capsule"></i>
+                <span>Kê đơn thuốc</span>
+            </a>
+
+            <a href="lich-lam-viec.html" class="side-link">
+                <i class="bi bi-calendar-week"></i>
+                <span>Lịch làm việc</span>
+            </a>
+
+            <div class="menu-label">HỆ THỐNG</div>
+
+            <a href="../index.html" class="side-link website-link">
+                <i class="bi bi-box-arrow-up-right"></i>
+                <span>Về website</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-area">
+
+        <header class="topbar">
+            <div class="topbar-heading">
+                <h1 class="topbar-title">Kê đơn thuốc</h1>
+                <p class="topbar-subtitle">Quản lý đơn thuốc và hướng dẫn sử dụng thuốc</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar">NA</div>
+
+                <div class="profile-info">
+                    <span class="profile-name">Bác sĩ Nguyễn Minh Anh</span>
+                    <span class="profile-role">Bác sĩ chuyên khoa</span>
+                </div>
+
+                <a href="../login.html" class="logout-link" title="Đăng xuất">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <section class="content">
+
+            <div class="page-heading">
+                <div>
+                    <h2>Quản lý đơn thuốc</h2>
+                    <p>Tra cứu đơn thuốc, thông tin bệnh nhân và hướng dẫn sử dụng.</p>
+                </div>
+
+                <button type="button" class="btn-primary-custom" id="createPrescriptionBtn">
+                    <i class="bi bi-plus-lg me-1"></i>
+                    Tạo đơn thuốc
+                </button>
+            </div>
+
+            <!-- STATISTICS -->
+            <div class="row g-3 mb-4">
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng đơn thuốc</span>
+                            <span class="stat-icon icon-blue">
+                                <i class="bi bi-prescription2"></i>
+                            </span>
+                        </div>
+                        <div class="stat-number" id="prescriptionTotal">0</div>
+                        <div class="stat-note">Tất cả đơn thuốc</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Chờ cấp thuốc</span>
+                            <span class="stat-icon icon-orange">
+                                <i class="bi bi-hourglass-split"></i>
+                            </span>
+                        </div>
+                        <div class="stat-number" id="prescriptionPending">0</div>
+                        <div class="stat-note">Đang chờ xử lý</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Đã cấp thuốc</span>
+                            <span class="stat-icon icon-green">
+                                <i class="bi bi-check-circle"></i>
+                            </span>
+                        </div>
+                        <div class="stat-number" id="prescriptionDispensed">0</div>
+                        <div class="stat-note">Đã hoàn tất cấp thuốc</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng loại thuốc</span>
+                            <span class="stat-icon icon-purple">
+                                <i class="bi bi-capsule-pill"></i>
+                            </span>
+                        </div>
+                        <div class="stat-number" id="prescriptionMedicineTotal">0</div>
+                        <div class="stat-note">Các loại thuốc đã kê</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRESCRIPTION TABLE -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3 class="panel-title">Danh sách đơn thuốc</h3>
+                        <p class="panel-subtitle">Quản lý đơn thuốc được lập theo từng bệnh nhân.</p>
+                    </div>
+                </div>
+
+                <div class="prescription-toolbar">
+                    <div class="prescription-search">
+                        <i class="bi bi-search"></i>
+                        <input type="text" id="prescriptionSearch"
+                            class="form-control"
+                            placeholder="Tìm mã đơn, tên hoặc mã bệnh nhân..."
+                            autocomplete="off">
+                    </div>
+
+                    <div class="prescription-filters">
+                        <input type="date" id="prescriptionDateFilter"
+                            class="form-control" aria-label="Lọc theo ngày kê">
+
+                        <select id="prescriptionStatusFilter" class="form-select"
+                            aria-label="Lọc trạng thái đơn thuốc">
+                            <option value="">Tất cả trạng thái</option>
+                            <option value="Chờ cấp thuốc">Chờ cấp thuốc</option>
+                            <option value="Đã cấp thuốc">Đã cấp thuốc</option>
+                        </select>
+
+                        <button type="button" class="btn-outline-custom" id="resetPrescriptionFilters">
+                            <i class="bi bi-arrow-counterclockwise me-1"></i>
+                            Đặt lại
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table doctor-table prescription-table align-middle">
+                        <thead>
+                            <tr>
+                                <th>Mã đơn</th>
+                                <th>Bệnh nhân</th>
+                                <th>Ngày kê</th>
+                                <th>Số loại thuốc</th>
+                                <th>Chẩn đoán</th>
+                                <th>Trạng thái</th>
+                                <th class="text-center">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="prescriptionTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="prescription-footer">
+                    <span id="prescriptionResultCount">Hiển thị 0 đơn thuốc</span>
+                    <span><i class="bi bi-shield-check me-1"></i>Thông tin đơn thuốc</span>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</div>
+
+<!-- MODAL TẠO / SỬA ĐƠN THUỐC -->
+<div class="modal fade" id="prescriptionFormModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content prescription-modal">
+            <form id="prescriptionForm">
+
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title" id="prescriptionFormTitle">Tạo đơn thuốc</h5>
+                        <p class="prescription-modal-subtitle mb-0">
+                            Nhập thông tin bệnh nhân và thuốc được kê
+                        </p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+                </div>
+
+                <div class="modal-body">
+                    <input type="hidden" id="prescriptionEditId">
+
+                    <div class="prescription-form-section">
+                        <h6 class="prescription-section-title">
+                            <i class="bi bi-person-vcard"></i>
+                            Thông tin đơn thuốc
+                        </h6>
+
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label for="prescriptionPatientCode" class="form-label">Mã bệnh nhân</label>
+                                <input type="text" class="form-control" id="prescriptionPatientCode"
+                                    placeholder="Ví dụ: BN001" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="prescriptionPatientName" class="form-label">Họ và tên</label>
+                                <input type="text" class="form-control" id="prescriptionPatientName"
+                                    placeholder="Nhập họ và tên" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="prescriptionDate" class="form-label">Ngày kê đơn</label>
+                                <input type="date" class="form-control" id="prescriptionDate" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="prescriptionDiagnosis" class="form-label">Chẩn đoán</label>
+                                <input type="text" class="form-control" id="prescriptionDiagnosis"
+                                    placeholder="Nhập chẩn đoán theo phiếu khám" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="prescriptionStatus" class="form-label">Trạng thái</label>
+                                <select class="form-select" id="prescriptionStatus" required>
+                                    <option value="Chờ cấp thuốc">Chờ cấp thuốc</option>
+                                    <option value="Đã cấp thuốc">Đã cấp thuốc</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="prescriptionInstructions" class="form-label">Hướng dẫn chung</label>
+                                <textarea class="form-control" id="prescriptionInstructions" rows="2"
+                                    placeholder="Hướng dẫn theo đơn thuốc và chỉ định chuyên môn"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prescription-form-section">
+                        <div class="prescription-medicine-heading">
+                            <h6 class="prescription-section-title mb-0">
+                                <i class="bi bi-capsule"></i>
+                                Danh sách thuốc
+                            </h6>
+
+                            <button type="button" class="btn-outline-custom" id="addPrescriptionMedicine">
+                                <i class="bi bi-plus-lg me-1"></i>
+                                Thêm thuốc
+                            </button>
+                        </div>
+
+                        <div id="prescriptionMedicineList"></div>
+
+                        <div class="prescription-medicine-note">
+                            <i class="bi bi-info-circle me-1"></i>
+                            Thuốc, liều dùng và thời gian sử dụng cần được bác sĩ xác định theo tình trạng thực tế của bệnh nhân.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline-custom" data-bs-dismiss="modal">
+                        Hủy
+                    </button>
+                    <button type="submit" class="btn-primary-custom">
+                        <i class="bi bi-check-lg me-1"></i>
+                        Lưu đơn thuốc
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL CHI TIẾT ĐƠN THUỐC -->
+<div class="modal fade" id="prescriptionDetailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content prescription-modal">
+            <div class="modal-header">
+                <div>
+                    <h5 class="modal-title">Chi tiết đơn thuốc</h5>
+                    <p class="prescription-modal-subtitle mb-0">Thông tin đơn thuốc và cách sử dụng</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <div class="modal-body" id="prescriptionDetailContent"></div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-outline-custom" data-bs-dismiss="modal">
+                    Đóng
+                </button>
+                <button type="button" class="btn-primary-custom" id="editPrescriptionFromDetail">
+                    <i class="bi bi-pencil-square me-1"></i>
+                    Chỉnh sửa
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="prescriptionToast" class="toast border-0" role="alert" aria-live="polite" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body" id="prescriptionToastMessage"></div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Đóng"></button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/doctor.js"></script>
+</body>
+</html>

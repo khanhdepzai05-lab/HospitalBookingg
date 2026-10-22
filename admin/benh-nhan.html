@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Quản lý bệnh nhân | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">HỆ THỐNG QUẢN LÝ</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+        <a class="side-link" href="tong-quan.html">
+            <i class="bi bi-grid-1x2-fill"></i><span>Tổng quan</span>
+        </a>
+
+        <div class="menu-label">QUẢN LÝ HỆ THỐNG</div>
+        <a class="side-link" href="bac-si.html">
+            <i class="bi bi-person-badge"></i><span>Quản lý bác sĩ</span>
+        </a>
+        <a class="side-link active" href="benh-nhan.html">
+            <i class="bi bi-people"></i><span>Quản lý bệnh nhân</span>
+        </a>
+        <a class="side-link" href="chuyen-khoa.html">
+            <i class="bi bi-hospital"></i><span>Chuyên khoa</span>
+        </a>
+        <a class="side-link" href="phong-kham.html">
+            <i class="bi bi-building"></i><span>Phòng khám</span>
+        </a>
+
+        <div class="menu-label">LỊCH KHÁM & DỊCH VỤ</div>
+        <a class="side-link" href="lich-hen.html">
+            <i class="bi bi-calendar-check"></i><span>Lịch hẹn</span>
+        </a>
+        <a class="side-link" href="lich-lam-viec.html">
+            <i class="bi bi-calendar-week"></i><span>Lịch làm việc</span>
+        </a>
+        <a class="side-link" href="phieu-kham.html">
+            <i class="bi bi-clipboard2-pulse"></i><span>Phiếu khám</span>
+        </a>
+        <a class="side-link" href="dich-vu.html">
+            <i class="bi bi-heart"></i><span>Dịch vụ</span>
+        </a>
+        <a class="side-link" href="hoa-don.html">
+            <i class="bi bi-receipt"></i><span>Hóa đơn</span>
+        </a>
+
+        <div class="menu-label">HỆ THỐNG</div>
+        <a class="side-link" href="tai-khoan.html">
+            <i class="bi bi-person-gear"></i><span>Tài khoản</span>
+        </a>
+        <a class="side-link" href="kenh-dang-ky.html"><i class="bi bi-diagram-3"></i><span>Kênh đăng ký</span></a>
+        <a class="side-link" href="bao-cao.html">
+            <i class="bi bi-bar-chart-line"></i><span>Báo cáo thống kê</span>
+        </a>
+        <a class="side-link website-link" href="../index.html">
+            <i class="bi bi-box-arrow-up-right"></i><span>Về website</span>
+        </a>
+    </aside>
+
+    <main class="main-area">
+
+        <header class="topbar">
+            <div>
+                <h1 class="topbar-title">Quản lý bệnh nhân</h1>
+                <p class="topbar-subtitle">Quản lý thông tin và hồ sơ bệnh nhân</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-name">Quản trị viên</div>
+                    <div class="profile-role">Quản trị hệ thống</div>
+                </div>
+                <a href="../login.html" class="logout-link" title="Đến trang đăng nhập">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <section class="page-heading">
+                <div>
+                    <h2>Danh sách bệnh nhân</h2>
+                    <p>Tra cứu và quản lý thông tin hồ sơ bệnh nhân.</p>
+                </div>
+
+                <button class="btn-primary-custom" id="btnAddPatient" type="button">
+                    <i class="bi bi-plus-lg"></i> Thêm bệnh nhân
+                </button>
+            </section>
+
+            <section class="row g-3 mb-4">
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng bệnh nhân</span>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-people"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="totalPatients">0</div>
+                        <div class="stat-note">Tổng hồ sơ trong danh sách</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Đang hoạt động</span>
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-person-check"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="activePatients">0</div>
+                        <div class="stat-note">Bệnh nhân đang hoạt động</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Bệnh nhân mới</span>
+                            <div class="stat-icon icon-orange">
+                                <i class="bi bi-person-plus"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="newPatients">0</div>
+                        <div class="stat-note">Đăng ký trong tháng</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Có lịch hẹn</span>
+                            <div class="stat-icon icon-purple">
+                                <i class="bi bi-calendar-check"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="appointmentPatients">0</div>
+                        <div class="stat-note">Lịch hẹn sắp tới</div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="panel patient-management">
+
+                <div class="panel-header">
+                    <div>
+                        <h3 class="panel-title">Danh sách bệnh nhân</h3>
+                        <p class="panel-subtitle">Tra cứu và cập nhật hồ sơ bệnh nhân</p>
+                    </div>
+
+                    <button type="button"
+                            class="btn-outline-custom export-btn"
+                            id="btnExportPatients">
+                        <i class="bi bi-download"></i> Xuất CSV
+                    </button>
+                </div>
+
+                <div class="doctor-filters">
+                    <div class="doctor-search">
+                        <i class="bi bi-search"></i>
+                        <input type="search"
+                               id="patientSearch"
+                               placeholder="Tìm mã, họ tên, email hoặc số điện thoại...">
+                    </div>
+
+                    <select id="patientGenderFilter"
+                            class="doctor-select"
+                            aria-label="Lọc theo giới tính">
+                        <option value="">Tất cả giới tính</option>
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+
+                    <select id="patientStatusFilter"
+                            class="doctor-select"
+                            aria-label="Lọc theo trạng thái">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="Đang hoạt động">Đang hoạt động</option>
+                        <option value="Ngừng hoạt động">Ngừng hoạt động</option>
+                    </select>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table doctor-table patient-table">
+                        <thead>
+                            <tr>
+                                <th>MÃ BỆNH NHÂN</th>
+                                <th>HỌ VÀ TÊN</th>
+                                <th>THÔNG TIN LIÊN HỆ</th>
+                                <th>GIỚI TÍNH</th>
+                                <th>NGÀY SINH</th>
+                                <th>NGÀY ĐĂNG KÝ</th>
+                                <th>TRẠNG THÁI</th>
+                                <th>THAO TÁC</th>
+                            </tr>
+                        </thead>
+                        <tbody id="patientTableBody">
+                            <tr>
+                                <td colspan="8" class="text-center py-5">
+                                    Đang tải danh sách...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="doctor-table-footer">
+                    <span id="patientResultCount">Có 0 bệnh nhân</span>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<!-- MODAL THÊM / SỬA BỆNH NHÂN -->
+<div class="modal fade"
+     id="patientModal"
+     tabindex="-1"
+     aria-labelledby="patientModalTitle"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content doctor-modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title fs-5" id="patientModalTitle">
+                        Thêm bệnh nhân
+                    </h2>
+                    <p class="modal-description">
+                        Nhập đầy đủ thông tin hồ sơ bệnh nhân.
+                    </p>
+                </div>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Đóng"></button>
+            </div>
+
+            <form id="patientForm">
+                <div class="modal-body">
+                    <input type="hidden" id="patientId">
+
+                    <div class="mb-3">
+                        <label for="patientFullName" class="form-label">
+                            Họ và tên <span class="text-danger">*</span>
+                        </label>
+                        <input type="text"
+                               class="form-control"
+                               id="patientFullName"
+                               maxlength="100"
+                               required
+                               placeholder="Nhập họ và tên">
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="patientPhone" class="form-label">
+                                Số điện thoại <span class="text-danger">*</span>
+                            </label>
+                            <input type="tel"
+                                   class="form-control"
+                                   id="patientPhone"
+                                   maxlength="15"
+                                   required
+                                   placeholder="Nhập số điện thoại">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="patientEmail" class="form-label">Email</label>
+                            <input type="email"
+                                   class="form-control"
+                                   id="patientEmail"
+                                   maxlength="120"
+                                   placeholder="email@example.com">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="patientBirthDate" class="form-label">Ngày sinh</label>
+                            <input type="date"
+                                   class="form-control"
+                                   id="patientBirthDate">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="patientGender" class="form-label">
+                                Giới tính <span class="text-danger">*</span>
+                            </label>
+                            <select class="form-select" id="patientGender" required>
+                                <option value="">Chọn giới tính</option>
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                                <option value="Khác">Khác</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="patientAddress" class="form-label">Địa chỉ</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="patientAddress"
+                                   maxlength="250"
+                                   placeholder="Nhập địa chỉ">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="patientNote" class="form-label">Ghi chú</label>
+                            <textarea class="form-control"
+                                      id="patientNote"
+                                      rows="3"
+                                      maxlength="500"
+                                      placeholder="Nhập ghi chú nếu có"></textarea>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="patientStatus" class="form-label">Trạng thái</label>
+                            <select class="form-select" id="patientStatus">
+                                <option value="Đang hoạt động">Đang hoạt động</option>
+                                <option value="Ngừng hoạt động">Ngừng hoạt động</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                        Hủy
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="savePatientBtn">
+                        <i class="bi bi-check-lg"></i> Lưu thông tin
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL XEM CHI TIẾT BỆNH NHÂN -->
+<div class="modal fade"
+     id="patientDetailModal"
+     tabindex="-1"
+     aria-labelledby="patientDetailTitle"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content doctor-modal">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="patientDetailTitle">
+                    Hồ sơ bệnh nhân
+                </h2>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Đóng"></button>
+            </div>
+
+            <div class="modal-body" id="patientDetailContent"></div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                    Đóng
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/admin.js"></script>
+
+</body>
+</html>

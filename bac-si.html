@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tìm kiếm bác sĩ theo chuyên khoa tại MedCare và lựa chọn lịch khám phù hợp.">
+    <title>Đội ngũ bác sĩ | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+<body>
+
+    <!-- THANH ĐIỀU HƯỚNG -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top border-bottom">
+        <div class="container py-2">
+            <a class="navbar-brand fw-bold fs-4" href="index.html">
+                <i class="bi bi-heart-pulse-fill me-2 text-primary"></i>
+                <span class="text-primary">MedCare</span>
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false"
+                    aria-label="Mở menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mx-auto gap-lg-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chuyen-khoa.html">Chuyên khoa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="bac-si.html">Bác sĩ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dich-vu.html">Dịch vụ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tra-cuu-lich-hen.html">Tra cứu lịch hẹn</a>
+                    </li>
+                    <li class="nav-item">
+    <a class="nav-link" href="lien-he.html">Liên hệ</a>
+</li>
+                </ul>
+
+                <div class="d-flex flex-wrap gap-2 mt-3 mt-lg-0">
+                    <a href="login.html" class="btn btn-outline-primary">Đăng nhập</a>
+                    <a href="dat-lich.html" class="btn btn-primary">Đặt lịch khám</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="doctors-page">
+
+        <!-- PHẦN GIỚI THIỆU -->
+        <section class="doctors-hero">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-8">
+                        <span class="doctors-eyebrow">
+                            <i class="bi bi-patch-check-fill"></i>
+                            Đội ngũ chuyên môn MedCare
+                        </span>
+
+                        <h1>
+                            Đội ngũ <span>bác sĩ</span><br>
+                            tận tâm, chuyên nghiệp
+                        </h1>
+
+                        <p>
+                            Tìm hiểu thông tin bác sĩ theo chuyên khoa và lĩnh vực
+                            chuyên môn để lựa chọn người đồng hành phù hợp cho
+                            hành trình chăm sóc sức khỏe của bạn.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-4 d-none d-lg-flex justify-content-center">
+                        <div class="doctors-hero-icon">
+                            <i class="bi bi-person-hearts"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DANH SÁCH BÁC SĨ -->
+        <section class="doctors-main">
+            <div class="container">
+
+                <div class="doctors-summary">
+                    <div>
+                        <h2>Tìm bác sĩ phù hợp</h2>
+                        <p>Tra cứu thông tin và lựa chọn chuyên khoa bạn quan tâm.</p>
+                    </div>
+
+                    <div class="doctors-result-count">
+                        Tìm thấy <strong id="doctorCount">6</strong> bác sĩ
+                    </div>
+                </div>
+
+                <!-- TÌM KIẾM VÀ LỌC -->
+                <div class="doctors-filter">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-lg-6">
+                            <label for="doctorSearch" class="form-label">Tìm kiếm bác sĩ</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-search"></i>
+                                </span>
+                                <input type="search" id="doctorSearch" class="form-control"
+                                       placeholder="Nhập tên bác sĩ hoặc chuyên môn..."
+                                       autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-8">
+                            <label for="specialtyFilter" class="form-label">Chuyên khoa</label>
+                            <select id="specialtyFilter" class="form-select">
+                                <option value="">Tất cả chuyên khoa</option>
+                                <option value="tim-mach">Tim mạch</option>
+                                <option value="nhi-khoa">Nhi khoa</option>
+                                <option value="da-lieu">Da liễu</option>
+                                <option value="co-xuong-khop">Cơ xương khớp</option>
+                                <option value="tai-mui-hong">Tai Mũi Họng</option>
+                                <option value="tieu-hoa">Tiêu hóa</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4">
+                            <button type="button" id="resetDoctorFilter"
+                                    class="btn btn-outline-primary doctors-reset-btn w-100">
+                                <i class="bi bi-arrow-counterclockwise me-1"></i>
+                                Làm mới
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CÁC THẺ BÁC SĨ -->
+                <div class="row g-4" id="doctorList">
+
+                    <div class="col-xl-4 col-md-6 doctor-item"
+                         data-name="nguyễn minh anh"
+                         data-specialty="tim-mach"
+                         data-keywords="tim mạch huyết áp sức khỏe tim tuần hoàn">
+                        <article class="doctor-card">
+                            <div class="doctor-card-top">
+                                <img class="doctor-avatar"
+                                     src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&h=400&q=85"
+                                     alt="Bác sĩ Nguyễn Minh Anh" loading="lazy">
+                                <span class="doctor-label">
+                                    <i class="bi bi-patch-check-fill"></i> Đội ngũ MedCare
+                                </span>
+                            </div>
+                            <div class="doctor-card-body">
+                                <h3 class="doctor-name">BS. Nguyễn Minh Anh</h3>
+                                <p class="doctor-degree">Bác sĩ chuyên khoa Tim mạch</p>
+
+                                <div class="doctor-info">
+                                    <i class="bi bi-heart-pulse"></i>
+                                    <span>Chuyên khoa Tim mạch</span>
+                                </div>
+                                <div class="doctor-info">
+                                    <i class="bi bi-clipboard2-check"></i>
+                                    <span>Tư vấn và theo dõi sức khỏe tim mạch</span>
+                                </div>
+
+                                <div class="doctor-card-actions">
+                                    <a href="chi-tiet-bac-si.html?bac-si=nguyen-minh-anh"
+                                       class="btn btn-outline-primary">
+                                        Chi tiết
+                                    </a>
+                                    <a href="dat-lich.html?chuyen-khoa=tim-mach&bac-si=nguyen-minh-anh"
+                                       class="btn btn-primary">
+                                        <i class="bi bi-calendar2-check me-1"></i> Đặt lịch
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-xl-4 col-md-6 doctor-item"
+                         data-name="trần thu hà"
+                         data-specialty="nhi-khoa"
+                         data-keywords="nhi khoa trẻ em trẻ nhỏ dinh dưỡng">
+                        <article class="doctor-card">
+                            <div class="doctor-card-top">
+                                <img class="doctor-avatar"
+                                     src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&h=400&q=85"
+                                     alt="Bác sĩ Trần Thu Hà" loading="lazy">
+                                <span class="doctor-label">
+                                    <i class="bi bi-patch-check-fill"></i> Đội ngũ MedCare
+                                </span>
+                            </div>
+                            <div class="doctor-card-body">
+                                <h3 class="doctor-name">BS. Trần Thu Hà</h3>
+                                <p class="doctor-degree">Bác sĩ chuyên khoa Nhi</p>
+
+                                <div class="doctor-info">
+                                    <i class="bi bi-balloon-heart"></i>
+                                    <span>Chuyên khoa Nhi khoa</span>
+                                </div>
+                                <div class="doctor-info">
+                                    <i class="bi bi-clipboard2-check"></i>
+                                    <span>Thăm khám và tư vấn sức khỏe trẻ em</span>
+                                </div>
+
+                                <div class="doctor-card-actions">
+                                    <a href="chi-tiet-bac-si.html?bac-si=tran-thu-ha"
+                                       class="btn btn-outline-primary">Chi tiết</a>
+                                    <a href="dat-lich.html?chuyen-khoa=nhi-khoa&bac-si=tran-thu-ha"
+                                       class="btn btn-primary">
+                                        <i class="bi bi-calendar2-check me-1"></i> Đặt lịch
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-xl-4 col-md-6 doctor-item"
+                         data-name="lê hoàng yến"
+                         data-specialty="da-lieu"
+                         data-keywords="da liễu da tóc móng chăm sóc da">
+                        <article class="doctor-card">
+                            <div class="doctor-card-top">
+                                <img class="doctor-avatar"
+                                     src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=400&h=400&q=85"
+                                     alt="Bác sĩ Lê Hoàng Yến" loading="lazy">
+                                <span class="doctor-label">
+                                    <i class="bi bi-patch-check-fill"></i> Đội ngũ MedCare
+                                </span>
+                            </div>
+                            <div class="doctor-card-body">
+                                <h3 class="doctor-name">BS. Lê Hoàng Yến</h3>
+                                <p class="doctor-degree">Bác sĩ chuyên khoa Da liễu</p>
+
+                                <div class="doctor-info">
+                                    <i class="bi bi-clipboard2-pulse"></i>
+                                    <span>Chuyên khoa Da liễu</span>
+                                </div>
+                                <div class="doctor-info">
+                                    <i class="bi bi-clipboard2-check"></i>
+                                    <span>Thăm khám các vấn đề về da, tóc và móng</span>
+                                </div>
+
+                                <div class="doctor-card-actions">
+                                    <a href="chi-tiet-bac-si.html?bac-si=le-hoang-yen"
+                                       class="btn btn-outline-primary">Chi tiết</a>
+                                    <a href="dat-lich.html?chuyen-khoa=da-lieu&bac-si=le-hoang-yen"
+                                       class="btn btn-primary">
+                                        <i class="bi bi-calendar2-check me-1"></i> Đặt lịch
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-xl-4 col-md-6 doctor-item"
+                         data-name="phạm quốc bảo"
+                         data-specialty="co-xuong-khop"
+                         data-keywords="cơ xương khớp xương khớp cơ vận động">
+                        <article class="doctor-card">
+                            <div class="doctor-card-top">
+                                <img class="doctor-avatar"
+                                     src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&h=400&q=85"
+                                     alt="Bác sĩ Phạm Quốc Bảo" loading="lazy">
+                                <span class="doctor-label">
+                                    <i class="bi bi-patch-check-fill"></i> Đội ngũ MedCare
+                                </span>
+                            </div>
+                            <div class="doctor-card-body">
+                                <h3 class="doctor-name">BS. Phạm Quốc Bảo</h3>
+                                <p class="doctor-degree">Bác sĩ Cơ xương khớp</p>
+
+                                <div class="doctor-info">
+                                    <i class="bi bi-universal-access"></i>
+                                    <span>Chuyên khoa Cơ xương khớp</span>
+                                </div>
+                                <div class="doctor-info">
+                                    <i class="bi bi-clipboard2-check"></i>
+                                    <span>Đánh giá các vấn đề về vận động</span>
+                                </div>
+
+                                <div class="doctor-card-actions">
+                                    <a href="chi-tiet-bac-si.html?bac-si=pham-quoc-bao"
+                                       class="btn btn-outline-primary">Chi tiết</a>
+                                    <a href="dat-lich.html?chuyen-khoa=co-xuong-khop&bac-si=pham-quoc-bao"
+                                       class="btn btn-primary">
+                                        <i class="bi bi-calendar2-check me-1"></i> Đặt lịch
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-xl-4 col-md-6 doctor-item"
+                         data-name="võ thanh tùng"
+                         data-specialty="tai-mui-hong"
+                         data-keywords="tai mũi họng tai mũi họng thính giác">
+                        <article class="doctor-card">
+                            <div class="doctor-card-top">
+                                <img class="doctor-avatar"
+                                     src="https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=400&h=400&q=85"
+                                     alt="Bác sĩ Võ Thanh Tùng" loading="lazy">
+                                <span class="doctor-label">
+                                    <i class="bi bi-patch-check-fill"></i> Đội ngũ MedCare
+                                </span>
+                            </div>
+                            <div class="doctor-card-body">
+                                <h3 class="doctor-name">BS. Võ Thanh Tùng</h3>
+                                <p class="doctor-degree">Bác sĩ Tai Mũi Họng</p>
+
+                                <div class="doctor-info">
+                                    <i class="bi bi-ear"></i>
+                                    <span>Chuyên khoa Tai Mũi Họng</span>
+                                </div>
+                                <div class="doctor-info">
+                                    <i class="bi bi-clipboard2-check"></i>
+                                    <span>Thăm khám các vấn đề về tai, mũi và họng</span>
+                                </div>
+
+                                <div class="doctor-card-actions">
+                                    <a href="chi-tiet-bac-si.html?bac-si=vo-thanh-tung"
+                                       class="btn btn-outline-primary">Chi tiết</a>
+                                    <a href="dat-lich.html?chuyen-khoa=tai-mui-hong&bac-si=vo-thanh-tung"
+                                       class="btn btn-primary">
+                                        <i class="bi bi-calendar2-check me-1"></i> Đặt lịch
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-xl-4 col-md-6 doctor-item"
+                         data-name="đặng minh khôi"
+                         data-specialty="tieu-hoa"
+                         data-keywords="tiêu hóa dạ dày đường tiêu hóa">
+                        <article class="doctor-card">
+                            <div class="doctor-card-top">
+                                <img class="doctor-avatar"
+                                     src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&h=400&q=85"
+                                     alt="Bác sĩ Đặng Minh Khôi" loading="lazy">
+                                <span class="doctor-label">
+                                    <i class="bi bi-patch-check-fill"></i> Đội ngũ MedCare
+                                </span>
+                            </div>
+                            <div class="doctor-card-body">
+                                <h3 class="doctor-name">BS. Đặng Minh Khôi</h3>
+                                <p class="doctor-degree">Bác sĩ chuyên khoa Tiêu hóa</p>
+
+                                <div class="doctor-info">
+                                    <i class="bi bi-activity"></i>
+                                    <span>Chuyên khoa Tiêu hóa</span>
+                                </div>
+                                <div class="doctor-info">
+                                    <i class="bi bi-clipboard2-check"></i>
+                                    <span>Thăm khám và tư vấn sức khỏe tiêu hóa</span>
+                                </div>
+
+                                <div class="doctor-card-actions">
+                                    <a href="chi-tiet-bac-si.html?bac-si=dang-minh-khoi"
+                                       class="btn btn-outline-primary">Chi tiết</a>
+                                    <a href="dat-lich.html?chuyen-khoa=tieu-hoa&bac-si=dang-minh-khoi"
+                                       class="btn btn-primary">
+                                        <i class="bi bi-calendar2-check me-1"></i> Đặt lịch
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+
+                <!-- KHÔNG TÌM THẤY -->
+                <div class="doctors-empty" id="doctorEmpty">
+                    <i class="bi bi-search"></i>
+                    <h3>Không tìm thấy bác sĩ phù hợp</h3>
+                    <p>Hãy thử từ khóa khác hoặc chọn một chuyên khoa khác.</p>
+                    <button type="button" class="btn btn-primary" id="resetDoctorFilterEmpty">
+                        Xem tất cả bác sĩ
+                    </button>
+                </div>
+
+                <!-- KHU VỰC KÊU GỌI -->
+                <section class="doctors-cta">
+                    <div class="row align-items-center g-3">
+                        <div class="col-lg-9">
+                            <h2>Bạn cần tìm chuyên khoa phù hợp?</h2>
+                            <p>
+                                Khám phá các chuyên khoa để tìm hiểu thêm về lĩnh vực
+                                thăm khám phù hợp với nhu cầu sức khỏe của bạn.
+                            </p>
+                        </div>
+                        <div class="col-lg-3 text-lg-end">
+                            <a href="chuyen-khoa.html" class="btn btn-light">
+                                Khám phá chuyên khoa
+                                <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- CHÂN TRANG -->
+    <footer class="public-footer bg-white border-top">
+        <div class="container py-4">
+            <div class="row gy-3 align-items-center">
+                <div class="col-md-6">
+                    <a href="index.html" class="footer-brand">
+                        <i class="bi bi-heart-pulse-fill me-2"></i>MedCare
+                    </a>
+                    <p class="text-secondary small mt-2 mb-0">
+                        Đồng hành cùng bạn trên hành trình chăm sóc sức khỏe.
+                    </p>
+                </div>
+
+                <div class="col-md-6 text-md-end">
+                    <a href="chuyen-khoa.html" class="text-secondary small me-3">Chuyên khoa</a>
+                    <a href="bac-si.html" class="text-secondary small me-3">Bác sĩ</a>
+                    <a href="tra-cuu-lich-hen.html" class="text-secondary small">Tra cứu lịch hẹn</a>
+                    <p class="text-secondary small mt-3 mb-0">
+                        © <span id="currentYear"></span> MedCare.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/public.js"></script>
+</body>
+</html>

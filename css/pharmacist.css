@@ -1,0 +1,2606 @@
+
+/* =========================================
+   TỔNG QUAN DƯỢC SĨ - MEDCARE
+   Dùng chung style.css và dashboard.css
+========================================= */
+
+.pharmacist-summary {
+    height: 100%;
+}
+
+.pharmacist-dashboard-panel {
+    height: 100%;
+    overflow: hidden;
+}
+
+.pharmacist-dashboard-panel .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 20px 22px;
+}
+
+.pharmacist-dashboard-panel .panel-title {
+    margin: 0;
+    color: #123b68;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.pharmacist-dashboard-panel .panel-subtitle {
+    margin: 6px 0 0;
+    color: #8290a3;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.pharmacist-dashboard-panel .btn-outline-custom {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.pharmacist-dashboard-panel .pharmacist-table {
+    margin-bottom: 0;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.pharmacist-dashboard-panel .pharmacist-table thead th {
+    padding: 13px 16px;
+    border-bottom: 1px solid #e8edf4;
+    background: #f7f9fc;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.pharmacist-dashboard-panel .pharmacist-table tbody td {
+    padding: 15px 16px;
+    border-bottom: 1px solid #edf0f5;
+    vertical-align: middle;
+}
+
+.pharmacist-dashboard-panel .pharmacist-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.pharmacist-dashboard-footer {
+    padding: 14px 22px;
+    border-top: 1px solid #edf0f5;
+    color: #8190a4;
+    font-size: 11px;
+}
+
+.pharmacist-dashboard-footer i {
+    color: #3979bd;
+}
+
+.pharmacist-stock-list {
+    padding: 0 22px;
+}
+
+.pharmacist-stock-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 16px 0;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.pharmacist-stock-item:last-child {
+    border-bottom: 0;
+}
+
+.pharmacist-stock-symbol {
+    display: flex;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+.stock-symbol-red {
+    background: #fff0f0;
+    color: #d84a4a;
+}
+
+.stock-symbol-orange {
+    background: #fff5e8;
+    color: #c78321;
+}
+
+.stock-symbol-blue {
+    background: #edf5ff;
+    color: #3979bd;
+}
+
+.pharmacist-stock-info {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pharmacist-stock-info strong {
+    color: #344256;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.pharmacist-stock-info span {
+    color: #8b97a8;
+    font-size: 10px;
+}
+
+.pharmacist-stock-quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    color: #64748b;
+}
+
+.pharmacist-stock-quantity strong {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.pharmacist-stock-quantity span {
+    font-size: 10px;
+}
+
+.pharmacist-stock-quantity.quantity-danger {
+    color: #d84a4a;
+}
+
+.pharmacist-stock-quantity.quantity-warning {
+    color: #c78321;
+}
+
+.pharmacist-stock-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 8px;
+    padding: 16px 22px;
+    border-top: 1px solid #edf0f5;
+    color: #123b68;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s;
+}
+
+.pharmacist-stock-link:hover {
+    background: #f6f9fd;
+    color: #0c2d50;
+}
+
+.pharmacist-quick-actions {
+    padding: 0 22px 18px;
+}
+
+.pharmacist-quick-action {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 15px 0;
+    border-bottom: 1px solid #edf0f5;
+    color: inherit;
+    text-decoration: none;
+    transition: background .2s;
+}
+
+.pharmacist-quick-action:last-child {
+    border-bottom: 0;
+}
+
+.pharmacist-quick-action:hover strong {
+    color: #123b68;
+}
+
+.quick-action-icon {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    font-size: 18px;
+}
+
+.quick-icon-blue {
+    background: #edf5ff;
+    color: #3979bd;
+}
+
+.quick-icon-green {
+    background: #e9f8ef;
+    color: #258653;
+}
+
+.quick-icon-purple {
+    background: #f3edff;
+    color: #8256bd;
+}
+
+.quick-icon-orange {
+    background: #fff3e5;
+    color: #c78321;
+}
+
+.pharmacist-quick-action > span:nth-child(2) {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pharmacist-quick-action strong {
+    color: #344256;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.pharmacist-quick-action small {
+    color: #8b97a8;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.pharmacist-quick-action > .bi-chevron-right {
+    color: #9aa6b5;
+    font-size: 11px;
+}
+
+.pharmacist-reminder-list {
+    padding: 0 22px 10px;
+}
+
+.pharmacist-reminder {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px 0;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.pharmacist-reminder:last-child {
+    border-bottom: 0;
+}
+
+.reminder-icon {
+    display: flex;
+    width: 35px;
+    height: 35px;
+    flex: 0 0 35px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.reminder-icon-red {
+    background: #fff0f0;
+    color: #d84a4a;
+}
+
+.reminder-icon-blue {
+    background: #edf5ff;
+    color: #3979bd;
+}
+
+.reminder-icon-orange {
+    background: #fff4e5;
+    color: #c78321;
+}
+
+.pharmacist-reminder > div {
+    min-width: 0;
+    padding-top: 2px;
+}
+
+.pharmacist-reminder strong {
+    color: #344256;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.pharmacist-reminder p {
+    margin: 5px 0 0;
+    color: #8290a3;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+@media (max-width: 767.98px) {
+    .pharmacist-dashboard-panel .panel-header {
+        align-items: flex-start;
+        padding: 17px 16px;
+    }
+
+    .pharmacist-stock-list,
+    .pharmacist-quick-actions,
+    .pharmacist-reminder-list {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .pharmacist-dashboard-footer,
+    .pharmacist-stock-link {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+}
+
+@media (max-width: 420px) {
+    .pharmacist-dashboard-panel .panel-header {
+        flex-wrap: wrap;
+    }
+
+    .pharmacist-stock-symbol {
+        width: 34px;
+        height: 34px;
+        flex-basis: 34px;
+    }
+
+    .pharmacist-stock-info strong {
+        overflow-wrap: anywhere;
+    }
+}
+/* ========================================
+   ĐƠN THUỐC CHỜ CẤP
+======================================== */
+
+.pharmacist-management {
+    overflow: hidden;
+}
+
+.pharmacist-panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pharmacist-filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 18px 22px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.pharmacist-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 220px;
+    height: 43px;
+    padding: 0 13px;
+    border: 1px solid #e0e6ef;
+    border-radius: 9px;
+    background: #fff;
+}
+
+.pharmacist-search:focus-within {
+    border-color: #123b68;
+    box-shadow: 0 0 0 3px rgba(18, 59, 104, .08);
+}
+
+.pharmacist-search > i {
+    color: #8995a6;
+    font-size: 14px;
+}
+
+.pharmacist-search input {
+    width: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #26364a;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.pharmacist-search input::placeholder {
+    color: #9aa5b4;
+}
+
+.pharmacist-select {
+    width: auto;
+    min-width: 160px;
+    height: 43px;
+    border-color: #e0e6ef;
+    border-radius: 9px;
+    color: #526176;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.pharmacist-select:focus {
+    border-color: #123b68;
+    box-shadow: 0 0 0 3px rgba(18, 59, 104, .08);
+}
+
+.pharmacist-table {
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.pharmacist-table thead th {
+    padding: 15px 16px;
+    background: #f8fafc;
+    color: #748197;
+    border-bottom: 1px solid #e9edf3;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+
+.pharmacist-table tbody td {
+    padding: 15px 16px;
+    border-bottom: 1px solid #edf0f5;
+    color: #526176;
+    font-size: 12px;
+}
+
+.pharmacist-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.pharmacist-table tbody tr:hover {
+    background: #fafcff;
+}
+
+.pharmacist-table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 22px;
+    border-top: 1px solid #edf0f5;
+    color: #8490a2;
+    font-size: 11px;
+}
+
+.pharmacist-prescription-code {
+    color: #123b68;
+    font-weight: 800;
+}
+
+.pharmacist-patient-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pharmacist-patient-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    color: #245a94;
+    background: #e9f2ff;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.pharmacist-patient-name {
+    display: block;
+    margin-bottom: 4px;
+    color: #2c3d52;
+    font-weight: 700;
+}
+
+.pharmacist-patient-id {
+    display: block;
+    color: #98a2b2;
+    font-size: 10px;
+}
+
+.pharmacist-priority {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 9px;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.pharmacist-priority-normal {
+    color: #47719e;
+    background: #edf5ff;
+}
+
+.pharmacist-priority-high {
+    color: #bf5656;
+    background: #fff0f0;
+}
+
+.pharmacist-prescription-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.pharmacist-prescription-status::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    content: "";
+}
+
+.prescription-status-waiting {
+    color: #bd7a13;
+    background: #fff5df;
+}
+
+.prescription-status-checked {
+    color: #21845b;
+    background: #e7f8ef;
+}
+
+.prescription-status-priority {
+    color: #c24b55;
+    background: #fff0f0;
+}
+
+.pharmacist-row-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.pharmacist-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 33px;
+    height: 33px;
+    border: 1px solid #e0e7f0;
+    border-radius: 8px;
+    color: #45617f;
+    background: #fff;
+    transition: .2s;
+}
+
+.pharmacist-action-btn:hover {
+    border-color: #123b68;
+    color: #fff;
+    background: #123b68;
+}
+
+.pharmacist-action-btn:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.pharmacist-empty-state {
+    padding: 38px 15px !important;
+    color: #8793a4 !important;
+    text-align: center;
+}
+
+.pharmacist-empty-state i {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 26px;
+}
+
+.pharmacist-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.pharmacist-detail-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px;
+    border: 1px solid #edf0f5;
+    border-radius: 10px;
+}
+
+.pharmacist-detail-row span {
+    color: #8995a6;
+    font-size: 11px;
+}
+
+.pharmacist-detail-row strong {
+    color: #34465c;
+    font-size: 12px;
+}
+
+.pharmacist-modal {
+    overflow: hidden;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 18px 60px rgba(20, 39, 66, .15);
+}
+
+.pharmacist-modal .modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.pharmacist-modal .modal-title {
+    color: #20354e;
+    font-weight: 800;
+}
+
+.pharmacist-modal .modal-description {
+    margin: 5px 0 0;
+    color: #8793a4;
+    font-size: 11px;
+}
+
+.pharmacist-modal .modal-body {
+    padding: 24px;
+}
+
+.pharmacist-modal .modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid #edf0f5;
+}
+
+.pharmacist-detail-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 13px;
+    border-radius: 9px;
+    color: #85631e;
+    background: #fff8e9;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.pharmacist-detail-notice i {
+    margin-top: 2px;
+}
+
+.pharmacist-confirm-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 16px;
+    border-radius: 16px;
+    color: #1b7c57;
+    background: #e5f7ee;
+    font-size: 27px;
+}
+
+.pharmacist-toast-container {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 1090;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pharmacist-toast {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 360px;
+    padding: 14px 18px;
+    border: 1px solid #d7eee2;
+    border-radius: 11px;
+    color: #216b4b;
+    background: #fff;
+    box-shadow: 0 8px 30px rgba(26, 49, 76, .12);
+    font-size: 12px;
+    animation: pharmacistToastIn .25s ease;
+}
+
+.pharmacist-toast.toast-error {
+    border-color: #f3dada;
+    color: #b43f48;
+}
+
+@keyframes pharmacistToastIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 992px) {
+    .pharmacist-filters {
+        align-items: stretch;
+    }
+
+    .pharmacist-search {
+        flex-basis: 100%;
+    }
+
+    .pharmacist-select {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .pharmacist-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pharmacist-modal .modal-body {
+        padding: 18px;
+    }
+
+    .pharmacist-table-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .pharmacist-toast-container {
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+    }
+
+    .pharmacist-toast {
+        max-width: none;
+    }
+}
+/* ========================================
+   TRANG CẤP PHÁT THUỐC
+======================================== */
+
+.pharmacist-dispensing-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 22px 24px;
+}
+
+.pharmacist-dispensing-note-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    color: #21845b;
+    background: #e7f8ef;
+    font-size: 22px;
+}
+
+.pharmacist-dispensing-note h3 {
+    margin: 2px 0 7px;
+    color: #263b52;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.pharmacist-dispensing-note p {
+    margin: 0;
+    color: #7c899b;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.dispensing-status-pending,
+.dispensing-status-completed {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.dispensing-status-pending {
+    color: #bd7a13;
+    background: #fff5df;
+}
+
+.dispensing-status-completed {
+    color: #21845b;
+    background: #e7f8ef;
+}
+
+.dispensing-status-pending::before,
+.dispensing-status-completed::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    content: "";
+}
+
+.dispensing-medicine-check {
+    width: 17px;
+    height: 17px;
+    accent-color: #123b68;
+    cursor: pointer;
+}
+
+.dispensing-medicine-check:disabled {
+    cursor: not-allowed;
+    opacity: .6;
+}
+
+.dispensing-check-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #68788d;
+    font-size: 11px;
+}
+
+.dispensing-check-label.is-checked {
+    color: #21845b;
+    font-weight: 600;
+}
+
+.dispensing-progress {
+    height: 5px;
+    overflow: hidden;
+    margin-top: 6px;
+    border-radius: 10px;
+    background: #edf1f6;
+}
+
+.dispensing-progress-bar {
+    height: 100%;
+    border-radius: 10px;
+    background: #21845b;
+    transition: width .2s ease;
+}
+
+@media (max-width: 576px) {
+    .pharmacist-dispensing-note {
+        gap: 12px;
+        padding: 18px;
+    }
+
+    .pharmacist-dispensing-note-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 19px;
+    }
+}
+/* ========================================
+   TRANG DANH SÁCH THUỐC
+======================================== */
+
+.medicine-filters {
+    align-items: center;
+}
+
+.medicine-table {
+    min-width: 1050px;
+}
+
+.medicine-code {
+    display: inline-flex;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: #edf4fc;
+    color: #123b68;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.medicine-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 190px;
+}
+
+.medicine-name-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #eaf2fc;
+    color: #123b68;
+    font-size: 18px;
+}
+
+.medicine-name-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.medicine-name-info strong {
+    color: #293b50;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.medicine-name-info span {
+    color: #8491a2;
+    font-size: 10px;
+}
+
+.medicine-category-badge {
+    display: inline-block;
+    max-width: 180px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: #f0f3f8;
+    color: #52657d;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.medicine-status-active,
+.medicine-status-inactive {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.medicine-status-active {
+    background: #e7f8ef;
+    color: #21845b;
+}
+
+.medicine-status-inactive {
+    background: #f0f1f4;
+    color: #707b8c;
+}
+
+.medicine-status-active::before,
+.medicine-status-inactive::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.medicine-price {
+    color: #263b52;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.medicine-guideline-panel {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 22px 24px;
+}
+
+.medicine-guideline-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: #e7f8ef;
+    color: #21845b;
+    font-size: 22px;
+}
+
+.medicine-guideline-panel h3 {
+    margin: 2px 0 7px;
+    color: #263b52;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.medicine-guideline-panel p {
+    margin: 0;
+    color: #7c899b;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.medicine-detail-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    border: 1px solid #e9eef5;
+    border-radius: 12px;
+    background: #f8fafd;
+}
+
+.medicine-detail-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    background: #e5efff;
+    color: #123b68;
+    font-size: 25px;
+}
+
+.medicine-detail-heading h3 {
+    margin: 0 0 8px;
+    color: #263b52;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.medicine-detail-description {
+    padding: 16px;
+    border-radius: 10px;
+    background: #f8fafd;
+}
+
+.medicine-detail-description h3 {
+    margin: 0 0 8px;
+    color: #34465b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.medicine-detail-description p {
+    margin: 0;
+    color: #718096;
+    font-size: 12px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+#medicineForm .form-label {
+    color: #42536a;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#medicineForm .form-control,
+#medicineForm .form-select {
+    min-height: 42px;
+    border-color: #e0e6ee;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+#medicineForm textarea.form-control {
+    min-height: 85px;
+}
+
+#medicineForm .form-control:focus,
+#medicineForm .form-select:focus {
+    border-color: #7ca5d9;
+    box-shadow: 0 0 0 3px rgba(18, 59, 104, 0.08);
+}
+
+#medicineForm .text-danger {
+    font-weight: 700;
+}
+
+#addMedicineBtn {
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .medicine-guideline-panel {
+        gap: 12px;
+        padding: 18px;
+    }
+
+    .medicine-guideline-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 19px;
+    }
+
+    .medicine-detail-heading {
+        padding: 14px;
+    }
+
+    .medicine-detail-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .medicine-detail-heading h3 {
+        font-size: 14px;
+    }
+
+    .medicine-guideline-panel p {
+        font-size: 11px;
+    }
+}
+/* ========================================
+   TRANG KHO THUỐC
+======================================== */
+
+.stock-table {
+    min-width: 1100px;
+}
+
+.stock-filters {
+    align-items: center;
+}
+
+.stock-code {
+    display: inline-flex;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: #edf4fc;
+    color: #123b68;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.stock-medicine-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 170px;
+}
+
+.stock-medicine-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 37px;
+    height: 37px;
+    border-radius: 10px;
+    background: #eaf2fc;
+    color: #123b68;
+    font-size: 18px;
+}
+
+.stock-medicine-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stock-medicine-info strong {
+    color: #293b50;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.stock-medicine-info span {
+    color: #8491a2;
+    font-size: 10px;
+}
+
+.stock-quantity {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 85px;
+}
+
+.stock-quantity strong {
+    color: #293b50;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.stock-quantity span {
+    color: #8793a4;
+    font-size: 10px;
+}
+
+.stock-quantity.is-low strong {
+    color: #bd7a13;
+}
+
+.stock-expiry {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 100px;
+}
+
+.stock-expiry strong {
+    color: #34465b;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.stock-expiry span {
+    color: #8491a2;
+    font-size: 10px;
+}
+
+.stock-expiry.is-expiring strong {
+    color: #bd7a13;
+}
+
+.stock-expiry.is-expired strong {
+    color: #c43e4b;
+}
+
+.stock-status-normal,
+.stock-status-low,
+.stock-status-expiring,
+.stock-status-expired {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.stock-status-normal {
+    color: #21845b;
+    background: #e7f8ef;
+}
+
+.stock-status-low,
+.stock-status-expiring {
+    color: #bd7a13;
+    background: #fff5df;
+}
+
+.stock-status-expired {
+    color: #c43e4b;
+    background: #fff0f0;
+}
+
+.stock-status-normal::before,
+.stock-status-low::before,
+.stock-status-expiring::before,
+.stock-status-expired::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.stock-warning-panel {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 22px 24px;
+}
+
+.stock-warning-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    color: #bd7a13;
+    background: #fff5df;
+    font-size: 22px;
+}
+
+.stock-warning-panel h3 {
+    margin: 2px 0 7px;
+    color: #263b52;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.stock-warning-panel p {
+    margin: 0;
+    color: #7c899b;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.stock-detail-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    border: 1px solid #e9eef5;
+    border-radius: 12px;
+    background: #f8fafd;
+}
+
+.stock-detail-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    background: #e5efff;
+    color: #123b68;
+    font-size: 25px;
+}
+
+.stock-detail-heading h3 {
+    margin: 0 0 8px;
+    color: #263b52;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#stockForm .form-label {
+    color: #42536a;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#stockForm .form-control,
+#stockForm .form-select {
+    min-height: 42px;
+    border-color: #e0e6ee;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+#stockForm textarea.form-control {
+    min-height: 85px;
+}
+
+#stockForm .form-control:focus,
+#stockForm .form-select:focus {
+    border-color: #7ca5d9;
+    box-shadow: 0 0 0 3px rgba(18, 59, 104, 0.08);
+}
+
+@media (max-width: 768px) {
+    .stock-warning-panel {
+        gap: 12px;
+        padding: 18px;
+    }
+
+    .stock-warning-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 19px;
+    }
+
+    .stock-detail-heading {
+        padding: 14px;
+    }
+
+    .stock-detail-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stock-detail-heading h3 {
+        font-size: 14px;
+    }
+
+    .stock-warning-panel p {
+        font-size: 11px;
+    }
+}
+
+/* ================================
+   LỊCH UỐNG THUỐC - MEDCARE
+================================ */
+
+.schedule-filter-bar {
+    display: flex;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 20px 22px;
+    border-bottom: 1px solid #edf1f6;
+}
+
+.schedule-search {
+    position: relative;
+    flex: 1 1 260px;
+}
+
+.schedule-search > i {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    color: #8794a7;
+    z-index: 1;
+}
+
+.schedule-search .form-control {
+    min-height: 43px;
+    padding-left: 40px;
+    border: 1px solid #dfe6ef;
+    border-radius: 9px;
+    font-size: 13px;
+}
+
+.schedule-filter {
+    flex: 0 1 190px;
+}
+
+.schedule-filter .form-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #536278;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.schedule-filter .form-control,
+.schedule-filter .form-select {
+    min-height: 43px;
+    border: 1px solid #dfe6ef;
+    border-radius: 9px;
+    color: #34445b;
+    font-size: 13px;
+}
+
+.schedule-filter .form-control:focus,
+.schedule-filter .form-select:focus,
+.schedule-search .form-control:focus {
+    border-color: #8aaed5;
+    box-shadow: 0 0 0 3px rgba(18, 59, 104, 0.08);
+}
+
+.schedule-clear-btn {
+    min-height: 43px;
+    white-space: nowrap;
+}
+
+.schedule-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 16px 22px 10px;
+}
+
+.schedule-summary-label {
+    color: #718096;
+    font-size: 12px;
+}
+
+.schedule-summary-label i {
+    color: #4776a8;
+}
+
+.schedule-summary-label strong {
+    color: #123b68;
+}
+
+.schedule-date-label {
+    color: #718096;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.schedule-table {
+    min-width: 1000px;
+    margin-bottom: 0;
+}
+
+.schedule-table thead th {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e9eef5;
+    background: #f8fafc;
+    color: #758399;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.45px;
+    white-space: nowrap;
+}
+
+.schedule-table tbody td {
+    padding: 16px;
+    border-bottom: 1px solid #f0f3f7;
+    color: #46566d;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.schedule-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.schedule-table tbody tr:hover {
+    background: #f9fbfe;
+}
+
+.schedule-code {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: #edf4fc;
+    color: #24558a;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.schedule-patient {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 175px;
+}
+
+.schedule-patient-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #eaf2fb;
+    color: #24558a;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.schedule-patient-info {
+    min-width: 0;
+}
+
+.schedule-patient-name {
+    margin-bottom: 4px;
+    color: #24364d;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.schedule-patient-code {
+    color: #8a96a8;
+    font-size: 10px;
+}
+
+.schedule-medicine-name {
+    max-width: 190px;
+    margin-bottom: 4px;
+    color: #293c54;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.schedule-medicine-note {
+    color: #8793a4;
+    font-size: 10px;
+}
+
+.schedule-dose {
+    color: #40536b;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.schedule-time {
+    color: #24364d;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.schedule-date-small {
+    margin-top: 4px;
+    color: #8a96a8;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.schedule-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.schedule-status::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    content: "";
+}
+
+.schedule-status-upcoming {
+    background: #f0ebff;
+    color: #7651c7;
+}
+
+.schedule-status-due {
+    background: #fff1dc;
+    color: #b87513;
+}
+
+.schedule-status-completed {
+    background: #e5f7ed;
+    color: #218653;
+}
+
+.schedule-status-missed {
+    background: #fee9e8;
+    color: #c44743;
+}
+
+.schedule-action-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.schedule-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #e1e8f0;
+    border-radius: 8px;
+    background: #fff;
+    color: #60728a;
+    transition: all 0.2s ease;
+}
+
+.schedule-action-btn:hover {
+    border-color: #a9c2df;
+    background: #eff5fc;
+    color: #123b68;
+}
+
+.schedule-action-btn.schedule-complete-btn:hover {
+    border-color: #b7e5ca;
+    background: #e7f8ee;
+    color: #218653;
+}
+
+.schedule-action-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+.schedule-empty {
+    padding: 42px 20px;
+    text-align: center;
+}
+
+.schedule-empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 15px;
+    border-radius: 16px;
+    background: #f0f5fb;
+    color: #7891b0;
+    font-size: 25px;
+}
+
+.schedule-empty h5 {
+    margin-bottom: 7px;
+    color: #34445b;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.schedule-empty p {
+    margin-bottom: 0;
+    color: #8a96a8;
+    font-size: 12px;
+}
+
+.schedule-guidelines {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    padding: 22px;
+}
+
+.schedule-guideline {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.schedule-guideline-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    font-size: 18px;
+}
+
+.guideline-blue {
+    background: #eaf2fc;
+    color: #2864a2;
+}
+
+.guideline-green {
+    background: #e7f7ed;
+    color: #218653;
+}
+
+.guideline-orange {
+    background: #fff2df;
+    color: #bb7b20;
+}
+
+.schedule-guideline h6 {
+    margin: 2px 0 7px;
+    color: #304158;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.schedule-guideline p {
+    margin: 0;
+    color: #7d899a;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.schedule-modal {
+    overflow: hidden;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 20px 70px rgba(19, 42, 72, 0.16);
+}
+
+.schedule-modal .modal-header {
+    padding: 22px 24px;
+    border-bottom: 1px solid #edf1f6;
+}
+
+.schedule-modal .modal-title {
+    color: #263950;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.schedule-modal-subtitle {
+    margin-top: 6px;
+    color: #8290a3;
+    font-size: 12px;
+}
+
+.schedule-modal .modal-body {
+    padding: 24px;
+}
+
+.schedule-modal .modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid #edf1f6;
+}
+
+.schedule-detail-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    padding: 18px;
+    border: 1px solid #e5edf7;
+    border-radius: 12px;
+    background: #f7faff;
+}
+
+.schedule-detail-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 13px;
+    background: #e2edfb;
+    color: #245b96;
+    font-size: 23px;
+}
+
+.schedule-detail-name {
+    color: #263950;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.schedule-detail-code {
+    margin-top: 5px;
+    color: #8491a3;
+    font-size: 11px;
+}
+
+.schedule-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+}
+
+.schedule-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 14px 0;
+    border-bottom: 1px solid #edf1f6;
+}
+
+.schedule-detail-item span,
+.schedule-detail-note > span {
+    color: #8290a3;
+    font-size: 11px;
+}
+
+.schedule-detail-item strong {
+    color: #35475f;
+    font-size: 12px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.schedule-instruction-box {
+    margin-top: 22px;
+    padding: 16px;
+    border: 1px solid #dceafa;
+    border-radius: 10px;
+    background: #f4f8fe;
+}
+
+.schedule-instruction-title {
+    margin-bottom: 9px;
+    color: #28598e;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.schedule-instruction-box p,
+.schedule-detail-note p {
+    color: #617187;
+    font-size: 12px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.schedule-detail-note {
+    margin-top: 18px;
+}
+
+.schedule-detail-note p {
+    margin-top: 7px;
+}
+
+.schedule-confirm-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    margin: 4px auto 18px;
+    border-radius: 50%;
+    background: #e5f7ed;
+    color: #218653;
+    font-size: 29px;
+}
+
+.schedule-modal .modal-body > h6 {
+    color: #2b3e55;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.schedule-modal .modal-body > p {
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.schedule-confirm-warning {
+    padding: 12px 14px;
+    border: 1px solid #f2dfb5;
+    border-radius: 9px;
+    background: #fff9eb;
+    color: #92681e;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+@media (max-width: 1199.98px) {
+    .schedule-guidelines {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .schedule-filter-bar {
+        align-items: stretch;
+        padding: 16px;
+    }
+
+    .schedule-search,
+    .schedule-filter {
+        flex: 1 1 100%;
+    }
+
+    .schedule-clear-btn {
+        align-self: flex-start;
+    }
+
+    .schedule-summary {
+        padding: 14px 16px 10px;
+    }
+
+    .schedule-guidelines {
+        padding: 18px;
+    }
+
+    .schedule-modal .modal-header,
+    .schedule-modal .modal-body,
+    .schedule-modal .modal-footer {
+        padding: 18px;
+    }
+
+    .schedule-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .schedule-detail-banner {
+        align-items: flex-start;
+    }
+
+    .schedule-detail-banner > .ms-auto {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+}
+
+/* ==========================================
+   BÁO CÁO TÁC DỤNG PHỤ - MEDCARE
+========================================== */
+
+.adverse-safety-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 18px 20px;
+    border: 1px solid #f0dfb8;
+    border-radius: 12px;
+    background: #fffaf0;
+}
+
+.adverse-safety-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+    background: #fff0d2;
+    color: #b87919;
+    font-size: 21px;
+}
+
+.adverse-safety-notice h6 {
+    margin: 1px 0 6px;
+    color: #79551c;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.adverse-safety-notice p {
+    margin: 0;
+    color: #866f49;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.adverse-filter-bar {
+    display: flex;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 20px 22px;
+    border-bottom: 1px solid #edf1f6;
+}
+
+.adverse-search {
+    position: relative;
+    flex: 1 1 250px;
+}
+
+.adverse-search > i {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    z-index: 1;
+    transform: translateY(-50%);
+    color: #8794a7;
+}
+
+.adverse-search .form-control {
+    min-height: 43px;
+    padding-left: 40px;
+    border: 1px solid #dfe6ef;
+    border-radius: 9px;
+    font-size: 12px;
+}
+
+.adverse-filter {
+    flex: 0 1 175px;
+}
+
+.adverse-filter .form-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #536278;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.adverse-filter .form-control,
+.adverse-filter .form-select {
+    min-height: 43px;
+    border: 1px solid #dfe6ef;
+    border-radius: 9px;
+    color: #34445b;
+    font-size: 12px;
+}
+
+.adverse-search .form-control:focus,
+.adverse-filter .form-select:focus {
+    border-color: #8aaed5;
+    box-shadow: 0 0 0 3px rgba(18, 59, 104, 0.08);
+}
+
+.adverse-clear-btn {
+    min-height: 43px;
+    white-space: nowrap;
+}
+
+.adverse-summary {
+    padding: 16px 22px 10px;
+    color: #7c899b;
+    font-size: 12px;
+}
+
+.adverse-summary strong {
+    color: #123b68;
+}
+
+.adverse-table {
+    min-width: 1100px;
+    margin-bottom: 0;
+}
+
+.adverse-table thead th {
+    padding: 14px 15px;
+    border-bottom: 1px solid #e9eef5;
+    background: #f8fafc;
+    color: #758399;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.35px;
+    white-space: nowrap;
+}
+
+.adverse-table tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #f0f3f7;
+    color: #46566d;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.adverse-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.adverse-table tbody tr:hover {
+    background: #f9fbfe;
+}
+
+.adverse-report-code {
+    display: inline-flex;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: #edf4fc;
+    color: #24558a;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.adverse-patient-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 165px;
+}
+
+.adverse-patient-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background: #eaf2fb;
+    color: #24558a;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.adverse-patient-name {
+    margin-bottom: 4px;
+    color: #2d4057;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.adverse-patient-code {
+    color: #8995a6;
+    font-size: 10px;
+}
+
+.adverse-medicine-name {
+    max-width: 185px;
+    color: #33465d;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.adverse-symptom-text {
+    display: -webkit-box;
+    max-width: 180px;
+    overflow: hidden;
+    color: #586a80;
+    font-size: 11px;
+    line-height: 1.7;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.adverse-date {
+    color: #607087;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.adverse-severity,
+.adverse-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.adverse-severity::before,
+.adverse-status::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    content: "";
+}
+
+.adverse-severity-mild {
+    background: #e8f7ee;
+    color: #258653;
+}
+
+.adverse-severity-moderate {
+    background: #fff2dd;
+    color: #b77a1e;
+}
+
+.adverse-severity-severe {
+    background: #fee9e8;
+    color: #c44743;
+}
+
+.adverse-status-pending {
+    background: #fff2dd;
+    color: #b77a1e;
+}
+
+.adverse-status-processing {
+    background: #eaf2ff;
+    color: #3768ad;
+}
+
+.adverse-status-resolved {
+    background: #e5f7ed;
+    color: #218653;
+}
+
+.adverse-action-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.adverse-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #e1e8f0;
+    border-radius: 8px;
+    background: #fff;
+    color: #60728a;
+    transition: all 0.2s ease;
+}
+
+.adverse-action-btn:hover {
+    border-color: #a9c2df;
+    background: #eff5fc;
+    color: #123b68;
+}
+
+.adverse-empty {
+    padding: 42px 20px;
+    text-align: center;
+}
+
+.adverse-empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 15px;
+    border-radius: 16px;
+    background: #f0f5fb;
+    color: #7891b0;
+    font-size: 25px;
+}
+
+.adverse-empty h5 {
+    margin-bottom: 7px;
+    color: #34445b;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.adverse-empty p {
+    margin: 0;
+    color: #8a96a8;
+    font-size: 12px;
+}
+
+.adverse-workflow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    padding: 23px;
+}
+
+.adverse-workflow-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.adverse-workflow-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #eaf2fc;
+    color: #245b96;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.adverse-workflow-item h6 {
+    margin: 2px 0 7px;
+    color: #304158;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.adverse-workflow-item p {
+    margin: 0;
+    color: #7d899a;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.adverse-modal {
+    overflow: hidden;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 20px 70px rgba(19, 42, 72, 0.16);
+}
+
+.adverse-modal .modal-header {
+    padding: 22px 24px;
+    border-bottom: 1px solid #edf1f6;
+}
+
+.adverse-modal .modal-title {
+    color: #263950;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.adverse-modal .modal-body {
+    padding: 24px;
+}
+
+.adverse-modal .modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid #edf1f6;
+}
+
+.adverse-modal-subtitle {
+    margin-top: 6px;
+    color: #8290a3;
+    font-size: 12px;
+}
+
+.adverse-form-section {
+    margin-bottom: 26px;
+}
+
+.adverse-form-section > h6 {
+    margin-bottom: 17px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #edf1f6;
+    color: #30445d;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.adverse-form-section > h6 i {
+    color: #2d649e;
+}
+
+.adverse-modal .form-label {
+    margin-bottom: 7px;
+    color: #536278;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.adverse-modal .form-control,
+.adverse-modal .form-select {
+    min-height: 42px;
+    border: 1px solid #dfe6ef;
+    border-radius: 9px;
+    color: #34445b;
+    font-size: 12px;
+}
+
+.adverse-modal textarea.form-control {
+    min-height: 95px;
+    resize: vertical;
+}
+
+.adverse-modal .form-control:focus,
+.adverse-modal .form-select:focus {
+    border-color: #8aaed5;
+    box-shadow: 0 0 0 3px rgba(18, 59, 104, 0.08);
+}
+
+.adverse-form-notice {
+    padding: 13px 15px;
+    border: 1px solid #dceafa;
+    border-radius: 9px;
+    background: #f4f8fe;
+    color: #58718e;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.adverse-detail-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 23px;
+    padding: 18px;
+    border: 1px solid #e5edf7;
+    border-radius: 12px;
+    background: #f7faff;
+}
+
+.adverse-detail-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+    background: #e2edfb;
+    color: #245b96;
+    font-size: 22px;
+}
+
+.adverse-detail-name {
+    color: #263950;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.adverse-detail-code {
+    margin-top: 5px;
+    color: #8491a3;
+    font-size: 11px;
+}
+
+.adverse-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+}
+
+.adverse-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 14px 0;
+    border-bottom: 1px solid #edf1f6;
+}
+
+.adverse-detail-item span {
+    color: #8290a3;
+    font-size: 11px;
+}
+
+.adverse-detail-item strong {
+    color: #35475f;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.adverse-detail-section {
+    margin-top: 22px;
+    padding: 16px;
+    border: 1px solid #e7edf5;
+    border-radius: 10px;
+    background: #fbfcfe;
+}
+
+.adverse-detail-section h6 {
+    margin-bottom: 10px;
+    color: #354b65;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.adverse-detail-section h6 i {
+    color: #2d649e;
+}
+
+.adverse-detail-section p {
+    margin-bottom: 0;
+    color: #65758a;
+    font-size: 12px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+@media (max-width: 1199.98px) {
+    .adverse-workflow {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .adverse-safety-notice {
+        padding: 15px;
+    }
+
+    .adverse-filter-bar {
+        align-items: stretch;
+        padding: 16px;
+    }
+
+    .adverse-search,
+    .adverse-filter {
+        flex: 1 1 100%;
+    }
+
+    .adverse-clear-btn {
+        align-self: flex-start;
+    }
+
+    .adverse-summary {
+        padding: 14px 16px 10px;
+    }
+
+    .adverse-workflow {
+        padding: 18px;
+    }
+
+    .adverse-modal .modal-header,
+    .adverse-modal .modal-body,
+    .adverse-modal .modal-footer {
+        padding: 18px;
+    }
+
+    .adverse-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .adverse-detail-banner > .ms-auto {
+        width: 100%;
+        margin-left: 0 !important;
+    }
+}

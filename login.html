@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+<body class="auth-page">
+
+<header class="auth-navbar">
+    <div class="container">
+        <a href="index.html" class="auth-brand">
+            <i class="bi bi-heart-pulse-fill"></i>
+            <span>MedCare</span>
+        </a>
+        <a href="index.html" class="auth-back-link">
+            <i class="bi bi-arrow-left"></i> Về trang chủ
+        </a>
+    </div>
+</header>
+
+<main class="auth-main">
+    <div class="container">
+        <div class="auth-layout">
+            <section class="auth-promo">
+                <div class="auth-promo-content">
+                    <span class="auth-promo-eyebrow">
+                        <i class="bi bi-heart-pulse"></i> CHĂM SÓC SỨC KHỎE
+                    </span>
+
+                    <h1>Chào mừng bạn<br>đến với <span>MedCare</span></h1>
+
+                    <p>
+                        Đăng nhập để thuận tiện quản lý lịch hẹn,
+                        theo dõi thông tin và chủ động hơn trong hành trình
+                        chăm sóc sức khỏe của bạn.
+                    </p>
+
+                    <div class="auth-promo-features">
+                        <div>
+                            <span class="auth-feature-icon"><i class="bi bi-calendar2-check"></i></span>
+                            <div>
+                                <strong>Quản lý lịch hẹn</strong>
+                                <p>Theo dõi thông tin lịch khám của bạn.</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="auth-feature-icon"><i class="bi bi-person-check"></i></span>
+                            <div>
+                                <strong>Trải nghiệm thuận tiện</strong>
+                                <p>Tiếp cận các thông tin dịch vụ dễ dàng.</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="auth-feature-icon"><i class="bi bi-shield-check"></i></span>
+                            <div>
+                                <strong>Quan tâm đến quyền riêng tư</strong>
+                                <p>Hãy bảo vệ tài khoản và thông tin cá nhân.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="auth-promo-decoration auth-decoration-one"></div>
+                <div class="auth-promo-decoration auth-decoration-two"></div>
+                <i class="bi bi-heart-pulse auth-promo-watermark"></i>
+            </section>
+
+            <section class="auth-form-panel">
+                <div class="auth-form-heading">
+                    <span class="auth-form-icon"><i class="bi bi-person-lock"></i></span>
+                    <h2>Đăng nhập tài khoản</h2>
+                    <p>Vui lòng nhập thông tin để tiếp tục.</p>
+                </div>
+
+                <div id="loginMessage" class="auth-message" role="status" aria-live="polite" hidden></div>
+
+                <form id="loginForm" novalidate>
+                    <div class="auth-field">
+                        <label for="loginUsername">Tên đăng nhập hoặc email</label>
+                        <div class="auth-input-wrap">
+                            <i class="bi bi-person"></i>
+                            <input type="text" id="loginUsername" name="username"
+                                   class="form-control" placeholder="Nhập tên đăng nhập hoặc email"
+                                   autocomplete="username" required>
+                        </div>
+                        <small class="auth-field-error" id="loginUsernameError"></small>
+                    </div>
+
+                    <div class="auth-field">
+                        <div class="auth-label-row">
+                            <label for="loginPassword">Mật khẩu</label>
+                            <a href="quen-mat-khau.html">Quên mật khẩu?</a>
+                        </div>
+
+                        <div class="auth-input-wrap">
+                            <i class="bi bi-lock"></i>
+                            <input type="password" id="loginPassword" name="password"
+                                   class="form-control" placeholder="Nhập mật khẩu"
+                                   autocomplete="current-password" required>
+                            <button type="button" class="auth-password-toggle"
+                                    id="toggleLoginPassword"
+                                    aria-label="Hiện mật khẩu"
+                                    aria-pressed="false">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                        <small class="auth-field-error" id="loginPasswordError"></small>
+                    </div>
+
+                    <label class="auth-remember">
+                        <input type="checkbox" id="rememberLogin">
+                        <span>Ghi nhớ tên đăng nhập trên thiết bị này</span>
+                    </label>
+
+                    <button type="submit" class="btn btn-primary auth-submit-btn">
+                        Đăng nhập <i class="bi bi-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div class="auth-divider"><span>hoặc</span></div>
+
+                <p class="auth-register-prompt">
+                    Bạn chưa có tài khoản?
+                    <a href="register.html">Đăng ký ngay</a>
+                </p>
+
+                <p class="auth-security-note">
+                    <i class="bi bi-shield-lock"></i>
+                    Không chia sẻ mật khẩu của bạn với người khác.
+                </p>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer class="auth-footer">
+    <div class="container">
+        <span>© <span id="currentYear"></span> MedCare.</span>
+        <span>Chăm sóc sức khỏe tận tâm, đồng hành cùng bạn.</span>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/public.js"></script>
+</body>
+</html>

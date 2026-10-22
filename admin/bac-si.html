@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Quản lý bác sĩ | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">HỆ THỐNG QUẢN LÝ</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+        <a class="side-link" href="tong-quan.html"><i class="bi bi-grid-1x2-fill"></i><span>Tổng quan</span></a>
+
+        <div class="menu-label">QUẢN LÝ HỆ THỐNG</div>
+        <a class="side-link active" href="bac-si.html"><i class="bi bi-person-badge"></i><span>Quản lý bác sĩ</span></a>
+        <a class="side-link" href="benh-nhan.html"><i class="bi bi-people"></i><span>Quản lý bệnh nhân</span></a>
+        <a class="side-link" href="chuyen-khoa.html"><i class="bi bi-hospital"></i><span>Chuyên khoa</span></a>
+        <a class="side-link" href="phong-kham.html"><i class="bi bi-building"></i><span>Phòng khám</span></a>
+
+        <div class="menu-label">LỊCH KHÁM & DỊCH VỤ</div>
+        <a class="side-link" href="lich-hen.html"><i class="bi bi-calendar-check"></i><span>Lịch hẹn</span></a>
+        <a class="side-link" href="lich-lam-viec.html"><i class="bi bi-calendar-week"></i><span>Lịch làm việc</span></a>
+        <a class="side-link" href="phieu-kham.html"><i class="bi bi-clipboard2-pulse"></i><span>Phiếu khám</span></a>
+        <a class="side-link" href="dich-vu.html"><i class="bi bi-heart"></i><span>Dịch vụ</span></a>
+        <a class="side-link" href="hoa-don.html"><i class="bi bi-receipt"></i><span>Hóa đơn</span></a>
+
+        <div class="menu-label">HỆ THỐNG</div>
+        <a class="side-link" href="tai-khoan.html"><i class="bi bi-person-gear"></i><span>Tài khoản</span></a>
+        <a class="side-link" href="kenh-dang-ky.html"><i class="bi bi-diagram-3"></i><span>Kênh đăng ký</span></a>
+        <a class="side-link" href="bao-cao.html"><i class="bi bi-bar-chart-line"></i><span>Báo cáo thống kê</span></a>
+        <a class="side-link website-link" href="../index.html"><i class="bi bi-box-arrow-up-right"></i><span>Về website</span></a>
+    </aside>
+
+    <main class="main-area">
+
+        <header class="topbar">
+            <div>
+                <h1 class="topbar-title">Quản lý bác sĩ</h1>
+                <p class="topbar-subtitle">Quản lý hồ sơ và thông tin đội ngũ bác sĩ</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar"><i class="bi bi-person-fill"></i></div>
+                <div class="profile-info">
+                    <div class="profile-name">Quản trị viên</div>
+                    <div class="profile-role">Quản trị hệ thống</div>
+                </div>
+                <a href="../login.html" class="logout-link" title="Đến trang đăng nhập">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <section class="page-heading">
+                <div>
+                    <h2>Danh sách bác sĩ</h2>
+                    <p>Theo dõi thông tin, chuyên khoa và trạng thái làm việc của bác sĩ.</p>
+                </div>
+
+                <button class="btn-primary-custom" id="addDoctorBtn" type="button">
+                    <i class="bi bi-plus-lg"></i> Thêm bác sĩ
+                </button>
+            </section>
+
+            <section class="row g-3 mb-4">
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card doctor-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng số bác sĩ</span>
+                            <div class="stat-icon icon-blue"><i class="bi bi-person-badge"></i></div>
+                        </div>
+                        <div class="stat-number" id="totalDoctors">6</div>
+                        <div class="stat-note">Tổng hồ sơ trong danh sách</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card doctor-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Đang làm việc</span>
+                            <div class="stat-icon icon-green"><i class="bi bi-person-check"></i></div>
+                        </div>
+                        <div class="stat-number" id="activeDoctors">5</div>
+                        <div class="stat-note">Bác sĩ có trạng thái đang hoạt động</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card doctor-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Chuyên khoa</span>
+                            <div class="stat-icon icon-purple"><i class="bi bi-hospital"></i></div>
+                        </div>
+                        <div class="stat-number" id="specialtyCount">6</div>
+                        <div class="stat-note">Số chuyên khoa trong danh sách bác sĩ</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel doctor-management">
+
+                <div class="panel-header doctor-panel-heading">
+                    <div>
+                        <h3 class="panel-title">Danh sách đội ngũ bác sĩ</h3>
+                        <p class="panel-subtitle">Tra cứu và quản lý hồ sơ bác sĩ</p>
+                    </div>
+                    <button type="button" class="btn-outline-custom export-btn" id="exportDoctorsBtn">
+                        <i class="bi bi-download"></i> Xuất danh sách
+                    </button>
+                </div>
+
+                <div class="doctor-filters">
+                    <div class="doctor-search">
+                        <i class="bi bi-search"></i>
+                        <input type="search" id="doctorSearch" placeholder="Tìm tên, mã bác sĩ hoặc email...">
+                    </div>
+
+                    <select id="specialtyFilter" class="doctor-select" aria-label="Lọc theo chuyên khoa">
+                        <option value="">Tất cả chuyên khoa</option>
+                        <option value="Tim mạch">Tim mạch</option>
+                        <option value="Nội tổng quát">Nội tổng quát</option>
+                        <option value="Nhi khoa">Nhi khoa</option>
+                        <option value="Da liễu">Da liễu</option>
+                        <option value="Răng hàm mặt">Răng hàm mặt</option>
+                        <option value="Tai mũi họng">Tai mũi họng</option>
+                    </select>
+
+                    <select id="doctorStatusFilter" class="doctor-select" aria-label="Lọc theo trạng thái">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="active">Đang làm việc</option>
+                        <option value="inactive">Tạm nghỉ</option>
+                    </select>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table doctor-table">
+                        <thead>
+                            <tr>
+                                <th>MÃ BÁC SĨ</th>
+                                <th>THÔNG TIN BÁC SĨ</th>
+                                <th>CHUYÊN KHOA</th>
+                                <th>LIÊN HỆ</th>
+                                <th>TRẠNG THÁI</th>
+                                <th>THAO TÁC</th>
+                            </tr>
+                        </thead>
+                        <tbody id="doctorTableBody">
+                            <tr>
+                                <td colspan="6" class="text-center py-5">Đang tải danh sách...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="doctor-table-footer">
+                    <span id="doctorResultCount">Hiển thị 0 bác sĩ</span>
+                    <div class="doctor-pagination" id="doctorPagination"></div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<!-- MODAL THÊM / SỬA BÁC SĨ -->
+<div class="modal fade" id="doctorModal" tabindex="-1" aria-labelledby="doctorModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content doctor-modal">
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title fs-5" id="doctorModalTitle">Thêm bác sĩ</h2>
+                    <p class="modal-description">Nhập đầy đủ thông tin hồ sơ bác sĩ.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <form id="doctorForm">
+                <div class="modal-body">
+                    <input type="hidden" id="doctorId">
+
+                    <div class="mb-3">
+                        <label for="doctorName" class="form-label">Họ và tên <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="doctorName" maxlength="100" required placeholder="Nhập họ và tên">
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="doctorSpecialty" class="form-label">Chuyên khoa <span class="text-danger">*</span></label>
+                            <select class="form-select" id="doctorSpecialty" required>
+                                <option value="">Chọn chuyên khoa</option>
+                                <option value="Tim mạch">Tim mạch</option>
+                                <option value="Nội tổng quát">Nội tổng quát</option>
+                                <option value="Nhi khoa">Nhi khoa</option>
+                                <option value="Da liễu">Da liễu</option>
+                                <option value="Răng hàm mặt">Răng hàm mặt</option>
+                                <option value="Tai mũi họng">Tai mũi họng</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="doctorStatus" class="form-label">Trạng thái</label>
+                            <select class="form-select" id="doctorStatus">
+                                <option value="active">Đang làm việc</option>
+                                <option value="inactive">Tạm nghỉ</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 mb-3">
+                        <label for="doctorEmail" class="form-label">Email <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="doctorEmail" maxlength="150" required placeholder="bacsi@medcare.vn">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="doctorPhone" class="form-label">Số điện thoại <span class="text-danger">*</span></label>
+                        <input type="tel" class="form-control" id="doctorPhone" maxlength="20" required pattern="[0-9+() .-]{9,20}" placeholder="Nhập số điện thoại">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary" id="saveDoctorBtn">
+                        <i class="bi bi-check-lg"></i> Lưu thông tin
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL XEM CHI TIẾT -->
+<div class="modal fade" id="doctorDetailModal" tabindex="-1" aria-labelledby="doctorDetailTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content doctor-modal">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="doctorDetailTitle">Thông tin bác sĩ</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+            <div class="modal-body" id="doctorDetailContent"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

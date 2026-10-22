@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Báo cáo tác dụng phụ | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/pharmacist.css">
+</head>
+<body>
+
+<div class="admin-layout">
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand text-decoration-none">
+            <div class="brand-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+            <div class="brand-info">
+                <div class="brand-name">MedCare</div>
+                <div class="brand-caption">Hệ thống quản lý phòng khám</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+        <a href="tong-quan.html" class="side-link">
+            <i class="bi bi-grid-1x2"></i><span>Tổng quan</span>
+        </a>
+
+        <div class="menu-label">QUẢN LÝ DƯỢC</div>
+        <a href="don-thuoc-cho-cap.html" class="side-link">
+            <i class="bi bi-prescription2"></i><span>Đơn thuốc chờ cấp</span>
+        </a>
+        <a href="cap-phat-thuoc.html" class="side-link">
+            <i class="bi bi-capsule"></i><span>Cấp phát thuốc</span>
+        </a>
+        <a href="danh-sach-thuoc.html" class="side-link">
+            <i class="bi bi-clipboard2-pulse"></i><span>Danh sách thuốc</span>
+        </a>
+        <a href="kho-thuoc.html" class="side-link">
+            <i class="bi bi-box-seam"></i><span>Kho thuốc</span>
+        </a>
+        <a href="lich-uong-thuoc.html" class="side-link">
+            <i class="bi bi-calendar2-check"></i><span>Lịch uống thuốc</span>
+        </a>
+        <a href="bao-cao-tac-dung-phu.html" class="side-link active">
+            <i class="bi bi-clipboard2-data"></i><span>Báo cáo tác dụng phụ</span>
+        </a>
+
+        <div class="sidebar-bottom">
+            <a href="../index.html" class="side-link website-link">
+                <i class="bi bi-box-arrow-left"></i><span>Đăng xuất</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-area">
+        <header class="topbar">
+            <div>
+                <h1 class="topbar-title">Báo cáo tác dụng phụ</h1>
+                <p class="topbar-subtitle">Ghi nhận và theo dõi phản ứng bất lợi liên quan đến thuốc</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar">Đ</div>
+                <div class="profile-info">
+                    <div class="profile-name">Trần Minh Đức</div>
+                    <div class="profile-role">Dược sĩ</div>
+                </div>
+                <a href="../index.html" class="logout-link" title="Đăng xuất">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <section class="content">
+            <div class="page-heading">
+                <div>
+                    <h2>Quản lý báo cáo tác dụng phụ</h2>
+                    <p>Tiếp nhận thông tin, phân loại mức độ và theo dõi tình trạng xử lý báo cáo.</p>
+                </div>
+                <button type="button" class="btn btn-primary-custom" id="addAdverseReportBtn">
+                    <i class="bi bi-plus-lg me-2"></i>Tạo báo cáo
+                </button>
+            </div>
+
+            <div class="adverse-safety-notice mb-4">
+                <div class="adverse-safety-icon"><i class="bi bi-shield-exclamation"></i></div>
+                <div>
+                    <h6>Lưu ý về an toàn thuốc</h6>
+                    <p>Ghi nhận đầy đủ thông tin phản ứng được báo cáo và chuyển nhân viên y tế phụ trách đánh giá. Trường hợp có dấu hiệu nghiêm trọng cần được xử trí y tế kịp thời.</p>
+                </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-label">Tổng báo cáo</div>
+                            <div class="stat-icon icon-blue"><i class="bi bi-clipboard2-data"></i></div>
+                        </div>
+                        <div class="stat-number" id="adverseTotalCount">0</div>
+                        <div class="stat-note">Tất cả báo cáo đã ghi nhận</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-label">Chờ xử lý</div>
+                            <div class="stat-icon icon-purple"><i class="bi bi-hourglass-split"></i></div>
+                        </div>
+                        <div class="stat-number" id="adversePendingCount">0</div>
+                        <div class="stat-note">Cần được xem xét và đánh giá</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-label">Đang xử lý</div>
+                            <div class="stat-icon icon-orange"><i class="bi bi-arrow-repeat"></i></div>
+                        </div>
+                        <div class="stat-number" id="adverseProcessingCount">0</div>
+                        <div class="stat-note">Đang được nhân viên phụ trách theo dõi</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-label">Đã xử lý</div>
+                            <div class="stat-icon icon-green"><i class="bi bi-check-circle"></i></div>
+                        </div>
+                        <div class="stat-number" id="adverseResolvedCount">0</div>
+                        <div class="stat-note">Đã cập nhật kết quả xử lý</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel mb-4">
+                <div class="panel-header">
+                    <div>
+                        <h3 class="panel-title">Danh sách báo cáo</h3>
+                        <p class="panel-subtitle">Tra cứu báo cáo theo mã, bệnh nhân, thuốc và tình trạng xử lý.</p>
+                    </div>
+                    <button type="button" class="btn btn-outline-custom" id="refreshAdverseReportsBtn">
+                        <i class="bi bi-arrow-clockwise me-1"></i>Làm mới
+                    </button>
+                </div>
+
+                <div class="adverse-filter-bar">
+                    <div class="adverse-search">
+                        <i class="bi bi-search"></i>
+                        <input type="search" id="adverseSearchInput" class="form-control"
+                               placeholder="Tìm mã báo cáo, bệnh nhân, tên thuốc...">
+                    </div>
+
+                    <div class="adverse-filter">
+                        <label for="adverseSeverityFilter" class="form-label">Mức độ</label>
+                        <select id="adverseSeverityFilter" class="form-select">
+                            <option value="">Tất cả mức độ</option>
+                            <option value="mild">Nhẹ</option>
+                            <option value="moderate">Trung bình</option>
+                            <option value="severe">Nghiêm trọng</option>
+                        </select>
+                    </div>
+
+                    <div class="adverse-filter">
+                        <label for="adverseStatusFilter" class="form-label">Trạng thái</label>
+                        <select id="adverseStatusFilter" class="form-select">
+                            <option value="">Tất cả trạng thái</option>
+                            <option value="pending">Chờ xử lý</option>
+                            <option value="processing">Đang xử lý</option>
+                            <option value="resolved">Đã xử lý</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn btn-outline-custom adverse-clear-btn" id="clearAdverseFilters">
+                        <i class="bi bi-arrow-counterclockwise me-1"></i>Xóa lọc
+                    </button>
+                </div>
+
+                <div class="adverse-summary">
+                    <span>Đang hiển thị <strong id="adverseResultCount">0</strong> báo cáo</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table align-middle adverse-table">
+                        <thead>
+                            <tr>
+                                <th>MÃ BÁO CÁO</th>
+                                <th>BỆNH NHÂN</th>
+                                <th>THUỐC LIÊN QUAN</th>
+                                <th>BIỂU HIỆN</th>
+                                <th>MỨC ĐỘ</th>
+                                <th>NGÀY GHI NHẬN</th>
+                                <th>TRẠNG THÁI</th>
+                                <th class="text-end">THAO TÁC</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adverseTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="adverse-empty d-none" id="adverseEmptyState">
+                    <div class="adverse-empty-icon"><i class="bi bi-clipboard2-x"></i></div>
+                    <h5>Không tìm thấy báo cáo</h5>
+                    <p>Thử thay đổi từ khóa hoặc điều kiện lọc để tìm báo cáo phù hợp.</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3 class="panel-title">Quy trình tiếp nhận và theo dõi</h3>
+                        <p class="panel-subtitle">Các bước cơ bản khi ghi nhận phản ứng bất lợi liên quan đến thuốc.</p>
+                    </div>
+                </div>
+
+                <div class="adverse-workflow">
+                    <div class="adverse-workflow-item">
+                        <div class="adverse-workflow-number">01</div>
+                        <div>
+                            <h6>Ghi nhận thông tin</h6>
+                            <p>Ghi rõ bệnh nhân, thuốc nghi ngờ liên quan, biểu hiện và thời điểm xuất hiện.</p>
+                        </div>
+                    </div>
+                    <div class="adverse-workflow-item">
+                        <div class="adverse-workflow-number">02</div>
+                        <div>
+                            <h6>Đánh giá mức độ</h6>
+                            <p>Chuyển thông tin cho nhân viên y tế có thẩm quyền đánh giá và hướng dẫn xử trí.</p>
+                        </div>
+                    </div>
+                    <div class="adverse-workflow-item">
+                        <div class="adverse-workflow-number">03</div>
+                        <div>
+                            <h6>Theo dõi kết quả</h6>
+                            <p>Cập nhật diễn biến, hướng xử lý và kết quả theo dõi vào báo cáo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- Modal tạo / chỉnh sửa báo cáo -->
+<div class="modal fade" id="adverseFormModal" tabindex="-1" aria-labelledby="adverseFormTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content adverse-modal">
+            <div class="modal-header">
+                <div>
+                    <h5 class="modal-title" id="adverseFormTitle">Tạo báo cáo tác dụng phụ</h5>
+                    <p class="adverse-modal-subtitle mb-0">Nhập thông tin phản ứng bất lợi được ghi nhận.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <form id="adverseReportForm">
+                <div class="modal-body">
+                    <input type="hidden" id="adverseEditingId">
+
+                    <div class="adverse-form-section">
+                        <h6><i class="bi bi-person-vcard me-2"></i>Thông tin bệnh nhân</h6>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="adversePatientName" class="form-label">Họ và tên bệnh nhân <span class="text-danger">*</span></label>
+                                <input type="text" id="adversePatientName" class="form-control" maxlength="100" required placeholder="Nhập họ và tên">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="adversePatientCode" class="form-label">Mã bệnh nhân</label>
+                                <input type="text" id="adversePatientCode" class="form-control" maxlength="30" placeholder="Ví dụ: BN00128">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="adverse-form-section">
+                        <h6><i class="bi bi-capsule me-2"></i>Thông tin thuốc và phản ứng</h6>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="adverseMedicineName" class="form-label">Tên thuốc liên quan <span class="text-danger">*</span></label>
+                                <input type="text" id="adverseMedicineName" class="form-control" maxlength="150" required placeholder="Nhập tên thuốc">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="adverseReportDate" class="form-label">Ngày ghi nhận <span class="text-danger">*</span></label>
+                                <input type="date" id="adverseReportDate" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="adverseSymptom" class="form-label">Biểu hiện ghi nhận <span class="text-danger">*</span></label>
+                                <input type="text" id="adverseSymptom" class="form-control" maxlength="200" required placeholder="Mô tả biểu hiện được báo cáo">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="adverseSeverity" class="form-label">Mức độ ban đầu <span class="text-danger">*</span></label>
+                                <select id="adverseSeverity" class="form-select" required>
+                                    <option value="">Chọn mức độ</option>
+                                    <option value="mild">Nhẹ</option>
+                                    <option value="moderate">Trung bình</option>
+                                    <option value="severe">Nghiêm trọng</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="adverseDescription" class="form-label">Mô tả chi tiết <span class="text-danger">*</span></label>
+                                <textarea id="adverseDescription" class="form-control" rows="3" maxlength="1500" required placeholder="Ghi nhận diễn biến, thời điểm xuất hiện và thông tin liên quan..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="adverse-form-section mb-0">
+                        <h6><i class="bi bi-clipboard-check me-2"></i>Thông tin theo dõi</h6>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="adverseStatus" class="form-label">Trạng thái xử lý</label>
+                                <select id="adverseStatus" class="form-select">
+                                    <option value="pending">Chờ xử lý</option>
+                                    <option value="processing">Đang xử lý</option>
+                                    <option value="resolved">Đã xử lý</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="adverseHandling" class="form-label">Hướng xử lý / ghi chú</label>
+                                <textarea id="adverseHandling" class="form-control" rows="3" maxlength="1500" placeholder="Ghi nhận hướng xử lý do nhân viên y tế phụ trách cung cấp..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="adverse-form-notice mt-4">
+                        <i class="bi bi-shield-check me-2"></i>
+                        Thông tin cần được ghi nhận khách quan. Việc đánh giá nguyên nhân và quyết định điều trị thuộc trách nhiệm của nhân viên y tế có thẩm quyền.
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary-custom" id="saveAdverseReportBtn">
+                        <i class="bi bi-check2-circle me-2"></i>Lưu báo cáo
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal chi tiết báo cáo -->
+<div class="modal fade" id="adverseDetailModal" tabindex="-1" aria-labelledby="adverseDetailTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content adverse-modal">
+            <div class="modal-header">
+                <div>
+                    <h5 class="modal-title" id="adverseDetailTitle">Chi tiết báo cáo</h5>
+                    <p class="adverse-modal-subtitle mb-0">Thông tin phản ứng bất lợi và tình trạng theo dõi.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="adverse-detail-banner">
+                    <div class="adverse-detail-icon"><i class="bi bi-clipboard2-pulse"></i></div>
+                    <div>
+                        <div class="adverse-detail-name" id="adverseDetailPatient">—</div>
+                        <div class="adverse-detail-code" id="adverseDetailCode">—</div>
+                    </div>
+                    <div class="ms-auto" id="adverseDetailStatus"></div>
+                </div>
+
+                <div class="adverse-detail-grid">
+                    <div class="adverse-detail-item">
+                        <span>Mã bệnh nhân</span>
+                        <strong id="adverseDetailPatientCode">—</strong>
+                    </div>
+                    <div class="adverse-detail-item">
+                        <span>Thuốc liên quan</span>
+                        <strong id="adverseDetailMedicine">—</strong>
+                    </div>
+                    <div class="adverse-detail-item">
+                        <span>Biểu hiện</span>
+                        <strong id="adverseDetailSymptom">—</strong>
+                    </div>
+                    <div class="adverse-detail-item">
+                        <span>Ngày ghi nhận</span>
+                        <strong id="adverseDetailDate">—</strong>
+                    </div>
+                    <div class="adverse-detail-item">
+                        <span>Mức độ ban đầu</span>
+                        <strong id="adverseDetailSeverity">—</strong>
+                    </div>
+                    <div class="adverse-detail-item">
+                        <span>Người ghi nhận</span>
+                        <strong id="adverseDetailReporter">—</strong>
+                    </div>
+                </div>
+
+                <div class="adverse-detail-section">
+                    <h6><i class="bi bi-file-text me-2"></i>Mô tả chi tiết</h6>
+                    <p id="adverseDetailDescription">—</p>
+                </div>
+
+                <div class="adverse-detail-section">
+                    <h6><i class="bi bi-clipboard-check me-2"></i>Hướng xử lý / ghi chú</h6>
+                    <p id="adverseDetailHandling">—</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary-custom" id="editAdverseFromDetailBtn">
+                    <i class="bi bi-pencil-square me-2"></i>Cập nhật báo cáo
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pharmacist-toast-container" id="adverseToastContainer" aria-live="polite" aria-atomic="true"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/pharmacist.js"></script>
+</body>
+</html>

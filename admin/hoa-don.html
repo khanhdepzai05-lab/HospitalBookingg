@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Quản lý hóa đơn | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">HỆ THỐNG QUẢN LÝ</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+        <a class="side-link" href="tong-quan.html">
+            <i class="bi bi-grid-1x2-fill"></i><span>Tổng quan</span>
+        </a>
+
+        <div class="menu-label">QUẢN LÝ HỆ THỐNG</div>
+        <a class="side-link" href="bac-si.html">
+            <i class="bi bi-person-badge"></i><span>Quản lý bác sĩ</span>
+        </a>
+        <a class="side-link" href="benh-nhan.html">
+            <i class="bi bi-people"></i><span>Quản lý bệnh nhân</span>
+        </a>
+        <a class="side-link" href="chuyen-khoa.html">
+            <i class="bi bi-hospital"></i><span>Chuyên khoa</span>
+        </a>
+        <a class="side-link" href="phong-kham.html">
+            <i class="bi bi-building"></i><span>Phòng khám</span>
+        </a>
+
+        <div class="menu-label">LỊCH KHÁM & DỊCH VỤ</div>
+        <a class="side-link" href="lich-hen.html">
+            <i class="bi bi-calendar-check"></i><span>Lịch hẹn</span>
+        </a>
+        <a class="side-link" href="lich-lam-viec.html">
+            <i class="bi bi-calendar-week"></i><span>Lịch làm việc</span>
+        </a>
+        <a class="side-link" href="phieu-kham.html">
+            <i class="bi bi-clipboard2-pulse"></i><span>Phiếu khám</span>
+        </a>
+        <a class="side-link" href="dich-vu.html">
+            <i class="bi bi-heart"></i><span>Dịch vụ</span>
+        </a>
+        <a class="side-link active" href="hoa-don.html">
+            <i class="bi bi-receipt"></i><span>Hóa đơn</span>
+        </a>
+
+        <div class="menu-label">HỆ THỐNG</div>
+        <a class="side-link" href="tai-khoan.html">
+            <i class="bi bi-person-gear"></i><span>Tài khoản</span>
+        </a>
+        <a class="side-link" href="kenh-dang-ky.html"><i class="bi bi-diagram-3"></i><span>Kênh đăng ký</span></a>
+        <a class="side-link" href="bao-cao.html">
+            <i class="bi bi-bar-chart-line"></i><span>Báo cáo thống kê</span>
+        </a>
+        <a class="side-link website-link" href="../index.html">
+            <i class="bi bi-box-arrow-up-right"></i><span>Về website</span>
+        </a>
+    </aside>
+
+    <main class="main-area">
+
+        <header class="topbar">
+            <div>
+                <h1 class="topbar-title">Quản lý hóa đơn</h1>
+                <p class="topbar-subtitle">Theo dõi hóa đơn và tình trạng thanh toán</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar"><i class="bi bi-person-fill"></i></div>
+                <div class="profile-info">
+                    <div class="profile-name">Quản trị viên</div>
+                    <div class="profile-role">Quản trị hệ thống</div>
+                </div>
+                <a href="../login.html" class="logout-link" title="Đến trang đăng nhập">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <section class="page-heading">
+                <div>
+                    <h2>Danh sách hóa đơn</h2>
+                    <p>Quản lý chi phí khám chữa bệnh và tình trạng thanh toán của bệnh nhân.</p>
+                </div>
+
+                <button class="btn-primary-custom" id="addInvoiceBtn" type="button">
+                    <i class="bi bi-plus-lg"></i> Tạo hóa đơn
+                </button>
+            </section>
+
+            <section class="row g-3 mb-4">
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card invoice-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng số hóa đơn</span>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-receipt"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="invoiceTotalCount">0</div>
+                        <div class="stat-note">Tổng hóa đơn trong danh sách</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card invoice-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Đã thanh toán</span>
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="invoicePaidCount">0</div>
+                        <div class="stat-note">Hóa đơn đã hoàn tất thanh toán</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card invoice-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Chưa thanh toán</span>
+                            <div class="stat-icon icon-purple">
+                                <i class="bi bi-clock-history"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="invoiceUnpaidCount">0</div>
+                        <div class="stat-note">Hóa đơn cần theo dõi thanh toán</div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="panel invoice-management">
+
+                <div class="panel-header invoice-panel-heading">
+                    <div>
+                        <h3 class="panel-title">Danh sách hóa đơn</h3>
+                        <p class="panel-subtitle">Tra cứu, theo dõi và quản lý thông tin thanh toán.</p>
+                    </div>
+
+                    <button type="button" class="btn-outline-custom invoice-export-btn" id="exportInvoicesBtn">
+                        <i class="bi bi-download"></i> Xuất danh sách
+                    </button>
+                </div>
+
+                <div class="invoice-filters">
+                    <div class="invoice-search">
+                        <i class="bi bi-search"></i>
+                        <input
+                            type="search"
+                            id="invoiceSearch"
+                            placeholder="Tìm mã hóa đơn hoặc tên bệnh nhân..."
+                            aria-label="Tìm hóa đơn">
+                    </div>
+
+                    <select id="invoiceStatusFilter" class="invoice-select" aria-label="Lọc theo trạng thái">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="paid">Đã thanh toán</option>
+                        <option value="unpaid">Chưa thanh toán</option>
+                        <option value="cancelled">Đã hủy</option>
+                    </select>
+
+                    <select id="invoiceMethodFilter" class="invoice-select" aria-label="Lọc theo phương thức thanh toán">
+                        <option value="">Tất cả phương thức</option>
+                        <option value="cash">Tiền mặt</option>
+                        <option value="transfer">Chuyển khoản</option>
+                        <option value="card">Thẻ ngân hàng</option>
+                    </select>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table invoice-table">
+                        <thead>
+                            <tr>
+                                <th>MÃ HÓA ĐƠN</th>
+                                <th>THÔNG TIN BỆNH NHÂN</th>
+                                <th>NGÀY LẬP</th>
+                                <th>TỔNG TIỀN</th>
+                                <th>PHƯƠNG THỨC</th>
+                                <th>TRẠNG THÁI</th>
+                                <th>THAO TÁC</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoiceTableBody">
+                            <tr>
+                                <td colspan="7" class="text-center py-5">Đang tải danh sách...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="invoice-table-footer">
+                    <span id="invoiceResultCount">Hiển thị 0 hóa đơn</span>
+                    <div class="invoice-pagination" id="invoicePagination"></div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<!-- MODAL THÊM / SỬA HÓA ĐƠN -->
+<div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="invoiceModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content invoice-modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title fs-5" id="invoiceModalTitle">Tạo hóa đơn</h2>
+                    <p class="modal-description">Nhập đầy đủ thông tin hóa đơn và thanh toán.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <form id="invoiceForm">
+                <div class="modal-body">
+
+                    <input type="hidden" id="invoiceId">
+
+                    <div class="mb-3">
+                        <label for="invoicePatientName" class="form-label">
+                            Họ tên bệnh nhân <span class="text-danger">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="invoicePatientName"
+                            maxlength="100"
+                            required
+                            placeholder="Nhập họ tên bệnh nhân">
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="invoiceDate" class="form-label">
+                                Ngày lập hóa đơn <span class="text-danger">*</span>
+                            </label>
+                            <input type="date" class="form-control" id="invoiceDate" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="invoiceAmount" class="form-label">
+                                Tổng tiền (VNĐ) <span class="text-danger">*</span>
+                            </label>
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="invoiceAmount"
+                                min="0"
+                                step="1000"
+                                required
+                                placeholder="Nhập tổng tiền">
+                        </div>
+                    </div>
+
+                    <div class="mt-3 mb-3">
+                        <label for="invoiceMethod" class="form-label">
+                            Phương thức thanh toán <span class="text-danger">*</span>
+                        </label>
+                        <select class="form-select" id="invoiceMethod" required>
+                            <option value="cash">Tiền mặt</option>
+                            <option value="transfer">Chuyển khoản</option>
+                            <option value="card">Thẻ ngân hàng</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="invoiceStatus" class="form-label">
+                            Trạng thái thanh toán <span class="text-danger">*</span>
+                        </label>
+                        <select class="form-select" id="invoiceStatus" required>
+                            <option value="unpaid">Chưa thanh toán</option>
+                            <option value="paid">Đã thanh toán</option>
+                            <option value="cancelled">Đã hủy</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="invoiceNote" class="form-label">Ghi chú</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="invoiceNote"
+                            maxlength="250"
+                            placeholder="Nhập ghi chú nếu có">
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary" id="saveInvoiceBtn">
+                        <i class="bi bi-check-lg"></i> Lưu thông tin
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL XEM CHI TIẾT HÓA ĐƠN -->
+<div class="modal fade" id="invoiceDetailModal" tabindex="-1" aria-labelledby="invoiceDetailTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content invoice-modal">
+
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="invoiceDetailTitle">Thông tin hóa đơn</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <div class="modal-body" id="invoiceDetailContent"></div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="editInvoiceFromDetail">
+                    <i class="bi bi-pencil-square"></i> Chỉnh sửa
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/admin.js"></script>
+
+</body>
+</html>

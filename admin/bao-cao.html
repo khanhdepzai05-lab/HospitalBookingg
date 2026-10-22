@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Báo cáo thống kê | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">HỆ THỐNG QUẢN LÝ</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+        <a class="side-link" href="tong-quan.html">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Tổng quan</span>
+        </a>
+
+        <div class="menu-label">QUẢN LÝ HỆ THỐNG</div>
+        <a class="side-link" href="bac-si.html">
+            <i class="bi bi-person-badge"></i>
+            <span>Quản lý bác sĩ</span>
+        </a>
+        <a class="side-link" href="benh-nhan.html">
+            <i class="bi bi-people"></i>
+            <span>Quản lý bệnh nhân</span>
+        </a>
+        <a class="side-link" href="chuyen-khoa.html">
+            <i class="bi bi-hospital"></i>
+            <span>Chuyên khoa</span>
+        </a>
+        <a class="side-link" href="phong-kham.html">
+            <i class="bi bi-building"></i>
+            <span>Phòng khám</span>
+        </a>
+
+        <div class="menu-label">LỊCH KHÁM & DỊCH VỤ</div>
+        <a class="side-link" href="lich-hen.html">
+            <i class="bi bi-calendar-check"></i>
+            <span>Lịch hẹn</span>
+        </a>
+        <a class="side-link" href="lich-lam-viec.html">
+            <i class="bi bi-calendar-week"></i>
+            <span>Lịch làm việc</span>
+        </a>
+        <a class="side-link" href="phieu-kham.html">
+            <i class="bi bi-clipboard2-pulse"></i>
+            <span>Phiếu khám</span>
+        </a>
+        <a class="side-link" href="dich-vu.html">
+            <i class="bi bi-heart"></i>
+            <span>Dịch vụ</span>
+        </a>
+        <a class="side-link" href="hoa-don.html">
+            <i class="bi bi-receipt"></i>
+            <span>Hóa đơn</span>
+        </a>
+
+        <div class="menu-label">HỆ THỐNG</div>
+        <a class="side-link" href="tai-khoan.html">
+            <i class="bi bi-person-gear"></i>
+            <span>Tài khoản</span>
+        </a>
+        <a class="side-link" href="kenh-dang-ky.html"><i class="bi bi-diagram-3"></i><span>Kênh đăng ký</span></a>
+        <a class="side-link active" href="bao-cao.html">
+            <i class="bi bi-bar-chart-line"></i>
+            <span>Báo cáo thống kê</span>
+        </a>
+        <a class="side-link website-link" href="../index.html">
+            <i class="bi bi-box-arrow-up-right"></i>
+            <span>Về website</span>
+        </a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-area">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div>
+                <h1 class="topbar-title">Báo cáo thống kê</h1>
+                <p class="topbar-subtitle">
+                    Theo dõi tình hình hoạt động và hiệu quả vận hành phòng khám
+                </p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-name">Quản trị viên</div>
+                    <div class="profile-role">Quản trị hệ thống</div>
+                </div>
+                <a href="../login.html" class="logout-link" title="Đến trang đăng nhập">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <div class="content report-page">
+
+            <!-- PAGE HEADING -->
+            <section class="page-heading">
+                <div>
+                    <h2>Báo cáo hoạt động</h2>
+                    <p>Tổng hợp số liệu lịch hẹn, bệnh nhân và doanh thu của phòng khám.</p>
+                </div>
+
+                <button class="btn-primary-custom" id="exportReportBtn" type="button">
+                    <i class="bi bi-download"></i>
+                    Xuất báo cáo
+                </button>
+            </section>
+
+            <!-- REPORT FILTERS -->
+            <section class="panel report-filter-panel">
+                <div class="panel-header">
+                    <div>
+                        <h3 class="panel-title">Bộ lọc báo cáo</h3>
+                        <p class="panel-subtitle">Lựa chọn thời gian và nội dung thống kê.</p>
+                    </div>
+                </div>
+
+                <div class="report-filter-grid">
+
+                    <div class="report-field">
+                        <label for="reportPeriodFilter">Khoảng thời gian</label>
+                        <select id="reportPeriodFilter" class="form-select">
+                            <option value="7days">7 ngày gần nhất</option>
+                            <option value="30days" selected>30 ngày gần nhất</option>
+                            <option value="90days">90 ngày gần nhất</option>
+                            <option value="year">Trong năm nay</option>
+                            <option value="custom">Tùy chỉnh</option>
+                        </select>
+                    </div>
+
+                    <div class="report-field">
+                        <label for="reportTypeFilter">Loại báo cáo</label>
+                        <select id="reportTypeFilter" class="form-select">
+                            <option value="overview">Tổng quan hoạt động</option>
+                            <option value="appointments">Lịch hẹn khám</option>
+                            <option value="patients">Bệnh nhân</option>
+                            <option value="revenue">Doanh thu</option>
+                        </select>
+                    </div>
+
+                    <div class="report-field">
+                        <label for="reportStartDate">Từ ngày</label>
+                        <input type="date" id="reportStartDate" class="form-control">
+                    </div>
+
+                    <div class="report-field">
+                        <label for="reportEndDate">Đến ngày</label>
+                        <input type="date" id="reportEndDate" class="form-control">
+                    </div>
+
+                    <div class="report-filter-action">
+                        <button class="btn-primary-custom" id="applyReportFilterBtn" type="button">
+                            <i class="bi bi-search"></i>
+                            Xem báo cáo
+                        </button>
+                    </div>
+
+                </div>
+
+                <p class="report-filter-error" id="reportFilterError" hidden></p>
+            </section>
+
+            <!-- STATISTICS CARDS -->
+            <section class="row g-3 mb-4 report-statistics">
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card report-stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng lịch hẹn</span>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-calendar-check"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="reportAppointmentCount">0</div>
+                        <div class="stat-note">Số lịch hẹn trong kỳ báo cáo</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card report-stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Lượt bệnh nhân</span>
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-people"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="reportPatientCount">0</div>
+                        <div class="stat-note">Lượt bệnh nhân được ghi nhận</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card report-stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng doanh thu</span>
+                            <div class="stat-icon icon-purple">
+                                <i class="bi bi-cash-stack"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number report-revenue-number" id="reportRevenue">0 ₫</div>
+                        <div class="stat-note">Doanh thu trong kỳ báo cáo</div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- CHART -->
+            <section class="panel report-chart-panel">
+                <div class="panel-header report-panel-heading">
+                    <div>
+                        <h3 class="panel-title" id="reportChartTitle">Tổng quan hoạt động</h3>
+                        <p class="panel-subtitle" id="reportChartSubtitle">
+                            Thống kê theo từng ngày trong khoảng thời gian đã chọn.
+                        </p>
+                    </div>
+
+                    <div class="report-chart-legend">
+                        <span class="report-legend-dot"></span>
+                        <span id="reportLegendLabel">Lịch hẹn</span>
+                    </div>
+                </div>
+
+                <div class="report-chart" id="reportChart" aria-label="Biểu đồ thống kê"></div>
+            </section>
+
+            <!-- REPORT TABLE -->
+            <section class="panel report-table-panel">
+                <div class="panel-header report-panel-heading">
+                    <div>
+                        <h3 class="panel-title" id="reportTableTitle">Chi tiết báo cáo</h3>
+                        <p class="panel-subtitle" id="reportTableSubtitle">
+                            Tổng hợp số liệu theo từng ngày.
+                        </p>
+                    </div>
+
+                    <span class="report-period-badge" id="reportPeriodLabel">
+                        30 ngày gần nhất
+                    </span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table report-table">
+                        <thead id="reportTableHead">
+                            <tr>
+                                <th>NGÀY</th>
+                                <th>LỊCH HẸN</th>
+                                <th>BỆNH NHÂN</th>
+                                <th>DOANH THU</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="reportTableBody">
+                            <tr>
+                                <td colspan="4" class="text-center py-5">
+                                    Đang tải báo cáo...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="report-table-footer">
+                    <span id="reportResultCount">Hiển thị 0 bản ghi</span>
+                    <span>
+                        <i class="bi bi-info-circle"></i>
+                        Thống kê theo khoảng thời gian đã chọn
+                    </span>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/admin.js"></script>
+
+</body>
+</html>

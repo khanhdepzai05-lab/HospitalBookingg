@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Hồ sơ bệnh nhân | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/doctor.css">
+</head>
+
+<body>
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">CỔNG BÁC SĨ</div>
+            </div>
+        </a>
+
+        <nav class="sidebar-nav">
+            <div class="menu-label">TỔNG QUAN</div>
+
+            <a href="tong-quan.html" class="side-link">
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Tổng quan</span>
+            </a>
+
+            <a href="lich-hen.html" class="side-link">
+                <i class="bi bi-calendar-check"></i>
+                <span>Lịch hẹn của tôi</span>
+            </a>
+
+            <a href="hang-doi.html" class="side-link">
+                <i class="bi bi-people"></i>
+                <span>Hàng đợi khám</span>
+            </a>
+
+            <a href="danh-sach-benh-nhan.html" class="side-link">
+                <i class="bi bi-person-lines-fill"></i>
+                <span>Danh sách bệnh nhân</span>
+            </a>
+
+            <a href="ho-so-benh-nhan.html" class="side-link active">
+                <i class="bi bi-person-vcard"></i>
+                <span>Hồ sơ bệnh nhân</span>
+            </a>
+
+            <div class="menu-label">CHUYÊN MÔN</div>
+
+            <a href="phieu-kham.html" class="side-link">
+                <i class="bi bi-clipboard2-pulse"></i>
+                <span>Phiếu khám</span>
+            </a>
+
+            <a href="ke-don-thuoc.html" class="side-link">
+                <i class="bi bi-capsule"></i>
+                <span>Kê đơn thuốc</span>
+            </a>
+
+            <a href="lich-lam-viec.html" class="side-link">
+                <i class="bi bi-calendar-week"></i>
+                <span>Lịch làm việc</span>
+            </a>
+
+            <div class="menu-label">HỆ THỐNG</div>
+
+            <a href="../index.html" class="side-link website-link">
+                <i class="bi bi-box-arrow-up-right"></i>
+                <span>Về website</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-area">
+
+        <header class="topbar">
+            <div class="topbar-heading">
+                <h1 class="topbar-title">Hồ sơ bệnh nhân</h1>
+                <p class="topbar-subtitle">Theo dõi thông tin sức khỏe và lịch sử khám bệnh</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar">NA</div>
+
+                <div class="profile-info">
+                    <span class="profile-name">Bác sĩ Nguyễn Minh Anh</span>
+                    <span class="profile-role">Bác sĩ chuyên khoa</span>
+                </div>
+
+                <a href="../login.html" class="logout-link" title="Đăng xuất">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <section class="content">
+
+            <div class="page-heading">
+                <div>
+                    <h2>Quản lý hồ sơ bệnh nhân</h2>
+                    <p>Tra cứu thông tin cá nhân, tiền sử và lịch sử khám bệnh.</p>
+                </div>
+
+                <button type="button" class="btn-outline-custom" id="refreshMedicalRecords">
+                    <i class="bi bi-arrow-clockwise me-1"></i>
+                    Làm mới
+                </button>
+            </div>
+
+            <!-- STATISTICS -->
+            <div class="row g-3 mb-4">
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng hồ sơ</span>
+                            <span class="stat-icon icon-blue">
+                                <i class="bi bi-folder2-open"></i>
+                            </span>
+                        </div>
+                        <div class="stat-number" id="recordTotal">0</div>
+                        <div class="stat-note">Hồ sơ bệnh nhân</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Có lịch sử khám</span>
+                            <span class="stat-icon icon-green">
+                                <i class="bi bi-clipboard2-check"></i>
+                            </span>
+                        </div>
+                        <div class="stat-number" id="recordWithHistory">0</div>
+                        <div class="stat-note">Đã ghi nhận lần khám</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Hồ sơ cần bổ sung</span>
+                            <span class="stat-icon icon-orange">
+                                <i class="bi bi-exclamation-circle"></i>
+                            </span>
+                        </div>
+                        <div class="stat-number" id="recordIncomplete">0</div>
+                        <div class="stat-note">Thiếu thông tin tiền sử</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Lượt khám đã ghi nhận</span>
+                            <span class="stat-icon icon-purple">
+                                <i class="bi bi-journal-medical"></i>
+                            </span>
+                        </div>
+                        <div class="stat-number" id="recordVisitTotal">0</div>
+                        <div class="stat-note">Tổng lượt khám trong hồ sơ</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PATIENT RECORDS -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h3 class="panel-title">Danh sách hồ sơ</h3>
+                        <p class="panel-subtitle">Chọn bệnh nhân để xem chi tiết hồ sơ sức khỏe.</p>
+                    </div>
+                </div>
+
+                <div class="medical-record-toolbar">
+                    <div class="medical-record-search">
+                        <i class="bi bi-search"></i>
+                        <input
+                            type="text"
+                            id="medicalRecordSearch"
+                            class="form-control"
+                            placeholder="Tìm tên hoặc mã bệnh nhân..."
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <div class="medical-record-filters">
+                        <select id="medicalRecordFilter" class="form-select">
+                            <option value="">Tất cả hồ sơ</option>
+                            <option value="history">Có lịch sử khám</option>
+                            <option value="incomplete">Cần bổ sung thông tin</option>
+                        </select>
+
+                        <button type="button" class="btn-outline-custom" id="resetMedicalRecordFilters">
+                            <i class="bi bi-arrow-counterclockwise me-1"></i>
+                            Đặt lại
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table doctor-table medical-record-table align-middle">
+                        <thead>
+                            <tr>
+                                <th>Mã bệnh nhân</th>
+                                <th>Họ và tên</th>
+                                <th>Ngày sinh</th>
+                                <th>Nhóm máu</th>
+                                <th>Tiền sử bệnh</th>
+                                <th>Lần khám gần nhất</th>
+                                <th class="text-center">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="medicalRecordTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="medical-record-footer">
+                    <span id="medicalRecordResultCount">Hiển thị 0 hồ sơ</span>
+                    <span><i class="bi bi-shield-check me-1"></i>Thông tin sức khỏe bệnh nhân</span>
+                </div>
+            </div>
+
+            <!-- DETAIL SECTION -->
+            <div class="panel medical-record-detail-panel" id="medicalRecordDetailPanel">
+                <div class="panel-header">
+                    <div>
+                        <h3 class="panel-title">Chi tiết hồ sơ bệnh nhân</h3>
+                        <p class="panel-subtitle">Thông tin cá nhân, tiền sử và lịch sử khám.</p>
+                    </div>
+                    <button type="button" class="btn-outline-custom" id="closeMedicalRecordDetail">
+                        <i class="bi bi-x-lg me-1"></i>
+                        Đóng
+                    </button>
+                </div>
+
+                <div class="medical-record-detail-content" id="medicalRecordDetailContent">
+                    <div class="medical-record-placeholder">
+                        <i class="bi bi-person-vcard"></i>
+                        <h4>Chưa chọn bệnh nhân</h4>
+                        <p>Chọn một hồ sơ trong danh sách phía trên để xem thông tin chi tiết.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</div>
+
+<!-- TOAST -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="medicalRecordToast" class="toast border-0" role="alert" aria-live="polite" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body" id="medicalRecordToastMessage"></div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Đóng"></button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/doctor.js"></script>
+</body>
+</html>

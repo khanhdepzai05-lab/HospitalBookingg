@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Tổng quan CSKH | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/cskh.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">CHĂM SÓC KHÁCH HÀNG</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+
+        <a class="side-link active" href="tong-quan.html">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Tổng quan</span>
+        </a>
+
+        <div class="menu-label">CHĂM SÓC KHÁCH HÀNG</div>
+
+        <a class="side-link" href="hoi-thoai.html">
+            <i class="bi bi-chat-dots"></i>
+            <span>Hội thoại</span>
+        </a>
+
+        <a class="side-link" href="khach-hang.html">
+            <i class="bi bi-people"></i>
+            <span>Khách hàng</span>
+        </a>
+
+        <a class="side-link" href="yeu-cau-dat-lich.html">
+            <i class="bi bi-calendar-check"></i>
+            <span>Yêu cầu đặt lịch</span>
+        </a>
+
+        <a class="side-link" href="lich-su-xu-ly.html">
+            <i class="bi bi-clock-history"></i>
+            <span>Lịch sử xử lý</span>
+        </a>
+
+        <a class="side-link" href="mau-tin-nhan.html">
+            <i class="bi bi-envelope-paper"></i>
+            <span>Mẫu tin nhắn</span>
+        </a>
+
+        <div class="menu-label">HỆ THỐNG</div>
+
+        <a class="side-link website-link" href="../index.html">
+            <i class="bi bi-box-arrow-up-right"></i>
+            <span>Về website</span>
+        </a>
+
+    </aside>
+
+    <main class="main-area">
+
+        <header class="topbar">
+
+            <div>
+                <h1 class="topbar-title">Tổng quan CSKH</h1>
+                <p class="topbar-subtitle">Theo dõi hoạt động chăm sóc và hỗ trợ khách hàng</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar">
+                    <i class="bi bi-headset"></i>
+                </div>
+
+                <div class="profile-info">
+                    <div class="profile-name">Nhân viên CSKH</div>
+                    <div class="profile-role">Chăm sóc khách hàng</div>
+                </div>
+
+                <a href="../login.html" class="logout-link" title="Đến trang đăng nhập">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+
+        </header>
+
+        <div class="content">
+
+            <section class="page-heading">
+                <div>
+                    <h2>Tổng quan hoạt động</h2>
+                    <p>Quản lý hội thoại, tiếp nhận yêu cầu và hỗ trợ khách hàng MedCare.</p>
+                </div>
+
+                <a href="yeu-cau-dat-lich.html" class="btn-primary-custom">
+                    <i class="bi bi-calendar-plus"></i>
+                    Xem yêu cầu đặt lịch
+                </a>
+            </section>
+
+            <!-- THỐNG KÊ -->
+            <section class="row g-3 mb-4">
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng khách hàng</span>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-people"></i>
+                            </div>
+                        </div>
+
+                        <div class="stat-number" id="totalCustomers">1.248</div>
+                        <div class="stat-note">Khách hàng đã đăng ký</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Hội thoại chờ xử lý</span>
+                            <div class="stat-icon icon-purple">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
+                        </div>
+
+                        <div class="stat-number" id="pendingChats">12</div>
+                        <div class="stat-note">Cần phản hồi khách hàng</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Yêu cầu đặt lịch</span>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-calendar-check"></i>
+                            </div>
+                        </div>
+
+                        <div class="stat-number" id="pendingBookings">8</div>
+                        <div class="stat-note">Yêu cầu đang chờ tiếp nhận</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Đã xử lý hôm nay</span>
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                        </div>
+
+                        <div class="stat-number" id="resolvedToday">36</div>
+                        <div class="stat-note">Yêu cầu đã hoàn tất</div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- NỘI DUNG CHÍNH -->
+            <section class="row g-4">
+
+                <!-- YÊU CẦU ĐẶT LỊCH -->
+                <div class="col-12 col-xl-7">
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <h3 class="panel-title">Yêu cầu đặt lịch gần đây</h3>
+                                <p class="panel-subtitle">Theo dõi và hỗ trợ khách hàng đặt lịch khám</p>
+                            </div>
+
+                            <a href="yeu-cau-dat-lich.html" class="btn-outline-custom">
+                                Xem tất cả
+                            </a>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table doctor-table align-middle mb-0">
+
+                                <thead>
+                                    <tr>
+                                        <th>KHÁCH HÀNG</th>
+                                        <th>DỊCH VỤ</th>
+                                        <th>THỜI GIAN</th>
+                                        <th>TRẠNG THÁI</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="fw-semibold">Nguyễn Minh Anh</div>
+                                            <small class="text-secondary">KH00125</small>
+                                        </td>
+                                        <td>Khám tổng quát</td>
+                                        <td>22/10/2026</td>
+                                        <td>
+                                            <span class="status-badge pending">Chờ xử lý</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <div class="fw-semibold">Trần Quốc Bảo</div>
+                                            <small class="text-secondary">KH00124</small>
+                                        </td>
+                                        <td>Khám tim mạch</td>
+                                        <td>22/10/2026</td>
+                                        <td>
+                                            <span class="status-badge processing">Đang xử lý</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <div class="fw-semibold">Lê Thu Hà</div>
+                                            <small class="text-secondary">KH00123</small>
+                                        </td>
+                                        <td>Khám da liễu</td>
+                                        <td>23/10/2026</td>
+                                        <td>
+                                            <span class="status-badge pending">Chờ xử lý</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <div class="fw-semibold">Phạm Gia Huy</div>
+                                            <small class="text-secondary">KH00122</small>
+                                        </td>
+                                        <td>Khám nội tổng quát</td>
+                                        <td>23/10/2026</td>
+                                        <td>
+                                            <span class="status-badge completed">Đã xác nhận</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                        <div class="doctor-table-footer">
+                            <span>Hiển thị 4 yêu cầu gần đây</span>
+                            <a href="yeu-cau-dat-lich.html" class="text-decoration-none">
+                                Xem danh sách <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- HỘI THOẠI -->
+                <div class="col-12 col-xl-5">
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <h3 class="panel-title">Hội thoại gần đây</h3>
+                                <p class="panel-subtitle">Các trao đổi mới nhất với khách hàng</p>
+                            </div>
+
+                            <a href="hoi-thoai.html" class="btn-outline-custom">
+                                Xem hội thoại
+                            </a>
+                        </div>
+
+                        <div class="cskh-conversation-list">
+
+                            <a href="hoi-thoai.html" class="cskh-conversation-item">
+                                <div class="cskh-conversation-avatar">MA</div>
+
+                                <div class="cskh-conversation-info">
+                                    <div class="cskh-conversation-name">Nguyễn Minh Anh</div>
+                                    <div class="cskh-conversation-message">
+                                        Tôi muốn thay đổi giờ khám đã đặt.
+                                    </div>
+                                    <small>5 phút trước</small>
+                                </div>
+
+                                <span class="cskh-unread-dot"></span>
+                            </a>
+
+                            <a href="hoi-thoai.html" class="cskh-conversation-item">
+                                <div class="cskh-conversation-avatar">QB</div>
+
+                                <div class="cskh-conversation-info">
+                                    <div class="cskh-conversation-name">Trần Quốc Bảo</div>
+                                    <div class="cskh-conversation-message">
+                                        Chi phí khám tim mạch là bao nhiêu?
+                                    </div>
+                                    <small>18 phút trước</small>
+                                </div>
+
+                                <span class="cskh-unread-dot"></span>
+                            </a>
+
+                            <a href="hoi-thoai.html" class="cskh-conversation-item">
+                                <div class="cskh-conversation-avatar">TH</div>
+
+                                <div class="cskh-conversation-info">
+                                    <div class="cskh-conversation-name">Lê Thu Hà</div>
+                                    <div class="cskh-conversation-message">
+                                        Tôi đã nhận được thông tin, cảm ơn.
+                                    </div>
+                                    <small>35 phút trước</small>
+                                </div>
+                            </a>
+
+                            <a href="hoi-thoai.html" class="cskh-conversation-item">
+                                <div class="cskh-conversation-avatar">GH</div>
+
+                                <div class="cskh-conversation-info">
+                                    <div class="cskh-conversation-name">Phạm Gia Huy</div>
+                                    <div class="cskh-conversation-message">
+                                        Tôi cần hướng dẫn trước khi khám.
+                                    </div>
+                                    <small>1 giờ trước</small>
+                                </div>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- TRUY CẬP NHANH VÀ HIỆU QUẢ -->
+            <section class="row g-4 mt-1">
+
+                <div class="col-12 col-lg-6">
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <h3 class="panel-title">Truy cập nhanh</h3>
+                                <p class="panel-subtitle">Các chức năng chăm sóc khách hàng</p>
+                            </div>
+                        </div>
+
+                        <div class="cskh-quick-actions">
+
+                            <a href="hoi-thoai.html" class="cskh-quick-action">
+                                <div class="cskh-quick-icon">
+                                    <i class="bi bi-chat-square-text"></i>
+                                </div>
+                                <div class="cskh-quick-info">
+                                    <h4>Quản lý hội thoại</h4>
+                                    <p>Tiếp nhận và phản hồi khách hàng</p>
+                                </div>
+                                <i class="bi bi-chevron-right cskh-quick-arrow"></i>
+                            </a>
+
+                            <a href="khach-hang.html" class="cskh-quick-action">
+                                <div class="cskh-quick-icon">
+                                    <i class="bi bi-person-lines-fill"></i>
+                                </div>
+                                <div class="cskh-quick-info">
+                                    <h4>Quản lý khách hàng</h4>
+                                    <p>Tra cứu hồ sơ và thông tin liên hệ</p>
+                                </div>
+                                <i class="bi bi-chevron-right cskh-quick-arrow"></i>
+                            </a>
+
+                            <a href="yeu-cau-dat-lich.html" class="cskh-quick-action">
+                                <div class="cskh-quick-icon">
+                                    <i class="bi bi-calendar2-check"></i>
+                                </div>
+                                <div class="cskh-quick-info">
+                                    <h4>Yêu cầu đặt lịch</h4>
+                                    <p>Tiếp nhận và theo dõi lịch khám</p>
+                                </div>
+                                <i class="bi bi-chevron-right cskh-quick-arrow"></i>
+                            </a>
+
+                            <a href="lich-su-xu-ly.html" class="cskh-quick-action">
+                                <div class="cskh-quick-icon">
+                                    <i class="bi bi-clock-history"></i>
+                                </div>
+                                <div class="cskh-quick-info">
+                                    <h4>Lịch sử xử lý</h4>
+                                    <p>Tra cứu các yêu cầu đã hoàn tất</p>
+                                </div>
+                                <i class="bi bi-chevron-right cskh-quick-arrow"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-lg-6">
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <h3 class="panel-title">Hiệu quả hỗ trợ</h3>
+                                <p class="panel-subtitle">Tổng hợp tình hình xử lý trong ngày</p>
+                            </div>
+                        </div>
+
+                        <div class="cskh-support-summary">
+
+                            <div class="cskh-support-row">
+                                <div class="cskh-support-icon support-blue">
+                                    <i class="bi bi-chat-left-dots"></i>
+                                </div>
+
+                                <div class="cskh-support-info">
+                                    <h4>Hội thoại đã tiếp nhận</h4>
+                                    <p>Trong ngày hôm nay</p>
+                                </div>
+
+                                <strong>48</strong>
+                            </div>
+
+                            <div class="cskh-support-row">
+                                <div class="cskh-support-icon support-green">
+                                    <i class="bi bi-check2-circle"></i>
+                                </div>
+
+                                <div class="cskh-support-info">
+                                    <h4>Yêu cầu đã hoàn tất</h4>
+                                    <p>Đã xử lý thành công</p>
+                                </div>
+
+                                <strong>36</strong>
+                            </div>
+
+                            <div class="cskh-support-row">
+                                <div class="cskh-support-icon support-orange">
+                                    <i class="bi bi-hourglass-split"></i>
+                                </div>
+
+                                <div class="cskh-support-info">
+                                    <h4>Yêu cầu đang chờ</h4>
+                                    <p>Cần tiếp tục theo dõi</p>
+                                </div>
+
+                                <strong>12</strong>
+                            </div>
+
+                            <div class="cskh-progress">
+                                <div class="cskh-progress-heading">
+                                    <span>Tỷ lệ hoàn thành</span>
+                                    <strong>75%</strong>
+                                </div>
+
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar"
+                                         style="width: 75%"
+                                         aria-valuenow="75"
+                                         aria-valuemin="0"
+                                         aria-valuemax="100">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/cskh.js"></script>
+
+</body>
+</html>

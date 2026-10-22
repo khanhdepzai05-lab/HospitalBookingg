@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Quản lý phiếu khám | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">HỆ THỐNG QUẢN LÝ</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+        <a class="side-link" href="tong-quan.html"><i class="bi bi-grid-1x2-fill"></i><span>Tổng quan</span></a>
+
+        <div class="menu-label">QUẢN LÝ HỆ THỐNG</div>
+        <a class="side-link" href="bac-si.html"><i class="bi bi-person-badge"></i><span>Quản lý bác sĩ</span></a>
+        <a class="side-link" href="benh-nhan.html"><i class="bi bi-people"></i><span>Quản lý bệnh nhân</span></a>
+        <a class="side-link" href="chuyen-khoa.html"><i class="bi bi-hospital"></i><span>Chuyên khoa</span></a>
+        <a class="side-link" href="phong-kham.html"><i class="bi bi-building"></i><span>Phòng khám</span></a>
+
+        <div class="menu-label">LỊCH KHÁM & DỊCH VỤ</div>
+        <a class="side-link" href="lich-hen.html"><i class="bi bi-calendar-check"></i><span>Lịch hẹn</span></a>
+        <a class="side-link" href="lich-lam-viec.html"><i class="bi bi-calendar-week"></i><span>Lịch làm việc</span></a>
+        <a class="side-link active" href="phieu-kham.html"><i class="bi bi-clipboard2-pulse"></i><span>Phiếu khám</span></a>
+        <a class="side-link" href="dich-vu.html"><i class="bi bi-heart"></i><span>Dịch vụ</span></a>
+        <a class="side-link" href="hoa-don.html"><i class="bi bi-receipt"></i><span>Hóa đơn</span></a>
+
+        <div class="menu-label">HỆ THỐNG</div>
+        <a class="side-link" href="tai-khoan.html"><i class="bi bi-person-gear"></i><span>Tài khoản</span></a>
+        <a class="side-link" href="kenh-dang-ky.html"><i class="bi bi-diagram-3"></i><span>Kênh đăng ký</span></a>
+        <a class="side-link" href="bao-cao.html"><i class="bi bi-bar-chart-line"></i><span>Báo cáo thống kê</span></a>
+        <a class="side-link website-link" href="../index.html"><i class="bi bi-box-arrow-up-right"></i><span>Về website</span></a>
+    </aside>
+
+    <main class="main-area">
+
+        <header class="topbar">
+            <div>
+                <h1 class="topbar-title">Quản lý phiếu khám</h1>
+                <p class="topbar-subtitle">Theo dõi hồ sơ khám bệnh và kết quả khám của bệnh nhân</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar"><i class="bi bi-person-fill"></i></div>
+                <div class="profile-info">
+                    <div class="profile-name">Quản trị viên</div>
+                    <div class="profile-role">Quản trị hệ thống</div>
+                </div>
+                <a href="../login.html" class="logout-link" title="Đến trang đăng nhập">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <section class="page-heading">
+                <div>
+                    <h2>Danh sách phiếu khám</h2>
+                    <p>Quản lý thông tin khám bệnh, chẩn đoán và hướng điều trị của bệnh nhân.</p>
+                </div>
+
+                <button class="btn-primary-custom" id="addExamBtn" type="button">
+                    <i class="bi bi-plus-lg"></i> Tạo phiếu khám
+                </button>
+            </section>
+
+            <section class="row g-3 mb-4">
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card exam-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng phiếu khám</span>
+                            <div class="stat-icon icon-blue"><i class="bi bi-clipboard2-pulse"></i></div>
+                        </div>
+                        <div class="stat-number" id="totalExams">0</div>
+                        <div class="stat-note">Tổng hồ sơ khám bệnh</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card exam-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Đã hoàn thành</span>
+                            <div class="stat-icon icon-green"><i class="bi bi-clipboard2-check"></i></div>
+                        </div>
+                        <div class="stat-number" id="completedExams">0</div>
+                        <div class="stat-note">Phiếu khám đã hoàn tất</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card exam-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Đang khám</span>
+                            <div class="stat-icon icon-purple"><i class="bi bi-heart-pulse"></i></div>
+                        </div>
+                        <div class="stat-number" id="inProgressExams">0</div>
+                        <div class="stat-note">Phiếu khám đang được xử lý</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel exam-management">
+
+                <div class="panel-header exam-panel-heading">
+                    <div>
+                        <h3 class="panel-title">Hồ sơ khám bệnh</h3>
+                        <p class="panel-subtitle">Tra cứu, cập nhật và theo dõi phiếu khám</p>
+                    </div>
+
+                    <button type="button" class="btn-outline-custom export-btn" id="exportExamsBtn">
+                        <i class="bi bi-download"></i> Xuất danh sách
+                    </button>
+                </div>
+
+                <div class="exam-filters">
+                    <div class="exam-search">
+                        <i class="bi bi-search"></i>
+                        <input type="search" id="examSearch"
+                               placeholder="Tìm mã phiếu, bệnh nhân hoặc bác sĩ..."
+                               aria-label="Tìm kiếm phiếu khám">
+                    </div>
+
+                    <select id="examStatusFilter" class="exam-select" aria-label="Lọc theo trạng thái">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="waiting">Chờ khám</option>
+                        <option value="in_progress">Đang khám</option>
+                        <option value="completed">Đã hoàn thành</option>
+                    </select>
+
+                    <input type="date" id="examDateFilter" class="exam-select"
+                           aria-label="Lọc theo ngày khám">
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table exam-table">
+                        <thead>
+                            <tr>
+                                <th>MÃ PHIẾU</th>
+                                <th>BỆNH NHÂN</th>
+                                <th>BÁC SĨ</th>
+                                <th>NGÀY KHÁM</th>
+                                <th>CHẨN ĐOÁN</th>
+                                <th>TRẠNG THÁI</th>
+                                <th>THAO TÁC</th>
+                            </tr>
+                        </thead>
+                        <tbody id="examTableBody">
+                            <tr>
+                                <td colspan="7" class="text-center py-5">Đang tải danh sách...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="exam-table-footer">
+                    <span id="examResultCount">Hiển thị 0 phiếu khám</span>
+                    <div class="exam-pagination" id="examPagination"></div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<!-- MODAL TẠO / CHỈNH SỬA PHIẾU KHÁM -->
+<div class="modal fade" id="examModal" tabindex="-1" aria-labelledby="examModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content exam-modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title fs-5" id="examModalTitle">Tạo phiếu khám</h2>
+                    <p class="modal-description">Nhập thông tin hồ sơ khám bệnh.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <form id="examForm">
+                <div class="modal-body">
+                    <input type="hidden" id="examId">
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="examPatient" class="form-label">Họ tên bệnh nhân <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="examPatient"
+                                   maxlength="100" required placeholder="Nhập họ tên bệnh nhân">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="examDoctor" class="form-label">Bác sĩ phụ trách <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="examDoctor"
+                                   maxlength="100" required placeholder="Nhập tên bác sĩ">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="examDate" class="form-label">Ngày khám <span class="text-danger">*</span></label>
+                            <input type="date" class="form-control" id="examDate" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="examStatus" class="form-label">Trạng thái</label>
+                            <select class="form-select" id="examStatus" required>
+                                <option value="waiting">Chờ khám</option>
+                                <option value="in_progress">Đang khám</option>
+                                <option value="completed">Đã hoàn thành</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="examDiagnosis" class="form-label">Chẩn đoán <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="examDiagnosis" rows="2"
+                                      maxlength="1000" required
+                                      placeholder="Nhập kết quả chẩn đoán"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="examTreatment" class="form-label">Hướng điều trị</label>
+                            <textarea class="form-control" id="examTreatment" rows="2"
+                                      maxlength="1500"
+                                      placeholder="Nhập hướng điều trị hoặc chỉ định"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="examNote" class="form-label">Ghi chú</label>
+                            <textarea class="form-control" id="examNote" rows="2"
+                                      maxlength="1000"
+                                      placeholder="Thông tin bổ sung nếu có"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary" id="saveExamBtn">
+                        <i class="bi bi-check-lg"></i> Lưu phiếu khám
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL CHI TIẾT PHIẾU KHÁM -->
+<div class="modal fade" id="examDetailModal" tabindex="-1"
+     aria-labelledby="examDetailTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content exam-modal">
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title fs-5" id="examDetailTitle">Chi tiết phiếu khám</h2>
+                    <p class="modal-description">Thông tin hồ sơ khám bệnh</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+            <div class="modal-body" id="examDetailContent"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

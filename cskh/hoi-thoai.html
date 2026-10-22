@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Hội thoại | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/cskh.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">HỆ THỐNG QUẢN LÝ</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+        <a class="side-link" href="tong-quan.html">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Tổng quan</span>
+        </a>
+
+        <div class="menu-label">CHĂM SÓC KHÁCH HÀNG</div>
+        <a class="side-link active" href="hoi-thoai.html">
+            <i class="bi bi-chat-dots"></i>
+            <span>Hội thoại</span>
+        </a>
+        <a class="side-link" href="khach-hang.html">
+            <i class="bi bi-people"></i>
+            <span>Khách hàng</span>
+        </a>
+        <a class="side-link" href="yeu-cau-dat-lich.html">
+            <i class="bi bi-calendar2-check"></i>
+            <span>Yêu cầu đặt lịch</span>
+        </a>
+        <a class="side-link" href="lich-su-xu-ly.html">
+            <i class="bi bi-clock-history"></i>
+            <span>Lịch sử xử lý</span>
+        </a>
+        <a class="side-link" href="mau-tin-nhan.html">
+            <i class="bi bi-chat-square-text"></i>
+            <span>Mẫu tin nhắn</span>
+        </a>
+
+        <div class="menu-label">HỆ THỐNG</div>
+        <a class="side-link website-link" href="../index.html">
+            <i class="bi bi-box-arrow-up-right"></i>
+            <span>Về website</span>
+        </a>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-area">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div>
+                <h1 class="topbar-title">Hội thoại</h1>
+                <p class="topbar-subtitle">
+                    Tiếp nhận và hỗ trợ khách hàng qua các cuộc hội thoại
+                </p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-name">Nhân viên CSKH</div>
+                    <div class="profile-role">Chăm sóc khách hàng</div>
+                </div>
+                <a href="../login.html" class="logout-link" title="Đến trang đăng nhập">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <section class="page-heading">
+                <div>
+                    <h2>Quản lý hội thoại</h2>
+                    <p>Theo dõi tin nhắn, phản hồi và hỗ trợ khách hàng.</p>
+                </div>
+
+                <button type="button" class="btn-primary-custom" id="refreshConversationsBtn">
+                    <i class="bi bi-arrow-clockwise"></i>
+                    Làm mới
+                </button>
+            </section>
+
+            <!-- STATISTICS -->
+            <section class="row g-3 mb-4">
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng hội thoại</span>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-chat-left-text"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="totalConversations">24</div>
+                        <div class="stat-note">Các cuộc hội thoại khách hàng</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Chưa phản hồi</span>
+                            <div class="stat-icon icon-orange">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="unreadConversations">5</div>
+                        <div class="stat-note">Đang chờ nhân viên tiếp nhận</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Đang xử lý</span>
+                            <div class="stat-icon icon-purple">
+                                <i class="bi bi-headset"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="processingConversations">8</div>
+                        <div class="stat-note">Hội thoại đang được hỗ trợ</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Đã giải quyết</span>
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="resolvedConversations">11</div>
+                        <div class="stat-note">Hội thoại đã hoàn tất hỗ trợ</div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- CONVERSATION MANAGEMENT -->
+            <section class="panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h3 class="panel-title">Danh sách hội thoại</h3>
+                        <p class="panel-subtitle">
+                            Tra cứu và theo dõi các yêu cầu hỗ trợ của khách hàng
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FILTERS -->
+                <div class="cskh-conversation-filters">
+                    <div class="cskh-conversation-search">
+                        <i class="bi bi-search"></i>
+                        <input
+                            type="search"
+                            id="conversationSearch"
+                            placeholder="Tìm tên khách hàng, số điện thoại..."
+                            aria-label="Tìm kiếm hội thoại">
+                    </div>
+
+                    <select id="conversationStatusFilter" class="doctor-select"
+                            aria-label="Lọc theo trạng thái">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="unread">Chưa phản hồi</option>
+                        <option value="processing">Đang xử lý</option>
+                        <option value="resolved">Đã giải quyết</option>
+                    </select>
+
+                    <select id="conversationChannelFilter" class="doctor-select"
+                            aria-label="Lọc theo kênh liên hệ">
+                        <option value="">Tất cả kênh</option>
+                        <option value="website">Website</option>
+                        <option value="phone">Điện thoại</option>
+                        <option value="direct">Trực tiếp</option>
+                    </select>
+                </div>
+
+                <div class="cskh-chat-layout">
+
+                    <!-- CONVERSATION LIST -->
+                    <div class="cskh-chat-list-panel">
+                        <div class="cskh-chat-list-heading">
+                            <h4>Hộp thư</h4>
+                            <span id="conversationListCount">24 cuộc hội thoại</span>
+                        </div>
+
+                        <div class="cskh-chat-list" id="conversationList">
+
+                            <button type="button"
+                                    class="cskh-chat-item active"
+                                    data-id="1"
+                                    data-name="Nguyễn Minh Anh"
+                                    data-phone="0901234567"
+                                    data-channel="website"
+                                    data-status="unread"
+                                    data-avatar="MA"
+                                    data-message="Tôi muốn đặt lịch khám chuyên khoa tim mạch."
+                                    data-time="10:42">
+
+                                <span class="cskh-chat-avatar avatar-blue">MA</span>
+
+                                <span class="cskh-chat-item-content">
+                                    <span class="cskh-chat-item-top">
+                                        <strong>Nguyễn Minh Anh</strong>
+                                        <small>10:42</small>
+                                    </span>
+                                    <span class="cskh-chat-preview">
+                                        Tôi muốn đặt lịch khám chuyên khoa tim mạch.
+                                    </span>
+                                    <span class="cskh-chat-item-bottom">
+                                        <span class="cskh-channel-label">
+                                            <i class="bi bi-globe2"></i> Website
+                                        </span>
+                                        <span class="status-badge status-pending">Chưa phản hồi</span>
+                                    </span>
+                                </span>
+                            </button>
+
+                            <button type="button"
+                                    class="cskh-chat-item"
+                                    data-id="2"
+                                    data-name="Trần Quốc Bảo"
+                                    data-phone="0912345678"
+                                    data-channel="phone"
+                                    data-status="processing"
+                                    data-avatar="QB"
+                                    data-message="Cho tôi hỏi thời gian làm việc của bác sĩ nhi khoa."
+                                    data-time="10:15">
+
+                                <span class="cskh-chat-avatar avatar-green">QB</span>
+
+                                <span class="cskh-chat-item-content">
+                                    <span class="cskh-chat-item-top">
+                                        <strong>Trần Quốc Bảo</strong>
+                                        <small>10:15</small>
+                                    </span>
+                                    <span class="cskh-chat-preview">
+                                        Cho tôi hỏi thời gian làm việc của bác sĩ nhi khoa.
+                                    </span>
+                                    <span class="cskh-chat-item-bottom">
+                                        <span class="cskh-channel-label">
+                                            <i class="bi bi-telephone"></i> Điện thoại
+                                        </span>
+                                        <span class="status-badge status-processing">Đang xử lý</span>
+                                    </span>
+                                </span>
+                            </button>
+
+                            <button type="button"
+                                    class="cskh-chat-item"
+                                    data-id="3"
+                                    data-name="Lê Thu Hà"
+                                    data-phone="0934567890"
+                                    data-channel="website"
+                                    data-status="resolved"
+                                    data-avatar="TH"
+                                    data-message="Cảm ơn nhân viên đã hỗ trợ tôi đặt lịch."
+                                    data-time="09:50">
+
+                                <span class="cskh-chat-avatar avatar-purple">TH</span>
+
+                                <span class="cskh-chat-item-content">
+                                    <span class="cskh-chat-item-top">
+                                        <strong>Lê Thu Hà</strong>
+                                        <small>09:50</small>
+                                    </span>
+                                    <span class="cskh-chat-preview">
+                                        Cảm ơn nhân viên đã hỗ trợ tôi đặt lịch.
+                                    </span>
+                                    <span class="cskh-chat-item-bottom">
+                                        <span class="cskh-channel-label">
+                                            <i class="bi bi-globe2"></i> Website
+                                        </span>
+                                        <span class="status-badge status-completed">Đã giải quyết</span>
+                                    </span>
+                                </span>
+                            </button>
+
+                            <button type="button"
+                                    class="cskh-chat-item"
+                                    data-id="4"
+                                    data-name="Phạm Hoàng Nam"
+                                    data-phone="0987654321"
+                                    data-channel="direct"
+                                    data-status="processing"
+                                    data-avatar="HN"
+                                    data-message="Tôi cần tư vấn về chi phí khám tổng quát."
+                                    data-time="09:25">
+
+                                <span class="cskh-chat-avatar avatar-orange">HN</span>
+
+                                <span class="cskh-chat-item-content">
+                                    <span class="cskh-chat-item-top">
+                                        <strong>Phạm Hoàng Nam</strong>
+                                        <small>09:25</small>
+                                    </span>
+                                    <span class="cskh-chat-preview">
+                                        Tôi cần tư vấn về chi phí khám tổng quát.
+                                    </span>
+                                    <span class="cskh-chat-item-bottom">
+                                        <span class="cskh-channel-label">
+                                            <i class="bi bi-person"></i> Trực tiếp
+                                        </span>
+                                        <span class="status-badge status-processing">Đang xử lý</span>
+                                    </span>
+                                </span>
+                            </button>
+
+                            <button type="button"
+                                    class="cskh-chat-item"
+                                    data-id="5"
+                                    data-name="Võ Ngọc Linh"
+                                    data-phone="0976543210"
+                                    data-channel="website"
+                                    data-status="unread"
+                                    data-avatar="NL"
+                                    data-message="Tôi muốn thay đổi thời gian lịch hẹn đã đặt."
+                                    data-time="09:05">
+
+                                <span class="cskh-chat-avatar avatar-pink">NL</span>
+
+                                <span class="cskh-chat-item-content">
+                                    <span class="cskh-chat-item-top">
+                                        <strong>Võ Ngọc Linh</strong>
+                                        <small>09:05</small>
+                                    </span>
+                                    <span class="cskh-chat-preview">
+                                        Tôi muốn thay đổi thời gian lịch hẹn đã đặt.
+                                    </span>
+                                    <span class="cskh-chat-item-bottom">
+                                        <span class="cskh-channel-label">
+                                            <i class="bi bi-globe2"></i> Website
+                                        </span>
+                                        <span class="status-badge status-pending">Chưa phản hồi</span>
+                                    </span>
+                                </span>
+                            </button>
+
+                        </div>
+
+                        <div class="cskh-chat-list-footer">
+                            <span id="conversationResultCount">Hiển thị 5 hội thoại</span>
+                        </div>
+                    </div>
+
+                    <!-- CHAT DETAIL -->
+                    <div class="cskh-chat-detail">
+
+                        <div class="cskh-chat-detail-header">
+                            <div class="cskh-chat-customer">
+                                <div class="cskh-chat-avatar avatar-blue" id="chatCustomerAvatar">MA</div>
+                                <div>
+                                    <h4 id="chatCustomerName">Nguyễn Minh Anh</h4>
+                                    <p id="chatCustomerPhone">
+                                        <i class="bi bi-telephone"></i> 0901234567
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="btn-outline-custom" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-three-dots"></i>
+                                    Thao tác
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li>
+                                        <button class="dropdown-item" type="button" id="markProcessingBtn">
+                                            <i class="bi bi-headset me-2"></i>Đang xử lý
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="dropdown-item" type="button" id="markResolvedBtn">
+                                            <i class="bi bi-check-circle me-2"></i>Đánh dấu đã giải quyết
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="cskh-chat-meta">
+                            <span>
+                                <i class="bi bi-globe2"></i>
+                                <span id="chatChannel">Website</span>
+                            </span>
+                            <span id="chatStatusBadge" class="status-badge status-pending">
+                                Chưa phản hồi
+                            </span>
+                        </div>
+
+                        <div class="cskh-chat-messages" id="chatMessages">
+                            <div class="cskh-chat-date">
+                                <span>Hôm nay</span>
+                            </div>
+
+                            <div class="cskh-message-row incoming">
+                                <div class="cskh-message-avatar avatar-blue">MA</div>
+                                <div class="cskh-message-content">
+                                    <div class="cskh-message-bubble" id="initialCustomerMessage">
+                                        Xin chào, tôi muốn đặt lịch khám chuyên khoa tim mạch.
+                                    </div>
+                                    <span class="cskh-message-time">10:42</span>
+                                </div>
+                            </div>
+
+                            <div id="additionalMessages"></div>
+                        </div>
+
+                        <form id="conversationReplyForm" class="cskh-chat-reply">
+                            <label for="conversationReply" class="form-label">
+                                Nội dung phản hồi
+                            </label>
+
+                            <textarea
+                                id="conversationReply"
+                                class="form-control"
+                                rows="3"
+                                maxlength="1000"
+                                placeholder="Nhập tin nhắn phản hồi..."
+                                required></textarea>
+
+                            <div class="cskh-chat-reply-footer">
+                                <span id="replyCharacterCount">0/1000 ký tự</span>
+                                <button type="submit" class="btn-primary-custom">
+                                    <i class="bi bi-send-fill"></i>
+                                    Gửi phản hồi
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="doctor-table-footer">
+                    <span>Quản lý và hỗ trợ khách hàng MedCare</span>
+                    <button type="button" class="btn-outline-custom" id="clearConversationFiltersBtn">
+                        <i class="bi bi-arrow-counterclockwise"></i>
+                        Xóa bộ lọc
+                    </button>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<!-- TOAST THÔNG BÁO -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="conversationToast"
+         class="toast align-items-center border-0"
+         role="status"
+         aria-live="polite"
+         aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body" id="conversationToastMessage">
+                Thao tác thành công.
+            </div>
+            <button type="button" class="btn-close me-2 m-auto"
+                    data-bs-dismiss="toast" aria-label="Đóng"></button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/cskh.js"></script>
+
+</body>
+</html>

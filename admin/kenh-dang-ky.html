@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Quản lý kênh đăng ký | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">HỆ THỐNG QUẢN LÝ</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+        <a class="side-link" href="tong-quan.html">
+            <i class="bi bi-grid-1x2-fill"></i><span>Tổng quan</span>
+        </a>
+
+        <div class="menu-label">QUẢN LÝ HỆ THỐNG</div>
+        <a class="side-link" href="bac-si.html">
+            <i class="bi bi-person-badge"></i><span>Quản lý bác sĩ</span>
+        </a>
+        <a class="side-link" href="benh-nhan.html">
+            <i class="bi bi-people"></i><span>Quản lý bệnh nhân</span>
+        </a>
+        <a class="side-link" href="chuyen-khoa.html">
+            <i class="bi bi-hospital"></i><span>Chuyên khoa</span>
+        </a>
+        <a class="side-link" href="phong-kham.html">
+            <i class="bi bi-building"></i><span>Phòng khám</span>
+        </a>
+
+        <div class="menu-label">LỊCH KHÁM & DỊCH VỤ</div>
+        <a class="side-link" href="lich-hen.html">
+            <i class="bi bi-calendar-check"></i><span>Lịch hẹn</span>
+        </a>
+        <a class="side-link" href="lich-lam-viec.html">
+            <i class="bi bi-calendar-week"></i><span>Lịch làm việc</span>
+        </a>
+        <a class="side-link" href="phieu-kham.html">
+            <i class="bi bi-clipboard2-pulse"></i><span>Phiếu khám</span>
+        </a>
+        <a class="side-link" href="dich-vu.html">
+            <i class="bi bi-heart"></i><span>Dịch vụ</span>
+        </a>
+        <a class="side-link" href="hoa-don.html">
+            <i class="bi bi-receipt"></i><span>Hóa đơn</span>
+        </a>
+
+        <div class="menu-label">HỆ THỐNG</div>
+        <a class="side-link" href="tai-khoan.html">
+            <i class="bi bi-person-gear"></i><span>Tài khoản</span>
+        </a>
+        <a class="side-link active" href="kenh-dang-ky.html">
+            <i class="bi bi-diagram-3"></i><span>Kênh đăng ký</span>
+        </a>
+        <a class="side-link" href="bao-cao.html">
+            <i class="bi bi-bar-chart-line"></i><span>Báo cáo thống kê</span>
+        </a>
+        <a class="side-link website-link" href="../index.html">
+            <i class="bi bi-box-arrow-up-right"></i><span>Về website</span>
+        </a>
+    </aside>
+
+    <main class="main-area">
+
+        <header class="topbar">
+            <div>
+                <h1 class="topbar-title">Quản lý kênh đăng ký</h1>
+                <p class="topbar-subtitle">Theo dõi các nguồn tiếp nhận đăng ký và đặt lịch khám</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar"><i class="bi bi-person-fill"></i></div>
+                <div class="profile-info">
+                    <div class="profile-name">Quản trị viên</div>
+                    <div class="profile-role">Quản trị hệ thống</div>
+                </div>
+                <a href="../login.html" class="logout-link" title="Đến trang đăng nhập">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="content channel-page">
+
+            <section class="page-heading">
+                <div>
+                    <h2>Danh sách kênh đăng ký</h2>
+                    <p>Quản lý các nguồn bệnh nhân sử dụng để đăng ký tài khoản và đặt lịch khám.</p>
+                </div>
+
+                <button class="btn-primary-custom" id="addChannelBtn" type="button">
+                    <i class="bi bi-plus-lg"></i> Thêm kênh đăng ký
+                </button>
+            </section>
+
+            <section class="row g-3 mb-4">
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card channel-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng số kênh</span>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-diagram-3"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="totalChannels">0</div>
+                        <div class="stat-note">Tổng kênh đăng ký được quản lý</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card channel-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Đang hoạt động</span>
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="activeChannels">0</div>
+                        <div class="stat-note">Kênh đang được sử dụng</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card channel-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng lượt đăng ký</span>
+                            <div class="stat-icon icon-purple">
+                                <i class="bi bi-person-plus"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="totalChannelRegistrations">0</div>
+                        <div class="stat-note">Lượt đăng ký ghi nhận theo từng kênh</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel channel-management">
+
+                <div class="panel-header channel-panel-heading">
+                    <div>
+                        <h3 class="panel-title">Danh sách kênh đăng ký</h3>
+                        <p class="panel-subtitle">Tra cứu, cập nhật và quản lý nguồn đăng ký</p>
+                    </div>
+
+                    <button type="button" class="btn-outline-custom" id="exportChannelsBtn">
+                        <i class="bi bi-download"></i> Xuất danh sách
+                    </button>
+                </div>
+
+                <div class="channel-filters">
+                    <div class="channel-search">
+                        <i class="bi bi-search"></i>
+                        <input type="search" id="channelSearch"
+                               placeholder="Tìm tên kênh, mã kênh hoặc mô tả..."
+                               aria-label="Tìm kiếm kênh đăng ký">
+                    </div>
+
+                    <select id="channelTypeFilter" class="channel-select" aria-label="Lọc theo loại kênh">
+                        <option value="">Tất cả loại kênh</option>
+                        <option value="website">Website</option>
+                        <option value="direct">Trực tiếp</option>
+                        <option value="phone">Điện thoại</option>
+                        <option value="social">Mạng xã hội</option>
+                        <option value="other">Khác</option>
+                    </select>
+
+                    <select id="channelStatusFilter" class="channel-select" aria-label="Lọc theo trạng thái">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="active">Đang hoạt động</option>
+                        <option value="inactive">Ngừng hoạt động</option>
+                    </select>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table channel-table">
+                        <thead>
+                            <tr>
+                                <th>MÃ KÊNH</th>
+                                <th>THÔNG TIN KÊNH</th>
+                                <th>LOẠI KÊNH</th>
+                                <th>LƯỢT ĐĂNG KÝ</th>
+                                <th>TRẠNG THÁI</th>
+                                <th>THAO TÁC</th>
+                            </tr>
+                        </thead>
+                        <tbody id="channelTableBody">
+                            <tr>
+                                <td colspan="6" class="text-center py-5">Đang tải danh sách...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="channel-table-footer">
+                    <span id="channelResultCount">Hiển thị 0 kênh</span>
+                    <div class="channel-pagination" id="channelPagination"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
+
+<!-- MODAL THÊM / SỬA KÊNH ĐĂNG KÝ -->
+<div class="modal fade" id="channelModal" tabindex="-1"
+     aria-labelledby="channelModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content channel-modal">
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title fs-5" id="channelModalTitle">Thêm kênh đăng ký</h2>
+                    <p class="channel-modal-description">Nhập thông tin kênh tiếp nhận đăng ký.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <form id="channelForm">
+                <div class="modal-body">
+                    <input type="hidden" id="channelId">
+
+                    <div class="mb-3">
+                        <label for="channelName" class="form-label">
+                            Tên kênh đăng ký <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="channelName"
+                               maxlength="100" required placeholder="Ví dụ: Website MedCare">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="channelType" class="form-label">
+                            Loại kênh <span class="text-danger">*</span>
+                        </label>
+                        <select class="form-select" id="channelType" required>
+                            <option value="">Chọn loại kênh</option>
+                            <option value="website">Website</option>
+                            <option value="direct">Trực tiếp</option>
+                            <option value="phone">Điện thoại</option>
+                            <option value="social">Mạng xã hội</option>
+                            <option value="other">Khác</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="channelDescription" class="form-label">Mô tả</label>
+                        <textarea class="form-control" id="channelDescription"
+                                  rows="3" maxlength="500"
+                                  placeholder="Mô tả cách thức tiếp nhận đăng ký"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="channelStatus" class="form-label">Trạng thái</label>
+                        <select class="form-select" id="channelStatus">
+                            <option value="active">Đang hoạt động</option>
+                            <option value="inactive">Ngừng hoạt động</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary" id="saveChannelBtn">
+                        <i class="bi bi-check-lg"></i> Lưu thông tin
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL CHI TIẾT KÊNH -->
+<div class="modal fade" id="channelDetailModal" tabindex="-1"
+     aria-labelledby="channelDetailTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content channel-modal">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="channelDetailTitle">Thông tin kênh đăng ký</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+            <div class="modal-body" id="channelDetailContent"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

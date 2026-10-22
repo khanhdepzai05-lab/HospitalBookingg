@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Đặt lịch khám bệnh trực tuyến tại MedCare. Lựa chọn chuyên khoa và bác sĩ phù hợp với nhu cầu chăm sóc sức khỏe của bạn.">
+    <meta name="theme-color" content="#1769AA">
+
+    <title>Đặt lịch khám bệnh | MedCare</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+
+<body>
+
+    <!-- Thanh điều hướng -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <a class="navbar-brand brand" href="index.html" aria-label="MedCare - Trang chủ">
+                    <span class="brand-icon">
+                        <i class="bi bi-heart-pulse-fill"></i>
+                    </span>
+
+                    <span>Med<span class="brand-highlight">Care</span></span>
+                </a>
+
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar"
+                    aria-expanded="false"
+                    aria-label="Mở menu điều hướng">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+
+                    <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Trang chủ</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="chuyen-khoa.html">Chuyên khoa</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="bac-si.html">Bác sĩ</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="dich-vu.html">Dịch vụ</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="lien-he.html">Liên hệ</a>
+                        </li>
+                    </ul>
+
+                    <div class="header-actions d-flex align-items-center gap-2">
+                        <a href="login.html" class="btn btn-login">
+                            Đăng nhập
+                        </a>
+
+                        <a href="dat-lich.html" class="btn btn-primary-custom active" aria-current="page">
+                            <i class="bi bi-calendar2-check me-1"></i>
+                            Đặt lịch khám
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- Tiêu đề trang -->
+        <section class="page-banner">
+            <div class="container">
+
+                <div class="page-breadcrumb">
+                    <a href="index.html">Trang chủ</a>
+                    <i class="bi bi-chevron-right"></i>
+                    <span>Đặt lịch khám</span>
+                </div>
+
+                <span class="section-eyebrow">
+                    CHỦ ĐỘNG CHĂM SÓC SỨC KHỎE
+                </span>
+
+                <h1>Đặt lịch khám bệnh</h1>
+
+                <p>
+                    Đăng ký lịch khám nhanh chóng, lựa chọn chuyên khoa
+                    và bác sĩ phù hợp với nhu cầu của bạn.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- Nội dung đặt lịch -->
+        <section class="booking-page-section">
+            <div class="container">
+
+                <div class="row g-4">
+
+                    <!-- Form đặt lịch -->
+                    <div class="col-lg-8">
+
+                        <div class="public-card">
+
+                            <div class="public-card-heading">
+
+                                <div class="public-heading-icon">
+                                    <i class="bi bi-calendar2-plus"></i>
+                                </div>
+
+                                <div>
+                                    <h2>Thông tin đặt lịch</h2>
+                                    <p>Vui lòng điền đầy đủ các thông tin có dấu *</p>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Khu vực thông báo -->
+                            <div
+                                id="bookingNotice"
+                                class="booking-notice"
+                                role="status"
+                                aria-live="polite"
+                                hidden>
+                            </div>
+
+
+                            <form id="appointmentForm">
+
+                                <!-- Thông tin người khám -->
+                                <h3 class="form-section-title">
+                                    Thông tin người đặt khám
+                                </h3>
+
+                                <div class="row g-3">
+
+                                    <div class="col-md-6">
+                                        <label for="patientName" class="form-label">
+                                            Họ và tên <span class="text-danger">*</span>
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            id="patientName"
+                                            name="patientName"
+                                            class="form-control"
+                                            placeholder="Nhập họ và tên"
+                                            maxlength="100"
+                                            autocomplete="name"
+                                            required>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <label for="patientPhone" class="form-label">
+                                            Số điện thoại <span class="text-danger">*</span>
+                                        </label>
+
+                                        <input
+                                            type="tel"
+                                            id="patientPhone"
+                                            name="patientPhone"
+                                            class="form-control"
+                                            placeholder="Nhập số điện thoại"
+                                            maxlength="15"
+                                            autocomplete="tel"
+                                            inputmode="tel"
+                                            required>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <label for="patientEmail" class="form-label">
+                                            Email
+                                        </label>
+
+                                        <input
+                                            type="email"
+                                            id="patientEmail"
+                                            name="patientEmail"
+                                            class="form-control"
+                                            placeholder="example@email.com"
+                                            maxlength="150"
+                                            autocomplete="email">
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <label for="patientBirth" class="form-label">
+                                            Ngày sinh
+                                        </label>
+
+                                        <input
+                                            type="date"
+                                            id="patientBirth"
+                                            name="patientBirth"
+                                            class="form-control"
+                                            autocomplete="bday">
+                                    </div>
+
+                                </div>
+
+
+                                <hr class="form-divider">
+
+
+                                <!-- Thông tin lịch khám -->
+                                <h3 class="form-section-title">
+                                    Thông tin lịch khám
+                                </h3>
+
+                                <div class="row g-3">
+
+                                    <div class="col-md-6">
+                                        <label for="bookingSpecialty" class="form-label">
+                                            Chuyên khoa <span class="text-danger">*</span>
+                                        </label>
+
+                                        <select
+                                            id="bookingSpecialty"
+                                            name="specialty"
+                                            class="form-select"
+                                            required>
+
+                                            <option value="">Chọn chuyên khoa</option>
+                                            <option value="Tim mạch">Tim mạch</option>
+                                            <option value="Nhi khoa">Nhi khoa</option>
+                                            <option value="Da liễu">Da liễu</option>
+                                            <option value="Thần kinh">Thần kinh</option>
+                                            <option value="Tai Mũi Họng">Tai Mũi Họng</option>
+                                            <option value="Xương khớp">Xương khớp</option>
+
+                                        </select>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <label for="bookingDoctor" class="form-label">
+                                            Bác sĩ
+                                        </label>
+
+                                        <select
+                                            id="bookingDoctor"
+                                            name="doctor"
+                                            class="form-select"
+                                            disabled>
+
+                                            <option value="">
+                                                Vui lòng chọn chuyên khoa trước
+                                            </option>
+
+                                        </select>
+
+                                        <div class="form-text">
+                                            Danh sách bác sĩ sẽ được cập nhật theo chuyên khoa.
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <label for="bookingDate" class="form-label">
+                                            Ngày khám <span class="text-danger">*</span>
+                                        </label>
+
+                                        <input
+                                            type="date"
+                                            id="bookingDate"
+                                            name="bookingDate"
+                                            class="form-control"
+                                            required>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <label for="bookingTime" class="form-label">
+                                            Buổi khám <span class="text-danger">*</span>
+                                        </label>
+
+                                        <select
+                                            id="bookingTime"
+                                            name="bookingTime"
+                                            class="form-select"
+                                            required>
+
+                                            <option value="">Chọn buổi khám</option>
+                                            <option value="Sáng">Buổi sáng (07:00–11:30)</option>
+                                            <option value="Chiều">Buổi chiều (13:00–17:00)</option>
+
+                                        </select>
+                                    </div>
+
+
+                                    <div class="col-12">
+                                        <label for="bookingReason" class="form-label">
+                                            Lý do khám
+                                        </label>
+
+                                        <textarea
+                                            id="bookingReason"
+                                            name="bookingReason"
+                                            class="form-control"
+                                            rows="4"
+                                            maxlength="1000"
+                                            placeholder="Nhập nhu cầu khám của bạn (không bắt buộc)"></textarea>
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Thông tin quyền riêng tư -->
+                                <div class="booking-consent">
+                                    <i class="bi bi-shield-check"></i>
+
+                                    <p>
+                                        Vui lòng kiểm tra thông tin trước khi gửi đăng ký.
+                                        Thông tin cá nhân chỉ nên được sử dụng cho mục đích
+                                        liên quan đến việc đặt lịch và hỗ trợ khám bệnh.
+                                    </p>
+                                </div>
+
+
+                                <!-- Nút thao tác -->
+                                <div class="booking-form-actions">
+
+                                    <a href="index.html" class="btn btn-outline-custom">
+                                        <i class="bi bi-arrow-left me-1"></i>
+                                        Quay lại
+                                    </a>
+
+                                    <button type="submit" class="btn btn-primary-custom">
+                                        <i class="bi bi-calendar-check me-2"></i>
+                                        Đăng ký lịch khám
+                                    </button>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+
+
+                    <!-- Cột thông tin bên phải -->
+                    <div class="col-lg-4">
+
+                        <aside class="booking-side">
+
+                            <!-- Lưu ý khi đặt lịch -->
+                            <div class="public-card booking-note-card">
+
+                                <div class="booking-note-heading">
+
+                                    <div class="booking-note-icon">
+                                        <i class="bi bi-clipboard2-check"></i>
+                                    </div>
+
+                                    <h3>Lưu ý khi đặt lịch</h3>
+
+                                </div>
+
+
+                                <ul class="booking-note-list">
+
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>
+                                            Nhập chính xác họ tên và số điện thoại
+                                            để thuận tiện liên hệ.
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>
+                                            Chọn chuyên khoa phù hợp với nhu cầu
+                                            thăm khám của bạn.
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>
+                                            Lựa chọn ngày khám và buổi khám phù hợp.
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>
+                                            Đến trước giờ hẹn khoảng 15 phút để
+                                            hoàn tất thủ tục.
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>
+                                            Mang theo giấy tờ tùy thân và hồ sơ
+                                            khám bệnh liên quan nếu có.
+                                        </span>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+
+                            <!-- Hỗ trợ khách hàng -->
+                            <div class="public-card booking-help-card">
+
+                                <div class="booking-help-icon">
+                                    <i class="bi bi-headset"></i>
+                                </div>
+
+                                <h3>Cần hỗ trợ?</h3>
+
+                                <p>
+                                    Đội ngũ chăm sóc khách hàng MedCare sẵn sàng
+                                    hỗ trợ bạn trong quá trình đăng ký lịch khám.
+                                </p>
+
+
+                                <div class="booking-help-item">
+
+                                    <i class="bi bi-telephone"></i>
+
+                                    <div>
+                                        <span>Hotline tư vấn</span>
+                                        <a href="tel:19001234">1900 1234</a>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="booking-help-item">
+
+                                    <i class="bi bi-envelope"></i>
+
+                                    <div>
+                                        <span>Email hỗ trợ</span>
+                                        <a href="mailto:hotro@medcare.vn">
+                                            hotro@medcare.vn
+                                        </a>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="booking-help-item">
+
+                                    <i class="bi bi-clock"></i>
+
+                                    <div>
+                                        <span>Giờ làm việc</span>
+                                        <strong>Thứ 2 – Thứ 7</strong>
+                                        <small>07:00 – 17:00</small>
+                                    </div>
+
+                                </div>
+
+
+                                <a href="lien-he.html" class="btn btn-outline-primary w-100 mt-3">
+                                    <i class="bi bi-chat-dots me-2"></i>
+                                    Liên hệ với chúng tôi
+                                </a>
+
+                            </div>
+
+                        </aside>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <!-- Chân trang -->
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-bottom">
+                <p>
+                    © <span id="currentYear"></span> MedCare. Bảo lưu mọi quyền.
+                </p>
+
+                <p>
+                    Đồng hành cùng bạn trên hành trình chăm sóc sức khỏe.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dat-lich.js"></script>
+
+</body>
+</html>

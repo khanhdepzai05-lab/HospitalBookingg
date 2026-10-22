@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Liên hệ MedCare để được hỗ trợ đặt lịch khám, tư vấn dịch vụ và giải đáp thắc mắc.">
+    <title>Liên hệ | MedCare</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="contact-header">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="contact-brand" href="index.html">
+                <span class="contact-brand-icon">
+                    <i class="bi bi-heart-pulse-fill"></i>
+                </span>
+                <span>MedCare</span>
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#contactNavbar"
+                    aria-controls="contactNavbar"
+                    aria-expanded="false"
+                    aria-label="Mở menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="contactNavbar">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chuyen-khoa.html">Chuyên khoa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bac-si.html">Bác sĩ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dich-vu.html">Dịch vụ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="lien-he.html" aria-current="page">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Đăng nhập</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a class="btn contact-booking-btn" href="dat-lich.html">
+                            <i class="bi bi-calendar2-check me-2"></i>Đặt lịch khám
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <div class="contact-breadcrumb">
+                        <a href="index.html">Trang chủ</a>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Liên hệ</span>
+                    </div>
+
+                    <span class="contact-eyebrow">
+                        <i class="bi bi-chat-heart-fill"></i>
+                        MEDCARE LUÔN SẴN SÀNG HỖ TRỢ
+                    </span>
+
+                    <h1>Kết nối với chúng tôi</h1>
+
+                    <p class="contact-hero-description">
+                        Bạn cần tư vấn về dịch vụ y tế, đặt lịch khám hoặc
+                        giải đáp thắc mắc? Đội ngũ MedCare luôn sẵn sàng
+                        lắng nghe và hỗ trợ bạn.
+                    </p>
+
+                    <a href="#contact-form" class="btn contact-booking-btn contact-hero-btn">
+                        Gửi yêu cầu hỗ trợ
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+
+                    <div class="contact-hero-points">
+                        <span><i class="bi bi-check-circle-fill"></i> Hỗ trợ tận tâm</span>
+                        <span><i class="bi bi-check-circle-fill"></i> Thông tin rõ ràng</span>
+                        <span><i class="bi bi-check-circle-fill"></i> Đặt lịch thuận tiện</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="contact-hero-visual">
+                        <div class="contact-hero-circle"></div>
+
+                        <div class="contact-hero-medical-icon">
+                            <i class="bi bi-hospital"></i>
+                            <span class="contact-medical-cross">+</span>
+                        </div>
+
+                        <div class="contact-floating-card card-one">
+                            <span class="contact-floating-icon">
+                                <i class="bi bi-headset"></i>
+                            </span>
+                            <span>
+                                <strong>Hỗ trợ khách hàng</strong>
+                                <small>Luôn sẵn sàng lắng nghe</small>
+                            </span>
+                        </div>
+
+                        <div class="contact-floating-card card-two">
+                            <span class="contact-floating-icon">
+                                <i class="bi bi-calendar2-check"></i>
+                            </span>
+                            <span>
+                                <strong>Đặt lịch dễ dàng</strong>
+                                <small>Chủ động thời gian khám</small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THÔNG TIN LIÊN HỆ -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-section-heading">
+                <span class="contact-section-label">THÔNG TIN LIÊN HỆ</span>
+                <h2>Chúng tôi có thể giúp gì cho bạn?</h2>
+                <p>
+                    Hãy lựa chọn kênh liên hệ phù hợp để nhận được sự hỗ trợ
+                    từ đội ngũ MedCare.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-xl-3">
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-telephone-outbound"></i>
+                        </div>
+                        <h3>Hotline</h3>
+                        <p>Liên hệ để được hỗ trợ đặt lịch và giải đáp thắc mắc.</p>
+                        <a href="tel:19001234">1900 1234</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-3">
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>Gửi câu hỏi và yêu cầu tư vấn đến đội ngũ hỗ trợ.</p>
+                        <a href="mailto:hotro@medcare.vn">hotro@medcare.vn</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-3">
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-clock"></i>
+                        </div>
+                        <h3>Giờ làm việc</h3>
+                        <p>Thứ Hai – Thứ Bảy</p>
+                        <strong class="contact-info-highlight">07:00 – 17:00</strong>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-3">
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h3>Trung tâm MedCare</h3>
+                        <p>Liên hệ trước với đội ngũ hỗ trợ để được hướng dẫn thông tin cơ sở khám.</p>
+                        <a href="#contact-form">Gửi yêu cầu <i class="bi bi-arrow-up-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM LIÊN HỆ -->
+    <section class="contact-content-section" id="contact-form">
+        <div class="container">
+            <div class="row g-4 g-xl-5">
+                <div class="col-lg-7">
+                    <div class="contact-panel">
+                        <span class="contact-section-label">GỬI TIN NHẮN</span>
+                        <h2>Chúng tôi luôn lắng nghe</h2>
+                        <p class="contact-panel-description">
+                            Vui lòng điền thông tin và nội dung cần hỗ trợ.
+                        </p>
+
+                        <form id="contactForm" class="contact-form" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="contactName" class="form-label">
+                                        Họ và tên <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control"
+                                           id="contactName" name="contactName"
+                                           placeholder="Nhập họ và tên"
+                                           autocomplete="name" required>
+                                    <div class="invalid-feedback">Vui lòng nhập họ và tên.</div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="contactPhone" class="form-label">
+                                        Số điện thoại <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="tel" class="form-control"
+                                           id="contactPhone" name="contactPhone"
+                                           placeholder="Nhập số điện thoại"
+                                           autocomplete="tel" required>
+                                    <div class="invalid-feedback">Vui lòng nhập số điện thoại hợp lệ.</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="contactEmail" class="form-label">
+                                        Email <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="email" class="form-control"
+                                           id="contactEmail" name="contactEmail"
+                                           placeholder="example@email.com"
+                                           autocomplete="email" required>
+                                    <div class="invalid-feedback">Vui lòng nhập email hợp lệ.</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="contactTopic" class="form-label">
+                                        Chủ đề <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select"
+                                            id="contactTopic" name="contactTopic" required>
+                                        <option value="">Chọn nội dung cần hỗ trợ</option>
+                                        <option value="Đặt lịch khám">Đặt lịch khám</option>
+                                        <option value="Thông tin bác sĩ">Thông tin bác sĩ</option>
+                                        <option value="Dịch vụ y tế">Dịch vụ y tế</option>
+                                        <option value="Thay đổi lịch hẹn">Thay đổi lịch hẹn</option>
+                                        <option value="Góp ý dịch vụ">Góp ý dịch vụ</option>
+                                        <option value="Khác">Khác</option>
+                                    </select>
+                                    <div class="invalid-feedback">Vui lòng chọn chủ đề.</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="contactMessage" class="form-label">
+                                        Nội dung <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control"
+                                              id="contactMessage" name="contactMessage"
+                                              rows="5"
+                                              placeholder="Nhập nội dung bạn cần hỗ trợ..."
+                                              required></textarea>
+                                    <div class="invalid-feedback">Vui lòng nhập nội dung cần hỗ trợ.</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn contact-submit-btn">
+                                        <i class="bi bi-send me-2"></i>Gửi yêu cầu
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div id="contactNotice" class="contact-notice d-none"
+                             role="status" aria-live="polite"></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="contact-support-card">
+                        <div class="contact-support-icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <h3>Cần hỗ trợ trực tiếp?</h3>
+                        <p>
+                            Đội ngũ chăm sóc khách hàng sẵn sàng hỗ trợ bạn
+                            về lịch hẹn, dịch vụ và các thông tin cần thiết.
+                        </p>
+                        <a class="contact-support-phone" href="tel:19001234">
+                            <i class="bi bi-telephone-fill me-2"></i>1900 1234
+                        </a>
+                        <div class="contact-support-divider"></div>
+                        <p class="mb-0">
+                            <i class="bi bi-envelope me-2"></i>
+                            <a href="mailto:hotro@medcare.vn">hotro@medcare.vn</a>
+                        </p>
+                    </div>
+
+                    <div class="contact-side-card">
+                        <h3>Câu hỏi thường gặp</h3>
+
+                        <div class="contact-faq-item">
+                            <h4><i class="bi bi-calendar-check me-2"></i>Làm sao để đặt lịch khám?</h4>
+                            <p>Truy cập trang Đặt lịch khám, chọn chuyên khoa, bác sĩ và thời gian phù hợp.</p>
+                        </div>
+
+                        <div class="contact-faq-item">
+                            <h4><i class="bi bi-arrow-repeat me-2"></i>Tôi có thể đổi lịch hẹn không?</h4>
+                            <p>Bạn có thể liên hệ bộ phận hỗ trợ để được hướng dẫn điều chỉnh lịch hẹn.</p>
+                        </div>
+
+                        <div class="contact-faq-item">
+                            <h4><i class="bi bi-person-check me-2"></i>Làm sao để tìm bác sĩ?</h4>
+                            <p>Truy cập mục Bác sĩ để xem thông tin và lựa chọn bác sĩ phù hợp.</p>
+                        </div>
+
+                        <a href="dat-lich.html" class="contact-side-link">
+                            Đặt lịch khám ngay <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="contact-footer">
+    <div class="container">
+        <div class="row g-4 pb-4">
+            <div class="col-lg-5">
+                <a href="index.html" class="contact-brand contact-footer-brand">
+                    <span class="contact-brand-icon">
+                        <i class="bi bi-heart-pulse-fill"></i>
+                    </span>
+                    <span>MedCare</span>
+                </a>
+                <p class="contact-footer-description">
+                    Đồng hành cùng bạn trên hành trình chăm sóc sức khỏe,
+                    mang đến trải nghiệm đặt lịch khám thuận tiện và dễ dàng.
+                </p>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <h3 class="contact-footer-title">Liên kết nhanh</h3>
+                <ul class="contact-footer-links">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="chuyen-khoa.html">Chuyên khoa</a></li>
+                    <li><a href="bac-si.html">Đội ngũ bác sĩ</a></li>
+                    <li><a href="dich-vu.html">Dịch vụ</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-lg-4">
+                <h3 class="contact-footer-title">Liên hệ với chúng tôi</h3>
+                <ul class="contact-footer-links">
+                    <li><i class="bi bi-telephone me-2"></i><a href="tel:19001234">1900 1234</a></li>
+                    <li><i class="bi bi-envelope me-2"></i><a href="mailto:hotro@medcare.vn">hotro@medcare.vn</a></li>
+                    <li><i class="bi bi-clock me-2"></i>Thứ Hai – Thứ Bảy, 07:00 – 17:00</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contact-footer-bottom">
+            <p>© <span id="currentYear"></span> MedCare. Bảo lưu mọi quyền.</p>
+            <a href="lien-he.html">Liên hệ hỗ trợ</a>
+        </div>
+    </div>
+</footer>
+
+<button id="backToTop" class="contact-back-to-top"
+        type="button" aria-label="Cuộn lên đầu trang" hidden>
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/public.js"></script>
+</body>
+</html>

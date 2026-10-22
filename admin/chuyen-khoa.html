@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Quản lý chuyên khoa | MedCare</title>
+
+    <!-- Thư viện dùng chung -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS hệ thống: luôn đặt sau Bootstrap -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">HỆ THỐNG QUẢN LÝ</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+        <a class="side-link" href="tong-quan.html">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Tổng quan</span>
+        </a>
+
+        <div class="menu-label">QUẢN LÝ HỆ THỐNG</div>
+        <a class="side-link" href="bac-si.html">
+            <i class="bi bi-person-badge"></i>
+            <span>Quản lý bác sĩ</span>
+        </a>
+        <a class="side-link" href="benh-nhan.html">
+            <i class="bi bi-people"></i>
+            <span>Quản lý bệnh nhân</span>
+        </a>
+        <a class="side-link active" href="chuyen-khoa.html">
+            <i class="bi bi-hospital"></i>
+            <span>Chuyên khoa</span>
+        </a>
+        <a class="side-link" href="phong-kham.html">
+            <i class="bi bi-building"></i>
+            <span>Phòng khám</span>
+        </a>
+
+        <div class="menu-label">LỊCH KHÁM &amp; DỊCH VỤ</div>
+        <a class="side-link" href="lich-hen.html">
+            <i class="bi bi-calendar-check"></i>
+            <span>Lịch hẹn</span>
+        </a>
+        <a class="side-link" href="lich-lam-viec.html">
+            <i class="bi bi-calendar-week"></i>
+            <span>Lịch làm việc</span>
+        </a>
+        <a class="side-link" href="phieu-kham.html">
+            <i class="bi bi-clipboard2-pulse"></i>
+            <span>Phiếu khám</span>
+        </a>
+        <a class="side-link" href="dich-vu.html">
+            <i class="bi bi-heart"></i>
+            <span>Dịch vụ</span>
+        </a>
+        <a class="side-link" href="hoa-don.html">
+            <i class="bi bi-receipt"></i>
+            <span>Hóa đơn</span>
+        </a>
+
+        <div class="menu-label">HỆ THỐNG</div>
+        <a class="side-link" href="tai-khoan.html">
+            <i class="bi bi-person-gear"></i>
+            <span>Tài khoản</span>
+        </a>
+        <a class="side-link" href="kenh-dang-ky.html"><i class="bi bi-diagram-3"></i><span>Kênh đăng ký</span></a>
+        <a class="side-link" href="bao-cao.html">
+            <i class="bi bi-bar-chart-line"></i>
+            <span>Báo cáo thống kê</span>
+        </a>
+        <a class="side-link website-link" href="../index.html">
+            <i class="bi bi-box-arrow-up-right"></i>
+            <span>Về website</span>
+        </a>
+    </aside>
+
+    <!-- NỘI DUNG CHÍNH -->
+    <main class="main-area">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div>
+                <h1 class="topbar-title">Quản lý chuyên khoa</h1>
+                <p class="topbar-subtitle">
+                    Quản lý thông tin và trạng thái hoạt động của các chuyên khoa
+                </p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-name">Quản trị viên</div>
+                    <div class="profile-role">Quản trị hệ thống</div>
+                </div>
+                <a href="../login.html" class="logout-link" title="Đến trang đăng nhập">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <!-- TIÊU ĐỀ TRANG -->
+            <section class="page-heading">
+                <div>
+                    <h2>Danh sách chuyên khoa</h2>
+                    <p>
+                        Theo dõi thông tin, số lượng bác sĩ và trạng thái hoạt động
+                        của từng chuyên khoa.
+                    </p>
+                </div>
+
+                <button class="btn-primary-custom" id="btnAddSpecialty" type="button">
+                    <i class="bi bi-plus-lg"></i>
+                    Thêm chuyên khoa
+                </button>
+            </section>
+
+            <!-- THỐNG KÊ -->
+            <section class="row g-3 mb-4">
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng chuyên khoa</span>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-hospital"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="totalSpecialties">0</div>
+                        <div class="stat-note">Tổng hồ sơ chuyên khoa</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Đang hoạt động</span>
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="activeSpecialties">0</div>
+                        <div class="stat-note">Chuyên khoa đang hoạt động</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Ngừng hoạt động</span>
+                            <div class="stat-icon icon-orange">
+                                <i class="bi bi-pause-circle"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="inactiveSpecialties">0</div>
+                        <div class="stat-note">Chuyên khoa tạm ngừng</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng bác sĩ</span>
+                            <div class="stat-icon icon-purple">
+                                <i class="bi bi-person-badge"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="specialtyDoctorCount">0</div>
+                        <div class="stat-note">Bác sĩ thuộc các chuyên khoa</div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- BẢNG CHUYÊN KHOA -->
+            <section class="panel specialty-management">
+
+                <div class="panel-header specialty-panel-header">
+                    <div>
+                        <h3 class="panel-title">Danh sách chuyên khoa</h3>
+                        <p class="panel-subtitle">
+                            Tra cứu và quản lý hồ sơ chuyên khoa
+                        </p>
+                    </div>
+
+                    <button type="button"
+                            class="btn-outline-custom export-btn"
+                            id="btnExportSpecialties">
+                        <i class="bi bi-download"></i>
+                        Xuất danh sách
+                    </button>
+                </div>
+
+                <!-- TÌM KIẾM VÀ LỌC -->
+                <div class="specialty-filters">
+                    <div class="specialty-search">
+                        <i class="bi bi-search"></i>
+                        <input
+                            type="search"
+                            id="specialtySearch"
+                            placeholder="Tìm mã hoặc tên chuyên khoa..."
+                            aria-label="Tìm kiếm chuyên khoa">
+                    </div>
+
+                    <select
+                        id="specialtyStatusFilter"
+                        class="form-select specialty-select"
+                        aria-label="Lọc theo trạng thái">
+                        <option value="">Tất cả trạng thái</option>
+                        <option value="active">Đang hoạt động</option>
+                        <option value="inactive">Ngừng hoạt động</option>
+                    </select>
+                </div>
+
+                <!-- DANH SÁCH -->
+                <div class="table-responsive">
+                    <table class="table specialty-table align-middle">
+                        <thead>
+                            <tr>
+                                <th>MÃ CHUYÊN KHOA</th>
+                                <th>TÊN CHUYÊN KHOA</th>
+                                <th>MÔ TẢ</th>
+                                <th>SỐ BÁC SĨ</th>
+                                <th>TRẠNG THÁI</th>
+                                <th class="text-center">THAO TÁC</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="specialtyTableBody">
+                            <tr>
+                                <td colspan="6" class="text-center py-5">
+                                    Đang tải danh sách...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- PHÂN TRANG -->
+                <div class="specialty-table-footer">
+                    <span id="specialtyResultCount">
+                        Hiển thị 0 chuyên khoa
+                    </span>
+                    <div class="specialty-pagination" id="specialtyPagination"></div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+</div>
+
+<!-- MODAL THÊM / SỬA CHUYÊN KHOA -->
+<div class="modal fade"
+     id="specialtyModal"
+     tabindex="-1"
+     aria-labelledby="specialtyModalTitle"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content doctor-modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title fs-5" id="specialtyModalTitle">
+                        Thêm chuyên khoa
+                    </h2>
+                    <p class="modal-description">
+                        Nhập đầy đủ thông tin chuyên khoa.
+                    </p>
+                </div>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Đóng"></button>
+            </div>
+
+            <form id="specialtyForm">
+                <div class="modal-body">
+                    <input type="hidden" id="specialtyId">
+
+                    <div class="mb-3">
+                        <label for="specialtyCode" class="form-label">
+                            Mã chuyên khoa <span class="text-danger">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="specialtyCode"
+                            placeholder="Ví dụ: CK001"
+                            maxlength="20"
+                            required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="specialtyName" class="form-label">
+                            Tên chuyên khoa <span class="text-danger">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="specialtyName"
+                            placeholder="Nhập tên chuyên khoa"
+                            maxlength="100"
+                            required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="specialtyDescription" class="form-label">
+                            Mô tả
+                        </label>
+                        <textarea
+                            class="form-control"
+                            id="specialtyDescription"
+                            rows="3"
+                            placeholder="Nhập mô tả chuyên khoa"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="specialtyStatus" class="form-label">
+                            Trạng thái
+                        </label>
+                        <select class="form-select" id="specialtyStatus">
+                            <option value="active">Đang hoạt động</option>
+                            <option value="inactive">Ngừng hoạt động</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button"
+                            class="btn btn-light"
+                            data-bs-dismiss="modal">
+                        Hủy
+                    </button>
+
+                    <button type="submit"
+                            class="btn btn-primary"
+                            id="saveSpecialtyBtn">
+                        <i class="bi bi-check-lg"></i>
+                        Lưu thông tin
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL CHI TIẾT CHUYÊN KHOA -->
+<div class="modal fade"
+     id="specialtyDetailModal"
+     tabindex="-1"
+     aria-labelledby="specialtyDetailTitle"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content doctor-modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title fs-5" id="specialtyDetailTitle">
+                        Chi tiết chuyên khoa
+                    </h2>
+                    <p class="modal-description">
+                        Thông tin chi tiết của chuyên khoa.
+                    </p>
+                </div>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Đóng"></button>
+            </div>
+
+            <div class="modal-body" id="specialtyDetailContent"></div>
+
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-light"
+                        data-bs-dismiss="modal">
+                    Đóng
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/admin.js"></script>
+
+</body>
+</html>

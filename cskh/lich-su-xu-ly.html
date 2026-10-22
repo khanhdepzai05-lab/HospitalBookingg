@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Lịch sử xử lý | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/cskh.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">HỆ THỐNG QUẢN LÝ</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+        <a class="side-link" href="tong-quan.html">
+            <i class="bi bi-grid-1x2-fill"></i><span>Tổng quan</span>
+        </a>
+
+        <div class="menu-label">CHĂM SÓC KHÁCH HÀNG</div>
+        <a class="side-link" href="hoi-thoai.html">
+            <i class="bi bi-chat-dots"></i><span>Hội thoại</span>
+        </a>
+        <a class="side-link" href="khach-hang.html">
+            <i class="bi bi-people"></i><span>Khách hàng</span>
+        </a>
+        <a class="side-link" href="yeu-cau-dat-lich.html">
+            <i class="bi bi-calendar-check"></i><span>Yêu cầu đặt lịch</span>
+        </a>
+        <a class="side-link active" href="lich-su-xu-ly.html">
+            <i class="bi bi-clock-history"></i><span>Lịch sử xử lý</span>
+        </a>
+        <a class="side-link" href="mau-tin-nhan.html">
+            <i class="bi bi-chat-square-text"></i><span>Mẫu tin nhắn</span>
+        </a>
+
+        <div class="menu-label">HỆ THỐNG</div>
+        <a class="side-link website-link" href="../index.html">
+            <i class="bi bi-box-arrow-up-right"></i><span>Về website</span>
+        </a>
+    </aside>
+
+    <main class="main-area">
+
+        <header class="topbar">
+            <div>
+                <h1 class="topbar-title">Lịch sử xử lý</h1>
+                <p class="topbar-subtitle">Theo dõi lịch sử hỗ trợ và xử lý yêu cầu của khách hàng</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar"><i class="bi bi-person-fill"></i></div>
+                <div class="profile-info">
+                    <div class="profile-name">Nhân viên CSKH</div>
+                    <div class="profile-role">Chăm sóc khách hàng</div>
+                </div>
+                <a href="../login.html" class="logout-link" title="Đến trang đăng nhập">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="content history-management">
+
+            <section class="page-heading">
+                <div>
+                    <h2>Nhật ký hoạt động</h2>
+                    <p>Tra cứu lịch sử xử lý hội thoại, yêu cầu đặt lịch và thông tin khách hàng.</p>
+                </div>
+
+                <button class="btn-primary-custom" id="exportHistoryBtn" type="button">
+                    <i class="bi bi-download"></i> Xuất báo cáo
+                </button>
+            </section>
+
+            <section class="row g-3 mb-4">
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card history-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng hoạt động</span>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-clock-history"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="historyTotal">0</div>
+                        <div class="stat-note">Tổng số hoạt động được ghi nhận</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card history-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Hoàn tất</span>
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="historyCompletedCount">0</div>
+                        <div class="stat-note">Hoạt động đã được xử lý xong</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card history-summary">
+                        <div class="stat-top">
+                            <span class="stat-label">Đang xử lý</span>
+                            <div class="stat-icon icon-purple">
+                                <i class="bi bi-hourglass-split"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="historyProcessingCount">0</div>
+                        <div class="stat-note">Hoạt động cần tiếp tục theo dõi</div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="panel history-panel">
+
+                <div class="panel-header history-panel-heading">
+                    <div>
+                        <h3 class="panel-title">Danh sách lịch sử xử lý</h3>
+                        <p class="panel-subtitle">Tra cứu nội dung, nhân viên và kết quả xử lý</p>
+                    </div>
+
+                    <button type="button" class="btn-outline-custom" id="refreshHistoryBtn">
+                        <i class="bi bi-arrow-clockwise"></i> Làm mới
+                    </button>
+                </div>
+
+                <div class="history-filters">
+
+                    <div class="doctor-search history-search">
+                        <i class="bi bi-search"></i>
+                        <input type="search" id="historySearch"
+                               placeholder="Tìm mã, tên khách hàng hoặc nhân viên...">
+                    </div>
+
+                    <select id="historyTypeFilter" class="doctor-select" aria-label="Lọc loại hoạt động">
+                        <option value="">Tất cả hoạt động</option>
+                        <option value="conversation">Hội thoại</option>
+                        <option value="booking">Yêu cầu đặt lịch</option>
+                        <option value="customer">Khách hàng</option>
+                    </select>
+
+                    <select id="historyStatusFilter" class="doctor-select" aria-label="Lọc kết quả xử lý">
+                        <option value="">Tất cả kết quả</option>
+                        <option value="completed">Hoàn tất</option>
+                        <option value="processing">Đang xử lý</option>
+                        <option value="cancelled">Đã hủy</option>
+                    </select>
+
+                    <input type="date" id="historyDateFilter" class="doctor-select history-date-filter"
+                           aria-label="Lọc theo ngày">
+
+                    <button type="button" class="btn-outline-custom" id="resetHistoryFilters">
+                        <i class="bi bi-arrow-counterclockwise"></i> Đặt lại
+                    </button>
+
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table doctor-table history-table">
+                        <thead>
+                            <tr>
+                                <th>MÃ HOẠT ĐỘNG</th>
+                                <th>KHÁCH HÀNG</th>
+                                <th>LOẠI HOẠT ĐỘNG</th>
+                                <th>NỘI DUNG XỬ LÝ</th>
+                                <th>NHÂN VIÊN</th>
+                                <th>THỜI GIAN</th>
+                                <th>KẾT QUẢ</th>
+                                <th>THAO TÁC</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody">
+                            <tr>
+                                <td colspan="8" class="text-center py-5">
+                                    Đang tải lịch sử xử lý...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="doctor-table-footer">
+                    <span id="historyResultCount">Hiển thị 0 hoạt động</span>
+                    <div class="history-footer-note">Lịch sử hoạt động CSKH</div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<!-- MODAL CHI TIẾT LỊCH SỬ -->
+<div class="modal fade" id="historyDetailModal" tabindex="-1"
+     aria-labelledby="historyDetailModalTitle" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content doctor-modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title fs-5" id="historyDetailModalTitle">Chi tiết hoạt động</h2>
+                    <p class="modal-description" id="historyDetailCode">Mã hoạt động</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="history-detail-grid">
+
+                    <div class="history-detail-item">
+                        <span>Khách hàng</span>
+                        <strong id="historyDetailCustomer">—</strong>
+                    </div>
+
+                    <div class="history-detail-item">
+                        <span>Số điện thoại</span>
+                        <strong id="historyDetailPhone">—</strong>
+                    </div>
+
+                    <div class="history-detail-item">
+                        <span>Loại hoạt động</span>
+                        <strong id="historyDetailType">—</strong>
+                    </div>
+
+                    <div class="history-detail-item">
+                        <span>Nhân viên xử lý</span>
+                        <strong id="historyDetailStaff">—</strong>
+                    </div>
+
+                    <div class="history-detail-item">
+                        <span>Thời gian</span>
+                        <strong id="historyDetailTime">—</strong>
+                    </div>
+
+                    <div class="history-detail-item">
+                        <span>Kết quả</span>
+                        <strong id="historyDetailStatus">—</strong>
+                    </div>
+
+                    <div class="history-detail-item history-detail-full">
+                        <span>Nội dung xử lý</span>
+                        <p id="historyDetailContent">—</p>
+                    </div>
+
+                    <div class="history-detail-item history-detail-full">
+                        <span>Ghi chú</span>
+                        <p id="historyDetailNote">—</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Đóng</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- THÔNG BÁO -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="historyToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+        <div class="toast-body d-flex align-items-center gap-2">
+            <i class="bi bi-check-circle-fill text-success"></i>
+            <span id="historyToastMessage">Thao tác thành công.</span>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/cskh.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Danh sách thuốc | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/pharmacist.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">HỆ THỐNG QUẢN LÝ</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+        <a class="side-link" href="tong-quan.html">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Tổng quan</span>
+        </a>
+
+        <div class="menu-label">QUẢN LÝ DƯỢC</div>
+        <a class="side-link" href="don-thuoc-cho-cap.html">
+            <i class="bi bi-prescription2"></i>
+            <span>Đơn thuốc chờ cấp</span>
+        </a>
+        <a class="side-link" href="cap-phat-thuoc.html">
+            <i class="bi bi-capsule"></i>
+            <span>Cấp phát thuốc</span>
+        </a>
+        <a class="side-link active" href="danh-sach-thuoc.html">
+            <i class="bi bi-prescription"></i>
+            <span>Danh sách thuốc</span>
+        </a>
+        <a class="side-link" href="kho-thuoc.html">
+            <i class="bi bi-box-seam"></i>
+            <span>Kho thuốc</span>
+        </a>
+        <a class="side-link" href="lich-uong-thuoc.html">
+            <i class="bi bi-calendar2-check"></i>
+            <span>Lịch uống thuốc</span>
+        </a>
+
+        <div class="menu-label">BÁO CÁO</div>
+        <a class="side-link" href="bao-cao-tac-dung-phu.html">
+            <i class="bi bi-clipboard2-pulse"></i>
+            <span>Báo cáo tác dụng phụ</span>
+        </a>
+
+        <a class="side-link website-link" href="../index.html">
+            <i class="bi bi-box-arrow-up-right"></i>
+            <span>Về website</span>
+        </a>
+    </aside>
+
+    <main class="main-area">
+
+        <header class="topbar">
+            <div>
+                <h1 class="topbar-title">Danh sách thuốc</h1>
+                <p class="topbar-subtitle">Quản lý thông tin thuốc và theo dõi tình trạng sử dụng</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-name">Trần Minh Đức</div>
+                    <div class="profile-role">Dược sĩ</div>
+                </div>
+                <a href="../login.html" class="logout-link" title="Đến trang đăng nhập">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <section class="page-heading">
+                <div>
+                    <h2>Danh mục thuốc</h2>
+                    <p>Tra cứu, cập nhật thông tin và theo dõi tình trạng các loại thuốc trong hệ thống.</p>
+                </div>
+
+                <button type="button" class="btn-primary-custom" id="addMedicineBtn">
+                    <i class="bi bi-plus-lg"></i> Thêm thuốc
+                </button>
+            </section>
+
+            <section class="row g-3 mb-4">
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng số thuốc</span>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-capsule"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="medicineTotalCount">0</div>
+                        <div class="stat-note">Các loại thuốc trong danh mục</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Đang sử dụng</span>
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="medicineActiveCount">0</div>
+                        <div class="stat-note">Thuốc đang được sử dụng</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Ngừng sử dụng</span>
+                            <div class="stat-icon icon-purple">
+                                <i class="bi bi-slash-circle"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="medicineInactiveCount">0</div>
+                        <div class="stat-note">Thuốc đã ngừng sử dụng</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Danh mục thuốc</span>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-collection"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="medicineCategoryCount">0</div>
+                        <div class="stat-note">Nhóm thuốc đang quản lý</div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="panel pharmacist-management">
+
+                <div class="panel-header pharmacist-panel-heading">
+                    <div>
+                        <h3 class="panel-title">Thông tin thuốc</h3>
+                        <p class="panel-subtitle">Danh sách thuốc, hàm lượng, đơn vị tính và tình trạng sử dụng.</p>
+                    </div>
+                </div>
+
+                <div class="pharmacist-filters medicine-filters">
+
+                    <div class="pharmacist-search">
+                        <i class="bi bi-search"></i>
+                        <input
+                            type="search"
+                            id="medicineSearchInput"
+                            placeholder="Tìm tên thuốc, mã thuốc, hoạt chất..."
+                            aria-label="Tìm kiếm thuốc">
+                    </div>
+
+                    <select id="medicineCategoryFilter" class="form-select pharmacist-select" aria-label="Lọc nhóm thuốc">
+                        <option value="all">Tất cả nhóm thuốc</option>
+                        <option value="Giảm đau, hạ sốt">Giảm đau, hạ sốt</option>
+                        <option value="Kháng sinh">Kháng sinh</option>
+                        <option value="Vitamin và khoáng chất">Vitamin và khoáng chất</option>
+                        <option value="Chống dị ứng">Chống dị ứng</option>
+                        <option value="Tiêu hóa">Tiêu hóa</option>
+                    </select>
+
+                    <select id="medicineStatusFilter" class="form-select pharmacist-select" aria-label="Lọc trạng thái thuốc">
+                        <option value="all">Tất cả trạng thái</option>
+                        <option value="active">Đang sử dụng</option>
+                        <option value="inactive">Ngừng sử dụng</option>
+                    </select>
+
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table pharmacist-table medicine-table align-middle">
+                        <thead>
+                            <tr>
+                                <th>MÃ THUỐC</th>
+                                <th>TÊN THUỐC</th>
+                                <th>NHÓM THUỐC</th>
+                                <th>HÀM LƯỢNG</th>
+                                <th>ĐƠN VỊ</th>
+                                <th>GIÁ THAM KHẢO</th>
+                                <th>TRẠNG THÁI</th>
+                                <th class="text-end">THAO TÁC</th>
+                            </tr>
+                        </thead>
+                        <tbody id="medicineTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="pharmacist-table-footer">
+                    <span id="medicineResultCount">Hiển thị 0 thuốc</span>
+
+                    <button type="button" class="btn-outline-custom" id="clearMedicineFilters">
+                        <i class="bi bi-arrow-counterclockwise"></i> Xóa bộ lọc
+                    </button>
+                </div>
+
+            </section>
+
+            <section class="panel medicine-guideline-panel mt-4">
+                <div class="medicine-guideline-icon">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+                <div>
+                    <h3>Lưu ý khi quản lý danh mục thuốc</h3>
+                    <p>Kiểm tra chính xác tên thuốc, hoạt chất, hàm lượng, đơn vị tính và thông tin sử dụng. Việc cập nhật danh mục cần được thực hiện theo quy trình chuyên môn của cơ sở y tế.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<!-- MODAL THÊM / CHỈNH SỬA THUỐC -->
+<div class="modal fade" id="medicineFormModal" tabindex="-1" aria-labelledby="medicineFormTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content pharmacist-modal">
+
+            <form id="medicineForm">
+
+                <div class="modal-header">
+                    <div>
+                        <h2 class="modal-title fs-5" id="medicineFormTitle">Thêm thuốc mới</h2>
+                        <p class="modal-description">Nhập đầy đủ thông tin thuốc cần quản lý</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <input type="hidden" id="medicineEditingId">
+
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <label for="medicineCodeInput" class="form-label">Mã thuốc <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="medicineCodeInput" maxlength="20" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="medicineNameInput" class="form-label">Tên thuốc <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="medicineNameInput" maxlength="120" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="medicineCategoryInput" class="form-label">Nhóm thuốc <span class="text-danger">*</span></label>
+                            <select class="form-select" id="medicineCategoryInput" required>
+                                <option value="">Chọn nhóm thuốc</option>
+                                <option value="Giảm đau, hạ sốt">Giảm đau, hạ sốt</option>
+                                <option value="Kháng sinh">Kháng sinh</option>
+                                <option value="Vitamin và khoáng chất">Vitamin và khoáng chất</option>
+                                <option value="Chống dị ứng">Chống dị ứng</option>
+                                <option value="Tiêu hóa">Tiêu hóa</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="medicineIngredientInput" class="form-label">Hoạt chất</label>
+                            <input type="text" class="form-control" id="medicineIngredientInput" maxlength="150">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="medicineStrengthInput" class="form-label">Hàm lượng / Nồng độ <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="medicineStrengthInput" maxlength="50" placeholder="Ví dụ: 500mg" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="medicineUnitInput" class="form-label">Đơn vị tính <span class="text-danger">*</span></label>
+                            <select class="form-select" id="medicineUnitInput" required>
+                                <option value="">Chọn đơn vị</option>
+                                <option value="Viên">Viên</option>
+                                <option value="Vỉ">Vỉ</option>
+                                <option value="Hộp">Hộp</option>
+                                <option value="Chai">Chai</option>
+                                <option value="Gói">Gói</option>
+                                <option value="Ống">Ống</option>
+                                <option value="Tuýp">Tuýp</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="medicinePriceInput" class="form-label">Giá tham khảo (VNĐ) <span class="text-danger">*</span></label>
+                            <input type="number" class="form-control" id="medicinePriceInput" min="0" step="100" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="medicineStatusInput" class="form-label">Trạng thái</label>
+                            <select class="form-select" id="medicineStatusInput">
+                                <option value="active">Đang sử dụng</option>
+                                <option value="inactive">Ngừng sử dụng</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="medicineDescriptionInput" class="form-label">Ghi chú</label>
+                            <textarea class="form-control" id="medicineDescriptionInput" rows="3" maxlength="500" placeholder="Nhập thông tin bổ sung nếu có..."></textarea>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary" id="saveMedicineBtn">
+                        <i class="bi bi-check-lg"></i> Lưu thông tin
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL CHI TIẾT THUỐC -->
+<div class="modal fade" id="medicineDetailModal" tabindex="-1" aria-labelledby="medicineDetailTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content pharmacist-modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title fs-5" id="medicineDetailTitle">Chi tiết thuốc</h2>
+                    <p class="modal-description">Thông tin chi tiết của thuốc trong danh mục</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="medicine-detail-heading">
+                    <div class="medicine-detail-icon">
+                        <i class="bi bi-capsule-pill"></i>
+                    </div>
+                    <div>
+                        <h3 id="medicineDetailName">—</h3>
+                        <span id="medicineDetailCode" class="pharmacist-prescription-code">—</span>
+                    </div>
+                </div>
+
+                <div class="pharmacist-detail-grid mt-4">
+                    <div class="pharmacist-detail-row">
+                        <span>Nhóm thuốc</span>
+                        <strong id="medicineDetailCategory">—</strong>
+                    </div>
+                    <div class="pharmacist-detail-row">
+                        <span>Hoạt chất</span>
+                        <strong id="medicineDetailIngredient">—</strong>
+                    </div>
+                    <div class="pharmacist-detail-row">
+                        <span>Hàm lượng / Nồng độ</span>
+                        <strong id="medicineDetailStrength">—</strong>
+                    </div>
+                    <div class="pharmacist-detail-row">
+                        <span>Đơn vị tính</span>
+                        <strong id="medicineDetailUnit">—</strong>
+                    </div>
+                    <div class="pharmacist-detail-row">
+                        <span>Giá tham khảo</span>
+                        <strong id="medicineDetailPrice">—</strong>
+                    </div>
+                    <div class="pharmacist-detail-row">
+                        <span>Trạng thái</span>
+                        <strong id="medicineDetailStatus">—</strong>
+                    </div>
+                </div>
+
+                <div class="medicine-detail-description mt-4">
+                    <h3>Ghi chú</h3>
+                    <p id="medicineDetailDescription">Chưa có ghi chú.</p>
+                </div>
+
+                <div class="pharmacist-detail-notice mt-3">
+                    <i class="bi bi-info-circle"></i>
+                    <span>Thông tin thuốc cần được kiểm tra và cập nhật theo hồ sơ chuyên môn được phê duyệt.</span>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="editMedicineFromDetailBtn">
+                    <i class="bi bi-pencil-square"></i> Chỉnh sửa
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="pharmacist-toast-container" id="medicineToastContainer" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/pharmacist.js"></script>
+
+</body>
+</html>

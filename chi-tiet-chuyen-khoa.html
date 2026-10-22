@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tìm hiểu thông tin chuyên khoa, dịch vụ khám và đặt lịch khám tại MedCare.">
+    <title>Chi tiết chuyên khoa | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+<body>
+
+<!-- Thanh điều hướng -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="index.html">
+            <i class="bi bi-heart-pulse-fill text-primary"></i>
+            <span class="text-primary">Med</span><span class="text-dark">Care</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+                aria-expanded="false" aria-label="Mở menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link active" href="chuyen-khoa.html">Chuyên khoa</a></li>
+                <li class="nav-item"><a class="nav-link" href="bac-si.html">Bác sĩ</a></li>
+                <li class="nav-item"><a class="nav-link" href="dich-vu.html">Dịch vụ</a></li>
+                <li class="nav-item"><a class="nav-link" href="tra-cuu-lich-hen.html">Tra cứu lịch hẹn</a></li>
+                <li class="nav-item"><a class="nav-link" href="lien-he.html">Liên hệ</a></li>
+            </ul>
+
+            <div class="d-flex flex-wrap gap-2">
+                <a href="login.html" class="btn btn-outline-primary rounded-pill px-3">Đăng nhập</a>
+                <a href="dat-lich.html" class="btn btn-primary rounded-pill px-3">Đặt lịch khám</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Đường dẫn -->
+<div class="container pt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="chuyen-khoa.html">Chuyên khoa</a></li>
+            <li class="breadcrumb-item active" aria-current="page" id="breadcrumbSpecialty">Chi tiết chuyên khoa</li>
+        </ol>
+    </nav>
+</div>
+
+<!-- Thông tin chính -->
+<section class="specialty-detail-hero py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+                <span class="badge rounded-pill text-bg-light text-primary px-3 py-2 mb-3">
+                    CHUYÊN KHOA MEDCARE
+                </span>
+
+                <h1 class="display-5 fw-bold mb-3" id="specialtyTitle">Tim mạch</h1>
+
+                <p class="lead text-secondary mb-4" id="specialtyDescription">
+                    Tư vấn và thăm khám sức khỏe tim mạch, hỗ trợ theo dõi các yếu tố nguy cơ
+                    và định hướng chăm sóc sức khỏe phù hợp.
+                </p>
+
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="dat-lich.html" id="bookSpecialtyButton"
+                       class="btn btn-primary btn-lg rounded-pill px-4">
+                        <i class="bi bi-calendar-check me-2"></i>Đặt lịch khám
+                    </a>
+
+                    <a href="bac-si.html" id="viewDoctorsButton"
+                       class="btn btn-outline-primary btn-lg rounded-pill px-4">
+                        <i class="bi bi-people me-2"></i>Tìm bác sĩ
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="specialty-detail-image-wrap">
+                    <img id="specialtyImage"
+                         src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=85"
+                         alt="Thông tin chuyên khoa"
+                         class="img-fluid specialty-detail-image">
+                    <div class="specialty-image-caption">
+                        <i class="bi bi-heart-pulse-fill me-2"></i>
+                        Đồng hành cùng sức khỏe của bạn
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Giới thiệu -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <span class="text-primary fw-semibold">GIỚI THIỆU</span>
+                <h2 class="fw-bold mt-2 mb-3" id="introHeading">Tìm hiểu về chuyên khoa Tim mạch</h2>
+
+                <p class="text-secondary specialty-detail-paragraph" id="specialtyIntro">
+                    Chuyên khoa hỗ trợ thăm khám, tư vấn và theo dõi sức khỏe theo nhu cầu
+                    của người bệnh. Bác sĩ sẽ trao đổi về triệu chứng, tiền sử sức khỏe và
+                    các yếu tố liên quan để định hướng thăm khám phù hợp.
+                </p>
+
+                <h3 class="h5 fw-bold mt-4 mb-3">Khi nào nên đặt lịch khám?</h3>
+                <ul class="specialty-detail-list" id="specialtySymptoms">
+                    <li>Khi có triệu chứng khiến bạn lo lắng hoặc kéo dài.</li>
+                    <li>Khi cần tư vấn theo dõi sức khỏe định kỳ.</li>
+                    <li>Khi muốn trao đổi với bác sĩ về kết quả khám trước đó.</li>
+                </ul>
+
+                <div class="specialty-detail-note mt-4">
+                    <i class="bi bi-info-circle-fill me-2"></i>
+                    Nếu xuất hiện triệu chứng nghiêm trọng hoặc diễn biến đột ngột,
+                    hãy tìm kiếm trợ giúp y tế khẩn cấp thay vì chờ lịch khám thông thường.
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="specialty-detail-sidecard">
+                    <div class="specialty-icon specialty-detail-side-icon">
+                        <i class="bi bi-calendar2-check"></i>
+                    </div>
+                    <h3 class="h5 fw-bold mt-3">Đặt lịch thuận tiện</h3>
+                    <p class="text-secondary">
+                        Chọn thời gian mong muốn và cung cấp thông tin cần thiết để gửi yêu cầu đặt lịch.
+                    </p>
+                    <a href="dat-lich.html" id="sideBookButton"
+                       class="btn btn-primary rounded-pill w-100">
+                        Đặt lịch ngay
+                    </a>
+
+                    <hr class="my-4">
+
+                    <h3 class="h6 fw-bold">
+                        <i class="bi bi-headset text-primary me-2"></i>Cần hỗ trợ?
+                    </h3>
+                    <p class="text-secondary small mb-0">
+                        Truy cập trang liên hệ để tìm hiểu các kênh hỗ trợ của MedCare.
+                    </p>
+                    <a href="lien-he.html" class="small fw-semibold text-decoration-none">
+                        Liên hệ MedCare <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nội dung thăm khám -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="text-primary fw-semibold">QUY TRÌNH THĂM KHÁM</span>
+            <h2 class="fw-bold mt-2">Các bước thăm khám</h2>
+            <p class="text-secondary">Chủ động chuẩn bị để buổi khám diễn ra thuận tiện hơn.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="specialty-process-card h-100">
+                    <div class="specialty-process-number">01</div>
+                    <h3 class="h5 fw-bold">Đặt lịch khám</h3>
+                    <p class="text-secondary mb-0">
+                        Chọn chuyên khoa, thời gian mong muốn và điền thông tin liên hệ.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="specialty-process-card h-100">
+                    <div class="specialty-process-number">02</div>
+                    <h3 class="h5 fw-bold">Trao đổi với bác sĩ</h3>
+                    <p class="text-secondary mb-0">
+                        Cung cấp thông tin về triệu chứng, tiền sử sức khỏe và các kết quả liên quan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="specialty-process-card h-100">
+                    <div class="specialty-process-number">03</div>
+                    <h3 class="h5 fw-bold">Theo dõi hướng dẫn</h3>
+                    <p class="text-secondary mb-0">
+                        Thực hiện các hướng dẫn chuyên môn và tái khám khi được chỉ định.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Chuyên khoa liên quan -->
+<section class="py-5">
+    <div class="container">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
+            <div>
+                <span class="text-primary fw-semibold">KHÁM PHÁ THÊM</span>
+                <h2 class="fw-bold mt-2 mb-0">Các chuyên khoa khác</h2>
+            </div>
+            <a href="chuyen-khoa.html" class="btn btn-outline-primary rounded-pill px-4">
+                Xem tất cả chuyên khoa <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+        </div>
+
+        <div class="row g-4" id="relatedSpecialties">
+            <div class="col-md-6 col-lg-4">
+                <a href="chi-tiet-chuyen-khoa.html?chuyen-khoa=nhi-khoa"
+                   class="related-specialty-card">
+                    <div class="related-specialty-icon"><i class="bi bi-balloon-heart"></i></div>
+                    <div>
+                        <h3 class="h6 fw-bold mb-1">Nhi khoa</h3>
+                        <p class="text-secondary small mb-0">Chăm sóc sức khỏe trẻ em</p>
+                    </div>
+                    <i class="bi bi-arrow-up-right ms-auto"></i>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <a href="chi-tiet-chuyen-khoa.html?chuyen-khoa=da-lieu"
+                   class="related-specialty-card">
+                    <div class="related-specialty-icon"><i class="bi bi-person"></i></div>
+                    <div>
+                        <h3 class="h6 fw-bold mb-1">Da liễu</h3>
+                        <p class="text-secondary small mb-0">Chăm sóc sức khỏe làn da</p>
+                    </div>
+                    <i class="bi bi-arrow-up-right ms-auto"></i>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <a href="chi-tiet-chuyen-khoa.html?chuyen-khoa=co-xuong-khop"
+                   class="related-specialty-card">
+                    <div class="related-specialty-icon"><i class="bi bi-universal-access"></i></div>
+                    <div>
+                        <h3 class="h6 fw-bold mb-1">Cơ xương khớp</h3>
+                        <p class="text-secondary small mb-0">Sức khỏe xương khớp và vận động</p>
+                    </div>
+                    <i class="bi bi-arrow-up-right ms-auto"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Kêu gọi đặt lịch -->
+<section class="specialty-detail-cta py-5">
+    <div class="container text-center py-3">
+        <h2 class="fw-bold mb-3">Chủ động chăm sóc sức khỏe ngay hôm nay</h2>
+        <p class="mb-4">
+            Tìm hiểu chuyên khoa phù hợp và lựa chọn lịch khám thuận tiện cho bạn.
+        </p>
+        <a href="dat-lich.html" id="bottomBookButton"
+           class="btn btn-light btn-lg rounded-pill px-4">
+            <i class="bi bi-calendar-check me-2"></i>Đặt lịch khám
+        </a>
+    </div>
+</section>
+
+<!-- Chân trang -->
+<footer class="py-4 bg-dark text-white">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <a href="index.html" class="text-white text-decoration-none fw-bold fs-4">
+            <i class="bi bi-heart-pulse-fill me-1"></i>MedCare
+        </a>
+        <p class="mb-0 text-white-50">
+            © <span id="currentYear"></span> MedCare. Bảo lưu mọi quyền.
+        </p>
+        <a href="lien-he.html" class="text-white text-decoration-none">Liên hệ</a>
+    </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" type="button" aria-label="Lên đầu trang">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/public.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký tài khoản | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+<body class="auth-page register-page">
+
+    <header class="auth-navbar">
+        <div class="container">
+            <a href="index.html" class="auth-brand text-decoration-none">
+                <span class="auth-brand-icon">
+                    <i class="bi bi-heart-pulse-fill"></i>
+                </span>
+                <span class="auth-brand-name">MedCare</span>
+            </a>
+
+            <a href="login.html" class="register-back-link">
+                <i class="bi bi-arrow-left"></i>
+                <span>Đã có tài khoản? Đăng nhập</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="register-main">
+        <section class="register-card">
+            <div class="register-heading">
+                <div class="register-icon">
+                    <i class="bi bi-person-plus"></i>
+                </div>
+
+                <span class="register-eyebrow">CHÀO MỪNG BẠN ĐẾN VỚI MEDCARE</span>
+                <h1>Tạo tài khoản</h1>
+                <p>Đăng ký để thuận tiện hơn trong việc quản lý lịch hẹn và thông tin khám chữa bệnh.</p>
+            </div>
+
+            <form id="registerForm" novalidate>
+                <div class="register-field">
+                    <label for="registerFullName" class="form-label">Họ và tên</label>
+                    <div class="register-input-wrap">
+                        <i class="bi bi-person"></i>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="registerFullName"
+                            name="fullName"
+                            placeholder="Nhập họ và tên"
+                            autocomplete="name"
+                            maxlength="100"
+                            required
+                        >
+                    </div>
+                    <small id="registerFullNameError" class="register-error"></small>
+                </div>
+
+                <div class="register-field">
+                    <label for="registerEmail" class="form-label">Địa chỉ email</label>
+                    <div class="register-input-wrap">
+                        <i class="bi bi-envelope"></i>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="registerEmail"
+                            name="email"
+                            placeholder="example@email.com"
+                            autocomplete="email"
+                            maxlength="254"
+                            required
+                        >
+                    </div>
+                    <small id="registerEmailError" class="register-error"></small>
+                </div>
+
+                <div class="register-field">
+                    <label for="registerPhone" class="form-label">Số điện thoại</label>
+                    <div class="register-input-wrap">
+                        <i class="bi bi-telephone"></i>
+                        <input
+                            type="tel"
+                            class="form-control"
+                            id="registerPhone"
+                            name="phone"
+                            placeholder="Nhập số điện thoại"
+                            autocomplete="tel"
+                            maxlength="15"
+                            required
+                        >
+                    </div>
+                    <small id="registerPhoneError" class="register-error"></small>
+                </div>
+
+                <div class="register-field">
+                    <label for="registerPassword" class="form-label">Mật khẩu</label>
+                    <div class="register-input-wrap">
+                        <i class="bi bi-lock"></i>
+                        <input
+                            type="password"
+                            class="form-control register-password-input"
+                            id="registerPassword"
+                            name="password"
+                            placeholder="Tối thiểu 8 ký tự"
+                            autocomplete="new-password"
+                            minlength="8"
+                            maxlength="128"
+                            required
+                        >
+                        <button
+                            type="button"
+                            class="register-toggle-password"
+                            data-password-target="registerPassword"
+                            aria-label="Hiện mật khẩu"
+                        >
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                    <small id="registerPasswordError" class="register-error"></small>
+                    <div class="register-password-hint">
+                        Nên kết hợp chữ hoa, chữ thường, số và ký tự đặc biệt.
+                    </div>
+                </div>
+
+                <div class="register-field">
+                    <label for="registerConfirmPassword" class="form-label">Xác nhận mật khẩu</label>
+                    <div class="register-input-wrap">
+                        <i class="bi bi-shield-lock"></i>
+                        <input
+                            type="password"
+                            class="form-control register-password-input"
+                            id="registerConfirmPassword"
+                            name="confirmPassword"
+                            placeholder="Nhập lại mật khẩu"
+                            autocomplete="new-password"
+                            maxlength="128"
+                            required
+                        >
+                        <button
+                            type="button"
+                            class="register-toggle-password"
+                            data-password-target="registerConfirmPassword"
+                            aria-label="Hiện mật khẩu"
+                        >
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                    <small id="registerConfirmPasswordError" class="register-error"></small>
+                </div>
+
+                <div class="register-terms">
+                    <input type="checkbox" id="registerAgree" name="agree">
+                    <label for="registerAgree">
+                        Tôi đã đọc và đồng ý với
+                        <a href="dieu-khoan.html">Điều khoản sử dụng</a>
+                        và
+                        <a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a>.
+                    </label>
+                </div>
+                <small id="registerAgreeError" class="register-error register-agree-error"></small>
+
+                <div id="registerMessage" class="register-message" role="status" aria-live="polite"></div>
+
+                <button type="submit" class="register-submit-btn">
+                    <span>Tạo tài khoản</span>
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+            </form>
+
+            <div class="register-login-link">
+                Bạn đã có tài khoản?
+                <a href="login.html">Đăng nhập ngay</a>
+            </div>
+
+            <div class="register-security-note">
+                <i class="bi bi-shield-check"></i>
+                <span>Thông tin cá nhân của bạn cần được bảo vệ và xử lý an toàn.</span>
+            </div>
+        </section>
+    </main>
+
+    <footer class="auth-footer">
+        <p>
+            © <span id="currentYear"></span> MedCare.
+            Chăm sóc sức khỏe của bạn bằng sự tận tâm.
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/public.js"></script>
+</body>
+</html>

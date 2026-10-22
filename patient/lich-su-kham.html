@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b68">
+
+    <title>Lịch sử khám bệnh | MedCare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/patient.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+        <a href="tong-quan.html" class="brand">
+            <div class="brand-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+            <div class="brand-info">
+                <h2 class="brand-name">MedCare</h2>
+                <div class="brand-caption">CỔNG BỆNH NHÂN</div>
+            </div>
+        </a>
+
+        <div class="menu-label">TỔNG QUAN</div>
+        <a class="side-link" href="tong-quan.html">
+            <i class="bi bi-grid-1x2-fill"></i><span>Tổng quan</span>
+        </a>
+
+        <div class="menu-label">LỊCH KHÁM</div>
+        <a class="side-link" href="../dat-lich.html">
+            <i class="bi bi-calendar-plus"></i><span>Đặt lịch khám</span>
+        </a>
+        <a class="side-link" href="lich-hen.html">
+            <i class="bi bi-calendar-check"></i><span>Lịch hẹn của tôi</span>
+        </a>
+        <a class="side-link active" href="lich-su-kham.html">
+            <i class="bi bi-clock-history"></i><span>Lịch sử khám bệnh</span>
+        </a>
+
+        <div class="menu-label">HỒ SƠ Y TẾ</div>
+        <a class="side-link" href="ket-qua-kham.html">
+            <i class="bi bi-clipboard2-pulse"></i><span>Kết quả khám</span>
+        </a>
+        <a class="side-link" href="don-thuoc.html">
+            <i class="bi bi-capsule"></i><span>Đơn thuốc</span>
+        </a>
+        <a class="side-link" href="lich-uong-thuoc.html">
+            <i class="bi bi-alarm"></i><span>Lịch uống thuốc</span>
+        </a>
+
+        <div class="menu-label">CÁ NHÂN</div>
+        <a class="side-link" href="ho-so-ca-nhan.html">
+            <i class="bi bi-person-vcard"></i><span>Hồ sơ cá nhân</span>
+        </a>
+        <a class="side-link" href="phan-hoi.html">
+            <i class="bi bi-chat-square-text"></i><span>Đánh giá dịch vụ</span>
+        </a>
+
+        <a class="side-link website-link" href="../index.html">
+            <i class="bi bi-box-arrow-up-right"></i><span>Về website</span>
+        </a>
+    </aside>
+
+    <main class="main-area">
+
+        <header class="topbar">
+            <div>
+                <h1 class="topbar-title">Lịch sử khám bệnh</h1>
+                <p class="topbar-subtitle">Theo dõi hồ sơ và các lần khám bệnh của bạn</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="avatar"><i class="bi bi-person-fill"></i></div>
+                <div class="profile-info">
+                    <div class="profile-name">Nguyễn Minh Anh</div>
+                    <div class="profile-role">Bệnh nhân</div>
+                </div>
+                <a href="../login.html" class="logout-link" title="Đến trang đăng nhập">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <section class="page-heading">
+                <div>
+                    <h2>Lịch sử khám bệnh</h2>
+                    <p>Tra cứu thông tin các lần khám, bác sĩ phụ trách và kết luận sau khám.</p>
+                </div>
+
+                <a href="../dat-lich.html" class="btn-primary-custom">
+                    <i class="bi bi-calendar-plus"></i> Đặt lịch khám
+                </a>
+            </section>
+
+            <section class="row g-3 mb-4">
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Tổng số lần khám</span>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-journal-medical"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="patientHistoryTotal">0</div>
+                        <div class="stat-note">Tổng lượt khám đã ghi nhận</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Đã hoàn thành</span>
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="patientHistoryCompleted">0</div>
+                        <div class="stat-note">Các lượt khám đã kết thúc</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span class="stat-label">Bác sĩ đã khám</span>
+                            <div class="stat-icon icon-purple">
+                                <i class="bi bi-person-badge"></i>
+                            </div>
+                        </div>
+                        <div class="stat-number" id="patientHistoryDoctors">0</div>
+                        <div class="stat-note">Số bác sĩ khác nhau</div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="panel patient-history-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h3 class="panel-title">Danh sách lịch sử khám</h3>
+                        <p class="panel-subtitle">Thông tin các lần khám bệnh của bạn</p>
+                    </div>
+
+                    <button type="button" class="btn-outline-custom" id="patientHistoryExportBtn">
+                        <i class="bi bi-download"></i> Xuất danh sách
+                    </button>
+                </div>
+
+                <div class="patient-history-filters">
+
+                    <div class="patient-history-search">
+                        <i class="bi bi-search"></i>
+                        <input type="search" id="patientHistorySearch"
+                               placeholder="Tìm mã khám, bác sĩ hoặc chẩn đoán...">
+                    </div>
+
+                    <select id="patientHistorySpecialty" class="patient-history-select"
+                            aria-label="Lọc theo chuyên khoa">
+                        <option value="">Tất cả chuyên khoa</option>
+                        <option value="Nội tổng quát">Nội tổng quát</option>
+                        <option value="Tim mạch">Tim mạch</option>
+                        <option value="Da liễu">Da liễu</option>
+                        <option value="Tai Mũi Họng">Tai Mũi Họng</option>
+                        <option value="Nhi khoa">Nhi khoa</option>
+                    </select>
+
+                    <select id="patientHistoryYear" class="patient-history-select"
+                            aria-label="Lọc theo năm">
+                        <option value="">Tất cả năm</option>
+                    </select>
+
+                    <button type="button" class="btn-outline-custom" id="patientHistoryResetBtn">
+                        <i class="bi bi-arrow-counterclockwise"></i> Đặt lại
+                    </button>
+
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table patient-history-table">
+                        <thead>
+                            <tr>
+                                <th>MÃ KHÁM</th>
+                                <th>NGÀY KHÁM</th>
+                                <th>BÁC SĨ</th>
+                                <th>CHUYÊN KHOA</th>
+                                <th>CHẨN ĐOÁN</th>
+                                <th>TRẠNG THÁI</th>
+                                <th class="text-center">THAO TÁC</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="patientHistoryTableBody">
+                            <tr>
+                                <td colspan="7" class="text-center py-5">
+                                    Đang tải lịch sử khám...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="patient-history-empty d-none" id="patientHistoryEmpty">
+                    <i class="bi bi-clipboard2-x"></i>
+                    <h4>Không tìm thấy lịch sử khám</h4>
+                    <p>Hãy thay đổi từ khóa hoặc điều kiện lọc để tìm kiếm lại.</p>
+                </div>
+
+                <div class="patient-history-footer">
+                    <span id="patientHistoryResultCount">Hiển thị 0 lần khám</span>
+
+                    <div class="patient-history-pagination">
+                        <button type="button" class="pagination-btn" id="patientHistoryPrev"
+                                aria-label="Trang trước">
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+
+                        <span id="patientHistoryPageInfo">Trang 1/1</span>
+
+                        <button type="button" class="pagination-btn" id="patientHistoryNext"
+                                aria-label="Trang tiếp theo">
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="patient-history-notice">
+                <div class="patient-history-notice-icon">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+                <div>
+                    <h4>Lưu ý về hồ sơ khám bệnh</h4>
+                    <p>Vui lòng liên hệ cơ sở y tế nếu bạn cần bổ sung hoặc điều chỉnh thông tin trong hồ sơ khám bệnh.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<!-- MODAL CHI TIẾT LẦN KHÁM -->
+<div class="modal fade" id="patientHistoryDetailModal" tabindex="-1"
+     aria-labelledby="patientHistoryDetailTitle" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content patient-history-modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title fs-5" id="patientHistoryDetailTitle">
+                        Chi tiết lần khám
+                    </h2>
+                    <p class="patient-history-modal-subtitle">
+                        Thông tin khám bệnh và hướng dẫn của bác sĩ
+                    </p>
+                </div>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Đóng"></button>
+            </div>
+
+            <div class="modal-body" id="patientHistoryDetailContent"></div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                    Đóng
+                </button>
+
+                <a href="ket-qua-kham.html" class="btn btn-primary">
+                    <i class="bi bi-clipboard2-pulse me-1"></i> Kết quả khám
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="patient-history-toast" id="patientHistoryToast" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/patient.js"></script>
+
+</body>
+</html>
